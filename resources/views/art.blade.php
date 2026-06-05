@@ -175,7 +175,7 @@
 
 <body class="bg-background text-on-surface font-body-md selection:bg-secondary-container">
     <!-- TopAppBar -->
-    <header class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-outline-variant/30 h-20 flex justify-between items-center px-margin-mobile md:px-margin-desktop">
+    <!--<header class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-outline-variant/30 h-20 flex justify-between items-center px-margin-mobile md:px-margin-desktop">
         <div class="flex items-center gap-4 cursor-pointer transition-transform duration-200 active:scale-95" onclick="toggleDrawer()">
             <span class="material-symbols-outlined text-primary">menu</span>
         </div>
@@ -187,7 +187,8 @@
                 <span class="absolute -top-1 -right-1 bg-secondary text-[10px] text-on-secondary rounded-full w-4 h-4 flex items-center justify-center font-bold">2</span>
             </div>
         </div>
-    </header>
+    </header>-->
+    <x-collection.header active="art"></x-collection.header>
     <!-- Navigation Drawer (Overlay) -->
     <div class="fixed inset-0 bg-black/40 z-[60] hidden opacity-0 transition-opacity duration-300" id="drawer-overlay" onclick="toggleDrawer()"></div>
     <aside class="fixed top-0 left-0 h-full w-80 bg-surface z-[70] -translate-x-full transition-transform duration-300 ease-in-out shadow-sm flex flex-col gap-4 p-8" id="drawer">
@@ -207,17 +208,17 @@
         <!-- Hero Section: Museum Atmosphere -->
         <section class="relative h-[707px] w-full overflow-hidden flex items-center px-margin-mobile md:px-margin-desktop">
             <div class="absolute inset-0 z-0">
-                <img class="w-full h-full object-cover grayscale-[20%] brightness-75" data-alt="A grand, minimalist museum gallery space in Cotonou featuring high ceilings and soft ivory lighting. Large-scale contemporary Beninese paintings and bronze sculptures are positioned with immense spatial breathing room. The atmosphere is quiet, prestigious, and filled with a sense of cultural reverence and artisanal luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIyc07X20m42f_SXhDmKcJpZDsh2Vw81hb9WqLXw4f8oZIhAsT3yN7MGAVcU_3-0WEhZqsUoDcfF8DMiiHEvlxkfU2fcShiNsh_jCsgD6mbFMLlJ7xu4XD_LjceBaJa0rMVULY0nIYj6P3GoVUFAWQ3Puaueye7lA5t9c5naw3X7DqOVg9kz1CB3NgXsuNwl4-0-tj8pSvhQ-0DeaC3G3QypLW1zoGNBt20J89g88RgsQRNGsNS27AyJylQaw41kRaZYg0MUzXPA" />
+                <img class="w-full h-full object-cover grayscale-[20%] brightness-75" data-alt="A grand, minimalist museum gallery space in Cotonou featuring high ceilings and soft ivory lighting. Large-scale contemporary Beninese paintings and bronze sculptures are positioned with immense spatial breathing room. The atmosphere is quiet, prestigious, and filled with a sense of cultural reverence and artisanal luxury." src="{{asset('images/art/museum-gallery.png')}}"/>
             </div>
             <div class="relative z-10 max-w-2xl museum-fade-in">
-                <span class="font-label-caps text-label-caps text-secondary-fixed mb-4 block tracking-[0.2em]">CURATED COLLECTION</span>
+                <span class="font-label-caps text-label-caps text-secondary-fixed mb-4 block tracking-[0.2em]">SÉLECTION DE PRODUITS</span>
                 <h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-white mb-6">Art &amp; Décoration</h2>
                 <p class="font-body-lg text-white/90 mb-8 max-w-lg">
-                    Discover the soul of the Dahomey Kingdom through masterfully crafted artifacts. Each piece is a dialogue between ancestral techniques and contemporary vision.
+                    Découvrez l'âme du royaume du Dahomey à travers des objets d'art confectionnés avec un savoir-faire exceptionnel. Chaque pièce est un dialogue entre techniques ancestrales et vision contemporaine.
                 </p>
                 <div class="flex gap-4">
-                    <button class="bg-primary text-white font-label-caps text-label-caps px-8 py-4 hover:bg-primary/90 transition-colors">EXPLORE THE ARCHIVE</button>
-                    <button class="border border-white/50 text-white font-label-caps text-label-caps px-8 py-4 backdrop-blur-sm hover:bg-white/10 transition-colors">THE ARTISAN'S STORY</button>
+                    <button class="bg-primary text-white font-label-caps text-label-caps px-8 py-4 hover:bg-primary/90 transition-colors">EXPLOREZ LES ARCHIVES</button>
+                    <button class="border border-white/50 text-white font-label-caps text-label-caps px-8 py-4 backdrop-blur-sm hover:bg-white/10 transition-colors">L'HISTOIRE DE L'ARTISAN</button>
                 </div>
             </div>
         </section>
@@ -225,17 +226,17 @@
         <section class="py-12 bg-surface-container-low border-b border-outline-variant/10">
             <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-8">
                 <div class="flex gap-8 overflow-x-auto pb-4 md:pb-0 w-full md:w-auto no-scrollbar">
-                    <button class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1 whitespace-nowrap">ALL WORKS</button>
+                    <button class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1 whitespace-nowrap">TOUTES LES ŒUVRES</button>
                     <button class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors pb-1 whitespace-nowrap">SCULPTURES</button>
-                    <button class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors pb-1 whitespace-nowrap">PAINTINGS</button>
-                    <button class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors pb-1 whitespace-nowrap">INTERIOR DESIGN</button>
+                    <button class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors pb-1 whitespace-nowrap">PEINTURES</button>
+                    <button class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors pb-1 whitespace-nowrap">DÉCORATION D'INTÉRIEUR</button>
                 </div>
                 <div class="flex items-center gap-4 w-full md:w-auto justify-end">
-                    <span class="font-label-caps text-label-caps text-on-surface-variant">SORT BY:</span>
+                    <span class="font-label-caps text-label-caps text-on-surface-variant">TRIER PAR:</span>
                     <select class="bg-transparent border-none font-label-caps text-label-caps text-primary focus:ring-0 cursor-pointer">
-                        <option>SIGNIFICANCE</option>
-                        <option>NEW ACQUISITIONS</option>
-                        <option>PRICE: HIGH TO LOW</option>
+                        <option>IMPORTANCE</option>
+                        <option>NOUVELLES ACQUISITIONS</option>
+                        <option>PRIX : DU PLUS ÉLEVÉ AU PLUS BAS</option>
                     </select>
                 </div>
             </div>
@@ -246,79 +247,79 @@
                 <!-- Item 1: Large Featured Sculpture -->
                 <div class="md:col-span-7 group cursor-pointer">
                     <div class="aspect-[4/5] overflow-hidden bg-surface-container relative mb-6">
-                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A masterful Beninese bronze sculpture of a royal leopard, showing intricate traditional lost-wax casting details. The piece is set against a clean, warm ivory backdrop with dramatic, high-contrast lighting that highlights the metallic sheen and artisanal texture. Professional museum photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDN8U_Rn4rXyglFqHM9qLFYk68sPeAZ12aONH-Pf0cjunSk5UIbh1ZkMZKpuh3v7xi89VXBoxj4elBvZQfq4g1Xa-eY3UW6LRYINQRSDnq3QefXtBlAM33pkmJw3rwLgleDEcjqaCCxrLJCB1hd62ghc_EFgTahW59yQgQGxqdDU_mmeAiu1B7HwxY26cKFIcTPJwvrYijbJdMDDxDkh2qqdkEkFo8nuYWaeitqR-vql0bsFQOUP951APt4-UKWUjAVf0_ZMk8GQQ" />
+                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A masterful Beninese bronze sculpture of a royal leopard, showing intricate traditional lost-wax casting details. The piece is set against a clean, warm ivory backdrop with dramatic, high-contrast lighting that highlights the metallic sheen and artisanal texture. Professional museum photography style." src="{{ asset('images/art/leopard-of-dahomey.png') }}" />
                         <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500"></div>
                         <div class="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <button class="bg-white text-primary font-label-caps text-label-caps px-6 py-3 shadow-xl">QUICK VIEW</button>
                         </div>
                     </div>
                     <div class="flex flex-col items-center text-center">
-                        <span class="font-label-caps text-[10px] text-secondary mb-2">ABOMEY ROYAL COURT</span>
-                        <h3 class="font-headline-md text-headline-md mb-2">The Leopard of Dahomey</h3>
-                        <p class="font-price-display text-price-display text-on-surface-variant mb-4">2.450 €</p>
+                        <span class="font-label-caps text-[10px] text-secondary mb-2">COUR ROYALE D'ABOMEY</span>
+                        <h3 class="font-headline-md text-headline-md mb-2">Le Léopard du Dahomey</h3>
+                        <p class="font-price-display text-price-display text-on-surface-variant mb-4">2.450F CFA</p>
                         <div class="w-12 h-[1px] bg-outline-variant/50"></div>
                     </div>
                 </div>
                 <!-- Item 2: Vertical Contemporary Piece -->
                 <div class="md:col-span-5 md:pt-32 group cursor-pointer">
                     <div class="aspect-[2/3] overflow-hidden bg-surface-container relative mb-6">
-                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A contemporary carved wooden wall relief by a modern Cotonou artisan. The dark mahogany wood features geometric patterns inspired by Fon cosmology. Soft side lighting creates deep shadows and emphasizes the hand-carved textures. Minimalist luxury presentation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8EjsS70jbjNIGqN3tgezzXP6yeehb70ecpf3nXnxNd9DoX6lZTb7OvEkdnJOiuKLqmY9pluXGTAxYeBJpVKdKk56kYVmEsoMcEw_IVhl-mf9dRETSsHd4YMlbRtxWT-1lxrn9ohahzNIR3_DJOfq4jMgFkmvuHLMQ6DiVxOrVHab4089-bfJL9fT7XnAVAwBCzqmuCpevxvH6q4sbWWy3MAERO_OWtdX3Czl01Fmu9ezTXjM_6hwFGZccKzFXMvOFUEY_LWyBwA" />
+                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A contemporary carved wooden wall relief by a modern Cotonou artisan. The dark mahogany wood features geometric patterns inspired by Fon cosmology. Soft side lighting creates deep shadows and emphasizes the hand-carved textures. Minimalist luxury presentation." src="{{asset('images/art/table.png')}}" />
                         <div class="absolute top-6 left-6">
-                            <span class="bg-primary text-white text-[10px] font-label-caps px-3 py-1">LIMITED EDITION</span>
+                            <span class="bg-primary text-white text-[10px] font-label-caps px-3 py-1">ÉDITION LIMITÉE</span>
                         </div>
                     </div>
                     <div class="flex flex-col items-start px-4">
-                        <span class="font-label-caps text-[10px] text-on-tertiary-container mb-2">HAND-CARVED MAHOGANY</span>
-                        <h3 class="font-headline-md text-headline-md mb-2">Ancestral Echoes I</h3>
-                        <p class="font-price-display text-price-display text-on-surface-variant mb-4">1.100 €</p>
+                        <span class="font-label-caps text-[10px] text-on-tertiary-container mb-2">ACAJOU SCULPTÉ À LA MAIN</span>
+                        <h3 class="font-headline-md text-headline-md mb-2">Échos ancestraux I</h3>
+                        <p class="font-price-display text-price-display text-on-surface-variant mb-4">1.100F CFA</p>
                     </div>
                 </div>
                 <!-- Item 3: Wide Layout Painting -->
                 <div class="md:col-span-12 group cursor-pointer pt-12">
                     <div class="flex flex-col md:flex-row gap-gutter bg-surface-container-low p-8 items-center">
                         <div class="w-full md:w-2/3 aspect-video overflow-hidden">
-                            <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="A large scale abstract oil painting by a Beninese contemporary artist. The canvas uses a palette of rich golds, deep ochres, and charcoal blacks. The brushwork is expressive and textured, conveying a sense of historical movement. Photographed in a high-end architectural interior." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDezLXruejNm_8RQptiRreC6E8WvrNHXCHRkqLvsBI8wOAmftP_5_ACB4wV8w481c7siStaD__LplNtyhXYenzanFvBlgobgyiqvhbOTNl29bZk6Lqg7Gn4SiAdU5-LJkr6fW7qqHpoqzoDweqfW-dmbxzpckf0EhQCUIWtznWc6uz7BkaERXrt84LWdbNJ4IWqnb-uqfFG-VCzLdEB90scHH-t6AfqdX72CLdj4Typ4J3BI2Z9vM-k2bNrjZ1PMMgZpkUchLtYPw" />
+                            <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="A large scale abstract oil painting by a Beninese contemporary artist. The canvas uses a palette of rich golds, deep ochres, and charcoal blacks. The brushwork is expressive and textured, conveying a sense of historical movement. Photographed in a high-end architectural interior." src="{{asset('images/art/tablo.png')}}" />
                         </div>
                         <div class="w-full md:w-1/3 flex flex-col justify-center py-8">
-                            <span class="font-label-caps text-label-caps text-secondary mb-4">MASTERPIECE SERIES</span>
-                            <h3 class="font-display-lg text-headline-lg mb-4">Vibrant Terra Cotta</h3>
-                            <p class="font-body-md text-on-surface-variant mb-8">An immersive exploration of the soil that built Cotonou, using mixed media and organic pigments.</p>
-                            <p class="font-price-display text-headline-md mb-8">4.800 €</p>
-                            <button class="w-full md:w-fit border border-primary text-primary font-label-caps text-label-caps px-12 py-4 hover:bg-primary hover:text-white transition-all duration-300">ACQUIRE PIECE</button>
+                            <span class="font-label-caps text-label-caps text-secondary mb-4">SÉRIE MASTERPIECE</span>
+                            <h3 class="font-display-lg text-headline-lg mb-4">Terre cuite éclatante</h3>
+                            <p class="font-body-md text-on-surface-variant mb-8">Une exploration immersive du sol qui a donné naissance à Cotonou, à travers des techniques mixtes et des pigments naturels.</p>
+                            <p class="font-price-display text-headline-md mb-8">4.800F CFA</p>
+                            <button class="w-full md:w-fit border border-primary text-primary font-label-caps text-label-caps px-12 py-4 hover:bg-primary hover:text-white transition-all duration-300">ACHETER CET ARTICLE</button>
                         </div>
                     </div>
                 </div>
                 <!-- Item 4: Grid Small Item -->
                 <div class="md:col-span-4 group cursor-pointer">
                     <div class="aspect-square overflow-hidden bg-surface-container relative mb-6">
-                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A collection of small artisanal ceramic vessels in varying shades of ivory and charcoal. Each vessel has a unique, hand-pinched texture and subtle golden glaze along the rim. They are arranged on a minimalist stone plinth in a bright, modern studio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBm3ZxcPhn_prhfJdtk3fx1FmzswgJex4DzUPPzpRsdVrDbShyRlfB7Gv-4oo71jcwYppBgNqwMVOJ9W0tOnOlTcSj9dvYRGzCI5o_mSIFzjlbjWME77Szfs60Mm0ZW1kCRSQfTMpvUwCQSS08wTlD1Hgxx-gHNQWWA43iE5MNsaaIlo-8oNQMU8_R0BOGQAtLQMO4XGEkAQIHy_QNy84BIkiU3hSaRWH1zi7jss4ItNBVUkuLNM3fOmlZ7F-4I10B51jFCA5pOBQ" />
+                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A collection of small artisanal ceramic vessels in varying shades of ivory and charcoal. Each vessel has a unique, hand-pinched texture and subtle golden glaze along the rim. They are arranged on a minimalist stone plinth in a bright, modern studio." src="{{asset('images/art/ceramic.png')}}" />
                     </div>
                     <div class="flex flex-col items-center text-center">
-                        <span class="font-label-caps text-[10px] text-on-surface-variant mb-2">CERAMIC ARTS</span>
-                        <h3 class="font-headline-md text-headline-md mb-2">Coastal Clay Series</h3>
-                        <p class="font-price-display text-price-display text-on-surface-variant">320 €</p>
+                        <span class="font-label-caps text-[10px] text-on-surface-variant mb-2">ARTS DE LA CÉRAMIQUE</span>
+                        <h3 class="font-headline-md text-headline-md mb-2">Série « Argile côtière »</h3>
+                        <p class="font-price-display text-price-display text-on-surface-variant">320F CFA</p>
                     </div>
                 </div>
                 <!-- Item 5: Grid Small Item -->
                 <div class="md:col-span-4 group cursor-pointer">
                     <div class="aspect-square overflow-hidden bg-surface-container relative mb-6">
-                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A portrait photograph of a traditional Beninese mask, hand-woven from raffia and adorned with cowrie shells. The lighting is soft and directional, casting long shadows that emphasize the organic fibers and the craftsmanship of the Porto-Novo region." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9f_bcTdtKMtZKjzUYJYxm5yniINrZ060ADOmpW7qMfl6E05EDsVOD1Fpdhvq8MBuWGULBub2QU4cu3eTjK5JaPCvV4wkXvrUeDgNWKqpyJdj46elYWjiasmGGZRJToIKcmMgqHUDyVACNES5LUJmyjj0k6d0NxgQGBzWvEc-QrKwPOqvXyt957gqJ2Vhs5LyX7n-03KlvgOvVy3ANPkm9Ob896URuZekuCNPSM7qS71JysxPfxgWEBZIzqY9O1KNncWCHOKsn8Q" />
+                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A portrait photograph of a traditional Beninese mask, hand-woven from raffia and adorned with cowrie shells. The lighting is soft and directional, casting long shadows that emphasize the organic fibers and the craftsmanship of the Porto-Novo region." src="{{asset('images/art/mask.png')}}" />
                     </div>
                     <div class="flex flex-col items-center text-center">
-                        <span class="font-label-caps text-[10px] text-on-surface-variant mb-2">TEXTILE SCULPTURE</span>
-                        <h3 class="font-headline-md text-headline-md mb-2">The Keeper of Secrets</h3>
-                        <p class="font-price-display text-price-display text-on-surface-variant">890 €</p>
+                        <span class="font-label-caps text-[10px] text-on-surface-variant mb-2">SCULPTURE TEXTILE</span>
+                        <h3 class="font-headline-md text-headline-md mb-2">Le Gardien des secrets</h3>
+                        <p class="font-price-display text-price-display text-on-surface-variant">890F CFA</p>
                     </div>
                 </div>
                 <!-- Item 6: Grid Small Item -->
                 <div class="md:col-span-4 group cursor-pointer">
                     <div class="aspect-square overflow-hidden bg-surface-container relative mb-6 border border-outline-variant/20">
-                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Modern geometric bronze bookends with a dark patina. The design is inspired by the architecture of the Royal Palaces of Abomey. They are displayed on a white marble shelf in a high-end luxury interior setting, reflecting a fusion of heritage and modern design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBneQgkoKYd26Xay0kr3n6xRZMkvg2SJO-4ktdivdj-U85gkKVZab4DQDzrp_ZzSi6D31reDCpqv5HjYH7hgFGnG2g7t_zqgU_r7X3o7eqvqagE9xZJg7nOeXdjjgfcPSxzeGkS_rvXARiOsx6s8A6u3UP8aRw9r0VrDCunQWCySIblhACAPOOtENknwRP0UnET8m4MhGH1sjTj1LkiE54RoaeJvrliO-C3Iosk3h4JspgpTgVRpzIgpoxbMJCkSMibSoW9q2aeYA" />
+                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Modern geometric bronze bookends with a dark patina. The design is inspired by the architecture of the Royal Palaces of Abomey. They are displayed on a white marble shelf in a high-end luxury interior setting, reflecting a fusion of heritage and modern design." src="{{asset('images/art/card.png')}}" />
                     </div>
                     <div class="flex flex-col items-center text-center">
-                        <span class="font-label-caps text-[10px] text-on-surface-variant mb-2">INTERIOR ACCENTS</span>
-                        <h3 class="font-headline-md text-headline-md mb-2">Palace Gates Bookends</h3>
-                        <p class="font-price-display text-price-display text-on-surface-variant">1.550 €</p>
+                        <span class="font-label-caps text-[10px] text-on-surface-variant mb-2">ACCESSOIRES DE DÉCORATION</span>
+                        <h3 class="font-headline-md text-headline-md mb-2">Serre-livres « Palace Gates »</h3>
+                        <p class="font-price-display text-price-display text-on-surface-variant">1.550F CFA</p>
                     </div>
                 </div>
             </div>
@@ -327,20 +328,20 @@
         <section class="bg-primary py-section-gap">
             <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h2 class="font-display-lg text-headline-lg text-white mb-6">Become a Patron of Beninese Heritage</h2>
-                    <p class="font-body-lg text-white/70 mb-8">Join our private circle to receive invitations to digital exhibition previews and exclusive artisan interviews from the heart of Cotonou.</p>
+                    <h2 class="font-display-lg text-headline-lg text-white mb-6">Devenez mécène du patrimoine béninois</h2>
+                    <p class="font-body-lg text-white/70 mb-8">Rejoignez notre cercle privé pour recevoir des invitations aux avant-premières d'expositions numériques et des interviews exclusives d'artisans en direct de Cotonou.</p>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <input class="flex-grow bg-transparent border-b border-white/30 text-white font-label-caps focus:border-white focus:ring-0 placeholder:text-white/40 py-4 uppercase" placeholder="YOUR EMAIL ADDRESS" type="email" />
-                        <button class="bg-white text-primary font-label-caps text-label-caps px-12 py-4 hover:bg-secondary-container transition-colors">SUBSCRIBE</button>
+                        <button class="bg-white text-primary font-label-caps text-label-caps px-12 py-4 hover:bg-secondary-container transition-colors">S'ABONNER</button>
                     </div>
                 </div>
                 <div class="relative aspect-square md:aspect-auto md:h-[500px]">
-                    <img class="w-full h-full object-cover opacity-80" data-alt="Close up of an artisan's hands working with molten bronze in a traditional foundry. Sparks fly in a dimly lit, atmospheric workshop. The photo captures the intense focus and ancestral skill required for Beninese lost-wax casting. Warm, fiery lighting tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQD0u9k-n2dEuvhysOKtUSF0nbTgEX2xjEBM0fPyy6YpJ11VU93sXR-2N_XkLoglHzXbO8QZQcgvJsaNIbF9Kx1fahb4hI_FkcTew-mL21TLH95ahRjR9FHsvcPz4aMWmu0t6vfJVLDyq730NZqoaGOPFiMUnwb7TzrEd2Rt834ILO7UWgH9qKfNVOt2AxllplyA3rfAwp6xWJrqkBNZJyYH_p7gosAlY5wCoq5zou0ve43YtoOhnJE85prdxPeMxZFbQT-rhIAA" />
+                    <img class="w-full h-full object-cover opacity-80" data-alt="Close up of an artisan's hands working with molten bronze in a traditional foundry. Sparks fly in a dimly lit, atmospheric workshop. The photo captures the intense focus and ancestral skill required for Beninese lost-wax casting. Warm, fiery lighting tones." src="{{ asset('images/art/fer.png') }}" />
                     <div class="absolute inset-0 flex items-center justify-center">
                         <div class="bg-white/10 backdrop-blur-md p-12 text-center max-w-sm border border-white/20">
                             <span class="material-symbols-outlined text-white text-5xl mb-4">workspace_premium</span>
-                            <p class="text-white font-body-md italic">"Every stroke of the chisel is a prayer to the ancestors, preserving a story that began centuries ago."</p>
-                            <p class="text-white/60 font-label-caps text-[10px] mt-4">— KOBA, MASTER SCULPTOR</p>
+                            <p class="text-white font-body-md italic">"Chaque coup de ciseau est une prière adressée aux ancêtres, qui perpétue une histoire commencée il y a des siècles."</p>
+                            <p class="text-white/60 font-label-caps text-[10px] mt-4">— KOBA, MAÎTRE SCULPTEUR</p>
                         </div>
                     </div>
                 </div>
@@ -348,42 +349,7 @@
         </section>
     </main>
     <!-- Footer -->
-    <footer class="bg-primary w-full py-section-gap border-t border-outline-variant/10">
-        <div class="flex flex-col md:flex-row justify-between items-start px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto gap-12">
-            <div class="flex flex-col gap-6">
-                <span class="font-display-lg text-headline-md text-on-primary">L'ÉCLAT DU BÉNIN</span>
-                <p class="text-on-primary/70 max-w-xs font-body-md">Celebrating the artisanal excellence and cultural heritage of Cotonou on the global stage.</p>
-                <div class="flex gap-4">
-                    <span class="material-symbols-outlined text-on-primary/70 cursor-pointer hover:text-secondary-fixed transition-colors">public</span>
-                    <span class="material-symbols-outlined text-on-primary/70 cursor-pointer hover:text-secondary-fixed transition-colors">share</span>
-                    <span class="material-symbols-outlined text-on-primary/70 cursor-pointer hover:text-secondary-fixed transition-colors">mail</span>
-                </div>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-12">
-                <div class="flex flex-col gap-4">
-                    <h4 class="text-on-primary font-label-caps text-label-caps mb-2">COLLECTIONS</h4>
-                    <a class="text-on-primary/70 font-body-md hover:text-secondary-fixed transition-colors" href="#">Jewelry</a>
-                    <a class="text-on-primary/70 font-body-md hover:text-secondary-fixed transition-colors" href="#">Leather</a>
-                    <a class="text-on-primary/70 font-body-md hover:text-secondary-fixed transition-colors" href="#">Art</a>
-                </div>
-                <div class="flex flex-col gap-4">
-                    <h4 class="text-on-primary font-label-caps text-label-caps mb-2">HOUSE</h4>
-                    <a class="text-on-primary/70 font-body-md hover:text-secondary-fixed transition-colors" href="#">Heritage</a>
-                    <a class="text-on-primary/70 font-body-md hover:text-secondary-fixed transition-colors" href="#">Artisans</a>
-                    <a class="text-on-primary/70 font-body-md hover:text-secondary-fixed transition-colors" href="#">Sustainability</a>
-                </div>
-                <div class="flex flex-col gap-4">
-                    <h4 class="text-on-primary font-label-caps text-label-caps mb-2">SUPPORT</h4>
-                    <a class="text-on-primary/70 font-body-md hover:text-secondary-fixed transition-colors" href="#">Contact</a>
-                    <a class="text-on-primary/70 font-body-md hover:text-secondary-fixed transition-colors" href="#">Shipping</a>
-                    <a class="text-on-primary/70 font-body-md hover:text-secondary-fixed transition-colors" href="#">Terms</a>
-                </div>
-            </div>
-        </div>
-        <div class="mt-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto pt-8 border-t border-white/10">
-            <p class="text-on-primary/40 font-label-caps text-[10px] text-center md:text-left">© 2024 L'Éclat du Bénin. Artisanal Excellence from Cotonou.</p>
-        </div>
-    </footer>
+    <x-footer></x-footer>
     <script>
         function toggleDrawer() {
             const drawer = document.getElementById('drawer');

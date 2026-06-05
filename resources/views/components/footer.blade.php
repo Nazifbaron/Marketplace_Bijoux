@@ -1,4 +1,4 @@
-<footer class="bg-primary text-on-primary w-full py-section-gap border-t border-outline-variant/10">
+<footer class="bg-primary text-on-primary w-full py-12 border-t border-outline-variant/10">
     <div class="flex flex-col md:flex-row justify-between items-start px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto gap-12">
         <div class="max-w-sm">
             <h2 class="font-display-lg text-headline-md text-on-primary mb-6">L'ÉCLAT DU BÉNIN</h2>

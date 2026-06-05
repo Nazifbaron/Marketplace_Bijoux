@@ -159,13 +159,12 @@
     <!-- TopAppBar -->
     <header class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-outline-variant/30 flex justify-between items-center px-gutter py-4">
         <div class="flex items-center gap-4">
-            <span class="material-symbols-outlined text-primary cursor-pointer active:opacity-80 transition-opacity">menu</span>
-            <h1 class="font-headline-md text-headline-md font-bold text-primary uppercase tracking-widest">L'ÉCLAT DU BÉNIN</h1>
+            <!--<span class="material-symbols-outlined text-primary cursor-pointer active:opacity-80 transition-opacity">menu</span>-->
         </div>
         <div class="hidden md:flex gap-8 items-center">
-            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Savoir-Faire</a>
-            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Nos Artisans</a>
-            <a class="font-label-caps text-label-caps text-primary border-b border-primary" href="#">Vendre</a>
+            <a class="font-label-caps text-label-caps text-primary font-bold line-hover relative" href="/">HOME</a>
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-300 line-hover relative" href="/collection">COLLECTIONS</a>
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-300 line-hover relative" href="/artisan">ARTISANS</a>
         </div>
         <div class="flex items-center gap-4">
             <span class="material-symbols-outlined text-primary cursor-pointer active:opacity-80 transition-opacity">account_circle</span>
@@ -285,24 +284,7 @@
         </div>
     </section>
     <!-- Footer -->
-    <footer class="w-full mt-section-gap border-t border-outline-variant/50 bg-surface-container-lowest">
-        <div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-12 w-full max-w-container-max mx-auto">
-            <div class="mb-8 md:mb-0">
-                <h2 class="font-headline-md text-headline-md text-primary mb-2">L'ÉCLAT DU BÉNIN</h2>
-                <p class="font-label-caps text-[10px] text-on-surface-variant/60 tracking-[0.2em] uppercase">Patrimoine National • Luxe Global</p>
-            </div>
-            <div class="flex flex-wrap justify-center gap-8 items-center">
-                <a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant/80 hover:text-primary transition-colors duration-300" href="#">The Artisans</a>
-                <a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant/80 hover:text-primary transition-colors duration-300" href="#">Our Story</a>
-                <a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant/80 hover:text-primary transition-colors duration-300" href="#">Stade Mathieu Kérékou</a>
-                <a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant/80 hover:text-primary transition-colors duration-300" href="#">Seller Terms</a>
-                <a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant/80 hover:text-primary transition-colors duration-300" href="#">Privacy</a>
-            </div>
-        </div>
-        <div class="text-center py-8 border-t border-outline-variant/10">
-            <p class="font-label-caps text-[11px] text-on-surface-variant/40 uppercase tracking-widest">© 2024 L'Éclat du Bénin. Heritage Excellence.</p>
-        </div>
-    </footer>
+    <x-footer />
     <script>
         // Micro-interactions for smooth scrolling or hover effects
         document.querySelectorAll('button').forEach(btn => {

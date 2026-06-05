@@ -353,7 +353,7 @@
     <div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
         <div class="font-headline-md text-headline-md text-primary font-bold">L'ÉCLAT DU BÉNIN</div>
         <p class="font-label-caps text-label-caps text-on-surface-variant/60 uppercase tracking-widest">
-            © 2024 L'Éclat du Bénin. Heritage Excellence.
+            © 2026 L'Éclat du Bénin. Heritage Excellence.
         </p>
     </div>
 </footer>

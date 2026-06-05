@@ -193,44 +193,7 @@
        {{$slot}}
     </main>
     <!-- Footer -->
-    <footer class="bg-primary text-on-primary w-full py-section-gap border-t border-outline-variant/10">
-        <div class="flex flex-col md:flex-row justify-between items-start px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full gap-12">
-            <div class="max-w-sm">
-                <h4 class="font-display-lg text-headline-md text-on-primary mb-6">L'ÉCLAT DU BÉNIN</h4>
-                <p class="font-body-md text-on-primary/70 mb-8">Valoriser le patrimoine artisanal béninois au rang de luxe mondial. Chaque pièce témoigne de l'âme de notre peuple.</p>
-                <div class="flex gap-4">
-                    <span class="material-symbols-outlined text-on-primary/70 cursor-pointer hover:text-secondary-fixed transition-colors">public</span>
-                    <span class="material-symbols-outlined text-on-primary/70 cursor-pointer hover:text-secondary-fixed transition-colors">mail</span>
-                    <span class="material-symbols-outlined text-on-primary/70 cursor-pointer hover:text-secondary-fixed transition-colors">share</span>
-                </div>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-12 w-full md:w-auto">
-                <div class="flex flex-col gap-4">
-                    <h5 class="font-label-caps text-label-caps text-secondary-fixed-dim">COLLECTION</h5>
-                    <a class="text-on-primary/70 font-body-md hover:text-secondary-fixed transition-colors" href="#">Bijoux</a>
-                    <a class="text-on-primary/70 font-body-md hover:text-secondary-fixed transition-colors" href="#">Maroquinerie</a>
-                    <a class="text-on-primary/70 font-body-md hover:text-secondary-fixed transition-colors" href="#">Artisans</a>
-                </div>
-                <div class="flex flex-col gap-4">
-                    <h5 class="font-label-caps text-label-caps text-secondary-fixed-dim">MAISON</h5>
-                    <a class="text-on-primary/70 font-body-md hover:text-secondary-fixed transition-colors" href="#">Notre histoire</a>
-                    <a class="text-on-primary/70 font-body-md hover:text-secondary-fixed transition-colors" href="#">Livraison</a>
-                    <a class="text-on-primary/70 font-body-md hover:text-secondary-fixed transition-colors" href="#">Contact</a>
-                </div>
-                <div class="flex flex-col gap-4 col-span-2 md:col-span-1">
-                    <h5 class="font-label-caps text-label-caps text-secondary-fixed-dim">NEWSLETTER</h5>
-                    <div class="flex gap-2">
-                        <input class="bg-transparent border-b border-on-primary/30 py-2 font-label-caps text-label-caps focus:border-secondary-fixed outline-none w-full" placeholder="YOUR EMAIL" type="email" />
-                        <button class="material-symbols-outlined">east</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mt-20 pt-8 border-t border-on-primary/10 flex flex-col md:flex-row justify-center">
-            <p class="font-body-md text-on-primary/50 text-sm">© 2026 L'Éclat du Bénin. Artisanal Excellence à Cotonou.</p>
-
-        </div>
-    </footer>
+    <x-footer />
     <script>
         // Micro-interactions for scrolling
         let lastScrollTop = 0;

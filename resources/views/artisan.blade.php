@@ -235,6 +235,7 @@
                     <p class="font-body-md text-body-md text-on-surface-variant">Gate 4, Galerie du Sud</p>
                 </div>
             </article>
+            
             <!-- Vendor 2 -->
             <article class="vendor-card group cursor-pointer md:mt-24">
                 <div class="relative aspect-[4/5] overflow-hidden bg-surface-container mb-6">
@@ -308,28 +309,7 @@
         </div>
     </main>
     <!-- Footer -->
-    <footer class="bg-primary py-section-gap w-full border-t border-outline-variant/10">
-        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-start gap-12">
-            <div class="max-w-sm">
-                <h4 class="font-display-lg text-headline-md text-on-primary mb-6">L'ÉCLAT DU BÉNIN</h4>
-                <p class="font-body-md text-body-md text-on-primary/70 mb-8">
-                    Mettre en valeur le savoir-faire béninois sur la scène internationale. Notre mission est de préserver l'âme de l'artisanat grâce à l'excellence numérique.
-                </p>
-            </div>
-            <div class="grid grid-cols-2 gap-x-20 gap-y-4">
-                <a class="font-body-md text-body-md text-on-primary/70 hover:text-secondary-fixed transition-colors duration-300" href="#">Artisans</a>
-                <a class="font-body-md text-body-md text-on-primary/70 hover:text-secondary-fixed transition-colors duration-300" href="#">Notre patrimoine</a>
-                <a class="font-body-md text-body-md text-on-primary/70 hover:text-secondary-fixed transition-colors duration-300" href="#">Livraison</a>
-                <a class="font-body-md text-body-md text-on-primary/70 hover:text-secondary-fixed transition-colors duration-300" href="#">Conditions générales</a>
-                <a class="font-body-md text-body-md text-on-primary/70 hover:text-secondary-fixed transition-colors duration-300" href="#">Contact</a>
-            </div>
-        </div>
-        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mt-16 pt-8 border-t border-on-primary/10 flex flex-col md:flex-row justify-center items-center gap-4">
-            <p class="font-body-md text-body-md text-on-primary/50 text-center md:text-left">
-                © 2026 L'Éclat du Bénin. Artisanal Excellence from Cotonou.
-            </p>
-        </div>
-    </footer>
+    <x-footer />
     <script>
         const menuTrigger = document.getElementById('menu-trigger');
         const closeDrawer = document.getElementById('close-drawer');

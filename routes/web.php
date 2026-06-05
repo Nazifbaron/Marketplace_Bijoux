@@ -16,7 +16,6 @@ Route::view('/detail', 'detail');
 Route::view('/bijoux', 'bijoux');
 Route::view('/art', 'art');
 Route::view('/maroquerie', 'maroquerie');
-Route::view('/devenir', 'artisan.devenir');
 Route::view('/config', 'config');
 Route::view('/attente', 'attente');
 Route::view('/dashboard', 'artisan.dashboard');
@@ -32,28 +31,20 @@ Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth')->
 
 Route::prefix('inscription')->name('artisan.onboarding.')->group(function () {
 
+    Route::get('/became', [ArtisanOnboardingController::class, 'devenir'])->name('became');
     // ÉTAPE 1 : Formulaire d'inscription
-    Route::get('/', [ArtisanOnboardingController::class, 'showStep1'])
-        ->name('step1');
-
-    Route::post('/etape-1', [ArtisanOnboardingController::class, 'storeStep1'])
-        ->name('step1.store');
+    Route::get('/', [ArtisanOnboardingController::class, 'showStep1'])->name('step1');
+    Route::post('/etape-1', [ArtisanOnboardingController::class, 'storeStep1'])->name('step1.store');
 
 });
 
 Route::prefix('inscription')->name('artisan.onboarding.')->middleware('auth')->group(function () {
 
     // ÉTAPE 2 : Configuration de la boutique
-    Route::get('/etape-2', [ArtisanOnboardingController::class, 'showStep2'])
-        ->name('step2');
-
-    Route::post('/etape-2', [ArtisanOnboardingController::class, 'storeStep2'])
-        ->name('step2.store');
-
+    Route::get('/etape-2', [ArtisanOnboardingController::class, 'showStep2'])->name('step2');
+    Route::post('/etape-2', [ArtisanOnboardingController::class, 'storeStep2'])->name('step2.store');
     // ÉTAPE 3 : Page d'attente
-    Route::get('/attente', [ArtisanOnboardingController::class, 'showWaiting'])
-        ->name('waiting');
-
+    Route::get('/attente', [ArtisanOnboardingController::class, 'showWaiting'])->name('waiting');
    // Route::get('/dashboard', [ArtisanOnboardingController::class, 'dashboard'])
       //  ->name('dashboard');
 

@@ -18,6 +18,11 @@ use Illuminate\Validation\Rules\Password;
 class ArtisanOnboardingController extends Controller
 {
 
+    public function devenir()
+    {
+        return view('artisan.devenir');
+    }
+
     public function showStep1()
     {
         // Si l'utilisateur est connecté et a déjà une demande

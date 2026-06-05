@@ -135,7 +135,7 @@
         }
 
         .hero-gradient {
-            background: linear-gradient(to bottom, rgba(250, 249, 246, 0.4), rgba(250, 249, 246, 1));
+            background: linear-gradient(to bottom, rgba(250, 249, 246, 0.4), rgb(236, 234, 228));
         }
 
         .line-hover::after {

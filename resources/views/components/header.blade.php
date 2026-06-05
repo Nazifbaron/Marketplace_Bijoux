@@ -11,16 +11,18 @@
         </div>
         <!--<span class="material-symbols-outlined text-primary cursor-pointer transition-transform duration-200 active:scale-95" data-icon="shopping_bag">shopping_bag</span>-->
     </div>
+    @auth
+    <div>
+        <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button type="submit">Se déconnecter</button>
+        </form>
+    </div>
+    @else
     <div class="flex items-center gap-4">
-        <a href="/devenir" class="bg-gold text-black px-5 py-2 rounded-full font-semibold hover:opacity-90">
+        <a href="{{ route('artisan.onboarding.became') }}" class="bg-gold text-black px-5 py-2 rounded-full font-semibold hover:opacity-90">
             Créer sa boutique
         </a>
     </div>
-    <div>
-        <form action="{{ route('logout') }}" method="POST">
-        @csrf
-        <button type="submit">Se déconnecter</button>
-    </form>
-    </div>
-
+    @endauth
 </nav>
