@@ -298,7 +298,7 @@
             <div class="sticky top-32">
                 <div class="aspect-[4/5] w-full bg-surface-container-high relative overflow-hidden group">
                     <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuCavRsQEnj4ydZRUuKUdLbOQi1-DtW8tHanxeyYil37KhNa-wpR9-RsyHKb6xDQ_5fwe06inmYAGmL16T5WhxdFHcuhdshHW3V4SDII3pMZ7EKuwY1TtxmV0oiVh0V_tz7qmYxZDxUafjL_SjzB9EWkk0DPDZ2RdMPppFVu2y8CxfB30SyCWvvBJAEWPDYPExdO79vRe4_ydK1IlC4jkaX9WHDGHiqjNrN3MUoSUFTkvAstbaE3ixgLm1QoFOk15jmqEb7Z--frzQ"
+                         src="{{ asset('images/artisan-heritage.png') }}"
                          alt="Heritage Craftsmanship" />
                     <div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent flex flex-col justify-end p-10">
                         <span class="font-label-caps text-label-caps text-secondary-fixed uppercase tracking-widest">Heritage Excellence</span>
@@ -332,7 +332,7 @@
 <footer class="w-full bg-surface-container-lowest border-t border-outline-variant/50">
     <div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-12 w-full max-w-container-max mx-auto">
         <h2 class="font-headline-md text-headline-md text-primary mb-6 md:mb-0">L'ÉCLAT DU BÉNIN</h2>
-        <p class="font-label-caps text-label-caps text-on-surface-variant/60 uppercase tracking-widest">© 2024 L'ÉCLAT DU BÉNIN. HERITAGE EXCELLENCE.</p>
+        <p class="font-label-caps text-label-caps text-on-surface-variant/60 uppercase tracking-widest">© 2026 L'ÉCLAT DU BÉNIN. HERITAGE EXCELLENCE.</p>
     </div>
 </footer>
 

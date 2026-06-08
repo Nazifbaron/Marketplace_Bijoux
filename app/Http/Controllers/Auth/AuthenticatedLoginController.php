@@ -1,0 +1,97 @@
+<?php
+
+namespace App\Http\Controllers\Auth;
+
+use App\Http\Controllers\Controller;
+use App\Models\ArtisanApplication;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+
+class AuthenticatedLoginController extends Controller
+{
+
+    public function showLogin()
+    {
+
+        if (Auth::check()) {
+            return $this->redirectAfterLogin();
+        }
+
+        return view('auth.login');
+    }
+
+    /**
+     * Traite la soumission du formulaire de connexion
+     */
+    public function login(Request $request)
+    {
+        // Validation des champs
+        $credentials = $request->validate([
+            'email'    => ['required', 'email'],
+            'password' => ['required'],
+        ], [
+            'email.required'    => 'L\'adresse email est obligatoire.',
+            'email.email' => 'L’adresse email n’est pas valide.',
+            'password.required' => 'Le mot de passe est obligatoire.',
+        ]);
+
+        $remember = $request->boolean('remember');
+
+        if (!Auth::attempt($credentials, $remember)) {
+
+            return back()
+                ->withInput($request->only('email'))
+                ->withErrors(['email' => 'Identifiants incorrects. Vérifiez votre email et mot de passe.']);
+        }
+
+        $request->session()->regenerate();
+
+        return $this->redirectAfterLogin();
+    }
+
+    /**
+     * Déconnexion
+     */
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/')->with('success', 'Vous avez été déconnecté.');
+    }
+
+    public function redirectAfterLogin()
+    {
+        $user = Auth::user();
+
+        // ── 2. Chercher la demande artisan de cet utilisateur ──
+        $application = ArtisanApplication::where('user_id', $user->id)->first();
+
+        // ── 3. Pas encore de demande → aller s'inscrire ──
+        if (!$application) {
+            return redirect()->route('artisan.onboarding.step1')
+                ->with('info', 'Commencez votre candidature pour rejoindre L\'Éclat du Bénin.');
+        }
+        // ── 4. Rediriger selon le statut de la demande ──
+        return match($application->status) {
+
+            // Inscription incomplète : retourner à l'étape 2
+            'draft',
+            'pending_docs'   => redirect()->route('artisan.onboarding.step2')
+                                    ->with('info', 'Finalisez la configuration de votre boutique.'),
+
+            // Dossier approuvé : accéder au dashboard ✅
+            'approved'       => redirect()->route('artisan.dashboard')
+                                    ->with('welcome', "Bienvenue {$user->name} ! Votre boutique est active."),
+
+            // En attente ou rejeté : page d'attente/résultat
+            'pending_review',
+            'rejected'       => redirect()->route('artisan.onboarding.waiting'),
+
+            // Cas par défaut
+            default          => redirect()->route('artisan.onboarding.step1'),
+        };
+    }
+}

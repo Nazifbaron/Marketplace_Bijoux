@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Artisan\ArtisanOnboardingController;
 use App\Http\Controllers\Admin\AdminArtisanController;
+use App\Http\Controllers\Artisan\ArtisanDashboardController;
+use App\Http\Controllers\Auth\AuthenticatedLoginController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 
@@ -23,9 +25,9 @@ Route::view('/ajout', 'artisan.ajout');
 
 Route::get('/register', [RegisterController::class, 'show'])->name('register.show');
 Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
-Route::get('/login', [LoginController::class, 'show'])->name('login.show');
-Route::post('/login', [LoginController::class, 'login'])->name('login');
-Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth')->name('logout');
+Route::get('/login', [AuthenticatedLoginController::class, 'showLogin'])->middleware('guest')->name('login');
+Route::post('/login', [AuthenticatedLoginController::class, 'login'])->middleware('guest')->name('login.submit');
+Route::post('/logout', [AuthenticatedLoginController::class, 'logout'])->middleware('auth')->name('logout');
 
 
 
@@ -45,13 +47,21 @@ Route::prefix('inscription')->name('artisan.onboarding.')->middleware('auth')->g
     Route::post('/etape-2', [ArtisanOnboardingController::class, 'storeStep2'])->name('step2.store');
     // ÉTAPE 3 : Page d'attente
     Route::get('/attente', [ArtisanOnboardingController::class, 'showWaiting'])->name('waiting');
+    // Endpoint polling : vérifie le statut en temps réel (appellé par JS toutes les 30s)
+    Route::get('/statut', [ArtisanOnboardingController::class, 'checkStatus'])
+        ->name('check.status');
    // Route::get('/dashboard', [ArtisanOnboardingController::class, 'dashboard'])
       //  ->name('dashboard');
 
     //Route::get('/add',[ArtisanOnboardingController::class, 'addProduct'])
         //->name('addProduct');
-    
+
     });
+
+    Route::prefix('artisan')->name('artisan.')->middleware('auth')->group(function () {
+    Route::get('/dashboard', [ArtisanDashboardController::class, 'index'])
+        ->name('dashboard');
+});
 
 Route::prefix('admin')->name('admin.artisans.')->middleware(['auth', 'admin'])->group(function () {
 

@@ -122,7 +122,7 @@
         L'ÉCLAT DU BÉNIN
     </div>
     <div class="flex-1 flex justify-end">
-        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="# ">
+        <a href="{{ route('login') }} " class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors">
             Se connecter
         </a>
     </div>
@@ -135,7 +135,7 @@
         {{-- ---- CÔTÉ GAUCHE : Image ---- --}}
         <div class="hidden md:block md:w-5/12 relative">
             <img class="absolute inset-0 w-full h-full object-cover"
-                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNQSH51DhqrFqBAYuhitWvAdmxbxSFrQ5n23d45nA7v0DJq6vW7w3lIDiPKqkEu_gn3S2GNbGd-mMUm7GZbPAdRKSbUOQwtQVn7zRIyh_EelT0XOlcVbC7Un9nvdyJjPR7LYse7fw8a4NRGC8oPnvgF804v_84IxlRwPj-4OOr4OBjerCK2m5RW4zBfe7nmWYVTHtFQtEbGThvY-ifKRl8mxmjrd32fBp_2LPUW-FwBfc3PMl9tThaFr_z3AwWlKS5GxCsIdSgzg"
+                 src="{{ asset('images/artisan-banner.png') }}"
                  alt="Artisanat béninois" />
             <div class="absolute inset-0 bg-black/25"></div>
             <div class="absolute bottom-12 left-8 right-8 text-white">

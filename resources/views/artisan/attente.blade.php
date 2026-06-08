@@ -1,175 +1,67 @@
 <!DOCTYPE html>
 <html class="light" lang="fr">
-
 <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>L'Éclat du Bénin — Candidature en Cours</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "surface-container-low": "#f4f3f1",
-                        "surface-container": "#efeeeb",
-                        "primary": "#000000",
-                        "surface-container-highest": "#e3e2e0",
-                        "on-surface-variant": "#444748",
-                        "secondary-fixed-dim": "#e9c349",
-                        "outline": "#747878",
-                        "surface-container-lowest": "#ffffff",
-                        "background": "#faf9f6",
-                        "on-surface": "#1a1c1a",
-                        "secondary-fixed": "#ffe088",
-                        "secondary-container": "#fed65b",
-                        "outline-variant": "#c4c7c7",
-                        "surface": "#faf9f6",
-                        "secondary": "#735c00",
-                        "error": "#ba1a1a",
-                        "on-primary": "#ffffff",
-                        "on-error": "#ffffff",
-                        "error-container": "#ffdad6",
-                        "on-tertiary-container": "#5e8e77",
-                    },
-                    spacing: {
-                        "margin-desktop": "80px",
-                        "container-max": "1280px",
-                        "gutter": "24px",
-                        "margin-mobile": "20px",
-                        "section-gap": "120px"
-                    },
-                    fontFamily: {
-                        "label-caps": ["Montserrat"],
-                        "display-lg": ["Playfair Display"],
-                        "body-md": ["Montserrat"],
-                        "body-lg": ["Montserrat"],
-                        "headline-md": ["Playfair Display"],
-                        "headline-lg": ["Playfair Display"],
-                        "display-lg-mobile": ["Playfair Display"]
-                    },
-                    fontSize: {
-                        "label-caps": ["12px", {
-                            "lineHeight": "16px",
-                            "letterSpacing": "0.1em",
-                            "fontWeight": "600"
-                        }],
-                        "display-lg": ["64px", {
-                            "lineHeight": "72px",
-                            "letterSpacing": "-0.02em",
-                            "fontWeight": "700"
-                        }],
-                        "display-lg-mobile": ["40px", {
-                            "lineHeight": "48px",
-                            "letterSpacing": "-0.01em",
-                            "fontWeight": "700"
-                        }],
-                        "body-md": ["16px", {
-                            "lineHeight": "24px",
-                            "fontWeight": "400"
-                        }],
-                        "body-lg": ["18px", {
-                            "lineHeight": "28px",
-                            "fontWeight": "400"
-                        }],
-                        "headline-md": ["24px", {
-                            "lineHeight": "32px",
-                            "fontWeight": "600"
-                        }],
-                        "headline-lg": ["32px", {
-                            "lineHeight": "40px",
-                            "fontWeight": "600"
-                        }],
-                    }
+            theme: { extend: {
+                colors: {
+                    "surface-container-low":"#f4f3f1","surface-container":"#efeeeb","primary":"#000000",
+                    "surface-container-highest":"#e3e2e0","on-surface-variant":"#444748",
+                    "secondary-fixed-dim":"#e9c349","outline":"#747878","surface-container-lowest":"#ffffff",
+                    "background":"#faf9f6","on-surface":"#1a1c1a","secondary-fixed":"#ffe088",
+                    "secondary-container":"#fed65b","outline-variant":"#c4c7c7","surface":"#faf9f6",
+                    "secondary":"#735c00","error":"#ba1a1a","on-primary":"#ffffff","on-error":"#ffffff",
+                    "error-container":"#ffdad6","on-tertiary-container":"#5e8e77",
+                },
+                spacing: { "margin-desktop":"80px","container-max":"1280px","gutter":"24px","margin-mobile":"20px","section-gap":"120px" },
+                fontFamily: { "label-caps":["Montserrat"],"display-lg":["Playfair Display"],"body-md":["Montserrat"],"body-lg":["Montserrat"],"headline-md":["Playfair Display"],"headline-lg":["Playfair Display"],"display-lg-mobile":["Playfair Display"] },
+                fontSize: {
+                    "label-caps":["12px",{"lineHeight":"16px","letterSpacing":"0.1em","fontWeight":"600"}],
+                    "display-lg":["64px",{"lineHeight":"72px","letterSpacing":"-0.02em","fontWeight":"700"}],
+                    "display-lg-mobile":["40px",{"lineHeight":"48px","letterSpacing":"-0.01em","fontWeight":"700"}],
+                    "body-md":["16px",{"lineHeight":"24px","fontWeight":"400"}],
+                    "body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}],
+                    "headline-md":["24px",{"lineHeight":"32px","fontWeight":"600"}],
+                    "headline-lg":["32px",{"lineHeight":"40px","fontWeight":"600"}],
                 }
-            }
+            }}
         }
     </script>
     <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
-        }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
 
         /* Animation du sceau */
         .seal-shimmer {
-            background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
+            background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
             background-size: 200% 200%;
             animation: shimmer 4s infinite linear;
         }
-
-        @keyframes shimmer {
-            0% {
-                background-position: -200% -200%
-            }
-
-            100% {
-                background-position: 200% 200%
-            }
-        }
+        @keyframes shimmer { 0%{background-position:-200% -200%} 100%{background-position:200% 200%} }
 
         /* Animation de pulsation pour le statut "pending" */
         @keyframes pulse-ring {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-
-            50% {
-                transform: scale(1.05);
-                opacity: 0.7;
-            }
-
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
+            0%   { transform: scale(1); opacity: 1; }
+            50%  { transform: scale(1.05); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
         }
-
-        .pulse-anim {
-            animation: pulse-ring 2s ease-in-out infinite;
-        }
+        .pulse-anim { animation: pulse-ring 2s ease-in-out infinite; }
 
         /* Animation d'entrée */
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px)
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0)
-            }
-        }
-
-        .animate-fade-up {
-            animation: fadeUp 0.6s ease forwards;
-        }
-
-        .delay-1 {
-            animation-delay: 0.1s;
-            opacity: 0;
-        }
-
-        .delay-2 {
-            animation-delay: 0.3s;
-            opacity: 0;
-        }
-
-        .delay-3 {
-            animation-delay: 0.5s;
-            opacity: 0;
-        }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+        .animate-fade-up { animation: fadeUp 0.6s ease forwards; }
+        .delay-1 { animation-delay: 0.1s; opacity: 0; }
+        .delay-2 { animation-delay: 0.3s; opacity: 0; }
+        .delay-3 { animation-delay: 0.5s; opacity: 0; }
 
         /* Timeline de progression du dossier */
-        .timeline-step {
-            position: relative;
-            padding-left: 2.5rem;
-        }
-
+        .timeline-step { position: relative; padding-left: 2.5rem; }
         .timeline-step::before {
             content: '';
             position: absolute;
@@ -179,80 +71,77 @@
             width: 1px;
             background: #c4c7c7;
         }
-
-        .timeline-step:last-child::before {
-            display: none;
-        }
+        .timeline-step:last-child::before { display: none; }
     </style>
 </head>
-
 <body class="bg-background text-on-surface" style="min-height: max(884px, 100dvh)">
 
-    {{-- HEADER --}}
-    <header class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-outline-variant/30 flex justify-between items-center px-gutter py-4">
-        <div class="flex items-center gap-4">
-            <span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
-            <h1 class="font-headline-md text-headline-md font-bold text-primary uppercase tracking-widest">L'ÉCLAT DU BÉNIN</h1>
+{{-- HEADER --}}
+<header class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-outline-variant/30 flex justify-between items-center px-gutter py-4">
+    <div class="flex items-center gap-4">
+        <span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
+        <h1 class="font-headline-md text-headline-md font-bold text-primary uppercase tracking-widest">L'ÉCLAT DU BÉNIN</h1>
+    </div>
+    <div>
+        <span class="material-symbols-outlined text-primary cursor-pointer">account_circle</span>
+    </div>
+</header>
+
+<main class="min-h-screen flex flex-col items-center justify-center pt-24 px-margin-mobile md:px-margin-desktop">
+
+    {{-- BARRE DE PROGRESSION --}}
+    <div class="w-full max-w-md mb-12 animate-fade-up delay-1">
+        <div class="flex justify-between items-end mb-4">
+            <span class="font-label-caps text-label-caps uppercase text-primary">Candidature</span>
+            <span class="font-label-caps text-label-caps uppercase text-secondary">Étape 3 sur 3</span>
         </div>
-        <div>
-            <span class="material-symbols-outlined text-primary cursor-pointer">account_circle</span>
+        <div class="h-[2px] w-full bg-surface-container-highest overflow-hidden">
+            <div class="h-full bg-secondary-fixed transition-all duration-1000 ease-out" id="progress-bar" style="width: 0%"></div>
         </div>
-    </header>
+        <p class="mt-4 font-label-caps text-label-caps text-on-surface-variant/70 text-center tracking-widest">
+            EXAMEN FINAL D'AUTHENTICITÉ
+        </p>
+    </div>
 
-    <main class="min-h-screen flex flex-col items-center justify-center pt-24 px-margin-mobile md:px-margin-desktop">
+    {{-- CONTENU PRINCIPAL --}}
+    <section class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start w-full">
 
-        {{-- BARRE DE PROGRESSION --}}
-        <div class="w-full max-w-md mb-12 animate-fade-up delay-1">
-            <div class="flex justify-between items-end mb-4">
-                <span class="font-label-caps text-label-caps uppercase text-primary">Candidature</span>
-                <span class="font-label-caps text-label-caps uppercase text-secondary">Étape 3 sur 3</span>
-            </div>
-            <div class="h-[2px] w-full bg-surface-container-highest overflow-hidden">
-                <div class="h-full bg-secondary-fixed transition-all duration-1000 ease-out" id="progress-bar" style="width: 0%"></div>
-            </div>
-            <p class="mt-4 font-label-caps text-label-caps text-on-surface-variant/70 text-center tracking-widest">
-                EXAMEN FINAL D'AUTHENTICITÉ
-            </p>
-        </div>
-
-        {{-- CONTENU PRINCIPAL --}}
-        <section class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start w-full">
-
-            {{-- ===== VISUEL GAUCHE ===== --}}
-            <div class="lg:col-span-7 relative group animate-fade-up delay-2">
-                <div class="aspect-[4/5] md:aspect-[16/10] overflow-hidden bg-surface-container relative">
-                    <img
-                        alt="Heritage Craftsmanship"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGPjUQ67I54mSX7b9geQK_HwBssfT44I-eNRMvdPF6G9FJxVfR0lu_2_vMpDqtts5LBTJSiSczqhQGkE4gfPMeOOmJ_cP50mjUS5rxfJ7X5Wkhfkj_0aHv6gR5qaXUZRdAVB4LCxS0cWbtdH7TKKOXvEVHtoXTHmMf2HNah9R6cTK0G0jdTAwqeJOLks4CEQGmnkVPYL2hUqGK6V1ESLzWjUc13Ph49XwAK3YtT1GteoZ4G1mApN01hzLGVT8Eyj1lFUwzEXqQYQ" />
-                    {{-- Overlay du sceau --}}
-                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                        <div class="{{ $application->status === 'pending_review' ? 'pulse-anim' : '' }} w-48 h-48 rounded-full border border-secondary-fixed/40 backdrop-blur-sm flex items-center justify-center relative overflow-hidden bg-white/5">
-                            <div class="seal-shimmer absolute inset-0"></div>
-                            <div class="text-center p-6 border border-secondary-fixed/20 rounded-full w-40 h-40 flex flex-col items-center justify-center">
-                                {{-- Icône selon le statut --}}
-                                @if($application->status === 'approved')
+        {{-- ===== VISUEL GAUCHE ===== --}}
+        <div class="lg:col-span-7 relative group animate-fade-up delay-2">
+            <div class="aspect-[4/5] md:aspect-[16/10] overflow-hidden bg-surface-container relative">
+                <img
+                    alt="Heritage Craftsmanship"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGPjUQ67I54mSX7b9geQK_HwBssfT44I-eNRMvdPF6G9FJxVfR0lu_2_vMpDqtts5LBTJSiSczqhQGkE4gfPMeOOmJ_cP50mjUS5rxfJ7X5Wkhfkj_0aHv6gR5qaXUZRdAVB4LCxS0cWbtdH7TKKOXvEVHtoXTHmMf2HNah9R6cTK0G0jdTAwqeJOLks4CEQGmnkVPYL2hUqGK6V1ESLzWjUc13Ph49XwAK3YtT1GteoZ4G1mApN01hzLGVT8Eyj1lFUwzEXqQYQ"
+                />
+                {{-- Overlay du sceau --}}
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div class="{{ $application->status === 'pending_review' ? 'pulse-anim' : '' }} w-48 h-48 rounded-full border border-secondary-fixed/40 backdrop-blur-sm flex items-center justify-center relative overflow-hidden bg-white/5">
+                        <div class="seal-shimmer absolute inset-0"></div>
+                        <div class="text-center p-6 border border-secondary-fixed/20 rounded-full w-40 h-40 flex flex-col items-center justify-center">
+                            {{-- Icône selon le statut --}}
+                            @if($application->status === 'approved')
                                 <span class="material-symbols-outlined text-on-tertiary-container text-4xl mb-2" style="font-variation-settings:'FILL' 1;">check_circle</span>
                                 <span class="font-label-caps text-label-caps text-on-tertiary-container leading-none text-center">APPROUVÉ</span>
-                                @elseif($application->status === 'rejected')
+                            @elseif($application->status === 'rejected')
                                 <span class="material-symbols-outlined text-error text-4xl mb-2" style="font-variation-settings:'FILL' 1;">cancel</span>
                                 <span class="font-label-caps text-label-caps text-error leading-none text-center">REFUSÉ</span>
-                                @else
+                            @else
                                 <span class="material-symbols-outlined text-secondary text-4xl mb-2" style="font-variation-settings:'FILL' 1;">verified</span>
-                                <span class="font-label-caps text-label-caps text-secondary leading-none">COMMITTEE<br />SEAL</span>
-                                @endif
-                            </div>
+                                <span class="font-label-caps text-label-caps text-secondary leading-none">COMMITTEE<br/>SEAL</span>
+                            @endif
                         </div>
                     </div>
                 </div>
-                <div class="absolute -bottom-4 -right-4 w-full h-full border border-secondary-fixed/20 -z-10"></div>
             </div>
+            <div class="absolute -bottom-4 -right-4 w-full h-full border border-secondary-fixed/20 -z-10"></div>
+        </div>
 
-            {{-- ===== CONTENU DROITE ===== --}}
-            <div class="lg:col-span-5 flex flex-col space-y-8 animate-fade-up delay-3">
+        {{-- ===== CONTENU DROITE ===== --}}
+        <div class="lg:col-span-5 flex flex-col space-y-8 animate-fade-up delay-3">
 
-                {{-- ── CONTENU SELON LE STATUT ── --}}
-                @if($application->status === 'approved')
+            {{-- ── CONTENU SELON LE STATUT ── --}}
+            @if($application->status === 'approved')
                 {{-- ✅ APPROUVÉ --}}
                 <div>
                     <span class="font-label-caps text-label-caps text-on-tertiary-container mb-4 block">FÉLICITATIONS</span>
@@ -266,19 +155,19 @@
                     Votre boutique <strong class="text-primary">{{ $application->shop_name }}</strong> est maintenant active sur L'Éclat du Bénin.
                 </p>
                 @if($application->admin_notes)
-                <div class="p-6 bg-surface-container-low border-l-2 border-on-tertiary-container">
-                    <p class="font-label-caps text-[10px] text-on-surface-variant mb-2 uppercase">Message du Comité</p>
-                    <p class="font-body-md text-body-md italic text-on-surface-variant">{{ $application->admin_notes }}</p>
-                </div>
+                    <div class="p-6 bg-surface-container-low border-l-2 border-on-tertiary-container">
+                        <p class="font-label-caps text-[10px] text-on-surface-variant mb-2 uppercase">Message du Comité</p>
+                        <p class="font-body-md text-body-md italic text-on-surface-variant">{{ $application->admin_notes }}</p>
+                    </div>
                 @endif
                 <div class="flex flex-col sm:flex-row gap-4 pt-4">
                     <a href="{{ route('dashboard') }}"
-                        class="bg-primary text-on-primary px-8 py-4 font-label-caps text-label-caps uppercase tracking-widest transition-all hover:bg-on-surface-variant active:scale-95 shadow-sm text-center">
+                       class="bg-primary text-on-primary px-8 py-4 font-label-caps text-label-caps uppercase tracking-widest transition-all hover:bg-on-surface-variant active:scale-95 shadow-sm text-center">
                         Accéder à ma Boutique
                     </a>
                 </div>
 
-                @elseif($application->status === 'rejected')
+            @elseif($application->status === 'rejected')
                 {{-- ❌ REJETÉ --}}
                 <div>
                     <span class="font-label-caps text-label-caps text-error mb-4 block">CANDIDATURE NON RETENUE</span>
@@ -289,17 +178,17 @@
                     Après examen, votre dossier n'a pas pu être accepté en l'état.
                 </p>
                 @if($application->admin_notes)
-                <div class="p-6 bg-error-container/40 border-l-2 border-error">
-                    <p class="font-label-caps text-[10px] text-error mb-2 uppercase">Motif du refus</p>
-                    <p class="font-body-md text-body-md text-on-surface">{{ $application->admin_notes }}</p>
-                </div>
+                    <div class="p-6 bg-error-container/40 border-l-2 border-error">
+                        <p class="font-label-caps text-[10px] text-error mb-2 uppercase">Motif du refus</p>
+                        <p class="font-body-md text-body-md text-on-surface">{{ $application->admin_notes }}</p>
+                    </div>
                 @endif
                 <p class="font-body-md text-body-md text-on-surface-variant">
                     Vous pouvez corriger votre dossier et soumettre une nouvelle candidature, ou contacter notre équipe pour plus d'informations.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 pt-4">
                     <a href="{{ route('artisan.onboarding.step1') }}"
-                        class="bg-primary text-on-primary px-8 py-4 font-label-caps text-label-caps uppercase tracking-widest transition-all hover:bg-on-surface-variant active:scale-95 shadow-sm text-center">
+                       class="bg-primary text-on-primary px-8 py-4 font-label-caps text-label-caps uppercase tracking-widest transition-all hover:bg-on-surface-variant active:scale-95 shadow-sm text-center">
                         Nouvelle Candidature
                     </a>
                     <button class="border border-secondary text-secondary px-8 py-4 font-label-caps text-label-caps uppercase tracking-widest transition-all hover:bg-secondary/5 active:scale-95 flex items-center justify-center gap-2">
@@ -308,7 +197,7 @@
                     </button>
                 </div>
 
-                @else
+            @else
                 {{-- ⏳ EN ATTENTE (statut par défaut) --}}
                 <div>
                     <span class="font-label-caps text-label-caps text-secondary mb-4 block">CONFIRMATION DE DÉPÔT</span>
@@ -380,7 +269,7 @@
 
                 <div class="flex flex-col sm:flex-row gap-4 pt-4">
                     <a href="{{ url('/') }}"
-                        class="bg-primary text-on-primary px-8 py-4 font-label-caps text-label-caps uppercase tracking-widest transition-all hover:bg-on-surface-variant active:scale-95 shadow-sm text-center">
+                       class="bg-primary text-on-primary px-8 py-4 font-label-caps text-label-caps uppercase tracking-widest transition-all hover:bg-on-surface-variant active:scale-95 shadow-sm text-center">
                         Retour à l'Accueil
                     </a>
                     <button class="border border-secondary text-secondary px-8 py-4 font-label-caps text-label-caps uppercase tracking-widest transition-all hover:bg-secondary/5 active:scale-95 flex items-center justify-center gap-2">
@@ -389,40 +278,159 @@
                     </button>
                 </div>
 
-                <p class="font-label-caps text-[10px] text-on-surface-variant/60 tracking-tighter">
-                    Délai d'examen estimé : 48 à 72 heures ouvrées. Vous recevrez une notification par e-mail à
-                    <strong>{{ auth()->user()->email ?? '' }}</strong>
-                </p>
-                @endif
+                {{-- ── BOUTON DASHBOARD (caché, révélé automatiquement à l'approbation) ── --}}
+                <div id="dashboard-cta" class="hidden">
+                    <div class="p-5 bg-surface-container-low border-l-2 border-on-tertiary-container flex items-start gap-4 mb-5">
+                        <span class="material-symbols-outlined text-on-tertiary-container text-2xl flex-shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                        <div>
+                            <p class="font-body-md font-semibold text-primary">Votre candidature vient d'être approuvée !</p>
+                            <p class="font-body-md text-body-md text-on-surface-variant mt-1">Le Comité du Patrimoine a validé votre dossier. Votre boutique est maintenant active.</p>
+                        </div>
+                    </div>
+                    <a href="{{ route('artisan.dashboard') }}"
+                       class="inline-flex items-center gap-3 bg-secondary text-white px-8 py-4 font-label-caps text-label-caps uppercase tracking-widest transition-all hover:bg-secondary/90 active:scale-95 shadow-sm w-full sm:w-auto justify-center">
+                        <span class="material-symbols-outlined text-sm">storefront</span>
+                        Accéder à ma Boutique
+                    </a>
+                </div>
 
-            </div>
-        </section>
-    </main>
+                {{-- Indicateur de polling discret --}}
+                <div class="flex items-center gap-2 mt-2" id="polling-indicator">
+                    <span class="w-1.5 h-1.5 rounded-full bg-secondary inline-block" style="animation: pulse-ring 2s ease-in-out infinite;"></span>
+                    <p class="font-label-caps text-[10px] text-on-surface-variant/50 tracking-tighter" id="polling-text">
+                        Vérification automatique du statut en cours...
+                    </p>
+                </div>
+            @endif
 
-    {{-- FOOTER --}}
-    <footer class="w-full mt-section-gap border-t border-outline-variant/50 bg-surface-container-lowest py-12">
-        <div class="max-w-container-max mx-auto px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-8">
-            <h2 class="font-headline-md text-headline-md text-primary font-bold">L'ÉCLAT DU BÉNIN</h2>
-            <nav class="flex flex-wrap gap-8 items-center justify-center">
-                <a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant/80 hover:text-primary transition-colors" href="#">The Artisans</a>
-                <a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant/80 hover:text-primary transition-colors" href="#">Our Story</a>
-                <a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant/80 hover:text-primary transition-colors" href="#">Seller Terms</a>
-                <a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant/80 hover:text-primary transition-colors" href="#">Privacy</a>
-            </nav>
-            <p class="font-label-caps text-label-caps text-on-surface-variant/60">© 2024 L'ÉCLAT DU BÉNIN.</p>
         </div>
-    </footer>
+    </section>
+</main>
 
-    <script>
-        // Animation de la barre de progression au chargement
-        document.addEventListener('DOMContentLoaded', () => {
-            const bar = document.getElementById('progress-bar');
-            setTimeout(() => {
-                bar.style.width = '100%';
-            }, 500);
+{{-- FOOTER --}}
+<footer class="w-full mt-section-gap border-t border-outline-variant/50 bg-surface-container-lowest py-12">
+    <div class="max-w-container-max mx-auto px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-8">
+        <h2 class="font-headline-md text-headline-md text-primary font-bold">L'ÉCLAT DU BÉNIN</h2>
+        
+        <p class="font-label-caps text-label-caps text-on-surface-variant/60">© 2026 L'ÉCLAT DU BÉNIN.</p>
+    </div>
+</footer>
+
+<script>
+// Animation de la barre de progression au chargement
+document.addEventListener('DOMContentLoaded', () => {
+    const bar = document.getElementById('progress-bar');
+    setTimeout(() => { bar.style.width = '100%'; }, 500);
+
+    // Lancer le polling seulement si le statut est "pending_review"
+    // (pas besoin si c'est déjà approuvé ou rejeté)
+    const currentStatus = '{{ $application->status }}';
+    if (currentStatus === 'pending_review') {
+        startStatusPolling();
+    }
+});
+
+/**
+ * POLLING AUTOMATIQUE
+ * ====================
+ * Interroge /inscription/statut toutes les 30 secondes.
+ * Si la réponse indique "approved", révèle le bouton dashboard
+ * et redirige automatiquement après 3 secondes.
+ *
+ * Pourquoi 30 secondes et pas 5 ?
+ * → Pour ne pas surcharger le serveur. L'approbation n'est pas
+ *   urgente à la seconde, 30s est un bon équilibre.
+ */
+function startStatusPolling() {
+    let attempts = 0;
+    const MAX_ATTEMPTS = 240; // 240 × 30s = 2h de polling max
+    const INTERVAL_MS  = 30000; // 30 secondes
+
+    const pollingText = document.getElementById('polling-text');
+
+    const poll = async () => {
+        attempts++;
+
+        try {
+            const response = await fetch('{{ route("artisan.onboarding.check.status") }}', {
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Accept': 'application/json',
+                }
+            });
+
+            if (!response.ok) return;
+
+            const data = await response.json();
+
+            if (data.status === 'approved' && data.redirect) {
+                // ── APPROUVÉ ! Révéler le bouton dashboard ──
+                onApplicationApproved(data.redirect);
+                return; // Arrêter le polling
+            }
+
+            if (data.status === 'rejected') {
+                // Rejeté : recharger la page pour afficher le motif
+                window.location.reload();
+                return;
+            }
+
+            // Toujours en attente : continuer
+            if (attempts < MAX_ATTEMPTS) {
+                pollingText.textContent = `Dernière vérification il y a quelques secondes. Prochaine dans 30s.`;
+                setTimeout(poll, INTERVAL_MS);
+            } else {
+                // Arrêter après 2h sans réponse
+                pollingText.textContent = 'Actualisation automatique suspendue. Rechargez la page manuellement.';
+                document.getElementById('polling-indicator').querySelector('span').style.animation = 'none';
+            }
+
+        } catch (err) {
+            // Erreur réseau : réessayer quand même
+            if (attempts < MAX_ATTEMPTS) {
+                setTimeout(poll, INTERVAL_MS);
+            }
+        }
+    };
+
+    // Premier appel après 30 secondes
+    setTimeout(poll, INTERVAL_MS);
+}
+
+/**
+ * Appelée quand l'approbation est détectée par le polling.
+ * Anime la révélation du bouton dashboard et redirige.
+ */
+function onApplicationApproved(dashboardUrl) {
+    // Masquer l'indicateur de polling
+    const indicator = document.getElementById('polling-indicator');
+    if (indicator) indicator.style.display = 'none';
+
+    // Révéler le bloc CTA dashboard avec animation
+    const cta = document.getElementById('dashboard-cta');
+    if (cta) {
+        cta.classList.remove('hidden');
+        cta.style.opacity = '0';
+        cta.style.transform = 'translateY(10px)';
+        cta.style.transition = 'all 0.5s ease';
+        requestAnimationFrame(() => {
+            cta.style.opacity = '1';
+            cta.style.transform = 'translateY(0)';
         });
-    </script>
+    }
+
+    // Mettre à jour le sceau dans l'image
+    const sealText = document.querySelector('.seal-shimmer');
+    if (sealText) {
+        // Remplacer l'icône "verified" par "check_circle" vert
+    }
+
+    // Redirection automatique après 4 secondes
+    setTimeout(() => {
+        window.location.href = dashboardUrl;
+    }, 4000);
+}
+</script>
 
 </body>
-
 </html>

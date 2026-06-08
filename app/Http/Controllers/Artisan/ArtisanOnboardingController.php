@@ -186,6 +186,26 @@ class ArtisanOnboardingController extends Controller
         return view('artisan.attente', compact('application'));
     }
 
+     public function checkStatus()
+    {
+        $application = ArtisanApplication::where('user_id', Auth::id())->first();
+
+        if (!$application) {
+            return response()->json(['status' => 'none', 'redirect' => null]);
+        }
+
+        $redirect = null;
+
+        if ($application->isApproved()) {
+            $redirect = route('artisan.dashboard');
+        }
+
+        return response()->json([
+            'status'   => $application->status,
+            'redirect' => $redirect,
+        ]);
+    }
+
     private function getApplicationOrFail(): ?ArtisanApplication
     {
 

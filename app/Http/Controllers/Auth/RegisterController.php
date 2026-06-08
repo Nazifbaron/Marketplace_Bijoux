@@ -17,7 +17,7 @@ class RegisterController extends Controller
             return redirect('/');
         }
 
-        return view('register');
+        return view('auth.register');
     }
 
     public function store(Request $request)

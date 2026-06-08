@@ -51,7 +51,7 @@
                 <button type="submit" class="w-full rounded-2xl bg-slate-900 px-4 py-3 text-white font-semibold hover:bg-slate-800 transition">Créer mon compte client</button>
             </form>
 
-            <p class="mt-6 text-sm text-slate-600">Déjà inscrit ? <a href="{{ route('login.show') }}" class="text-slate-900 font-semibold underline">Se connecter</a></p>
+            <p class="mt-6 text-sm text-slate-600">Déjà inscrit ? <a href="{{ route('login') }}" class="text-slate-900 font-semibold underline">Se connecter</a></p>
         </div>
     </div>
 </body>

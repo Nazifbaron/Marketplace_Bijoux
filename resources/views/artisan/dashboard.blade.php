@@ -1,396 +1,493 @@
 <!DOCTYPE html>
+<html class="light" lang="fr">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>{{ $application->shop_name }} — Tableau de Bord | L'Éclat du Bénin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: {
+                colors: {
+                    "primary":"#000000","secondary":"#735c00","background":"#faf9f6",
+                    "surface":"#ffffff","surface-container":"#efeeeb","surface-container-low":"#f4f3f1",
+                    "surface-container-high":"#e9e8e5","surface-container-highest":"#e3e2e0",
+                    "outline-variant":"#c4c7c7","on-surface-variant":"#444748","on-surface":"#1a1c1a",
+                    "secondary-container":"#fed65b","secondary-fixed":"#ffe088",
+                    "error":"#ba1a1a","error-container":"#ffdad6",
+                    "on-tertiary-container":"#5e8e77","tertiary-container":"#002114",
+                    "outline":"#747878","on-primary":"#ffffff",
+                },
+                fontFamily: { "sans":["Montserrat","sans-serif"], "serif":["Playfair Display","serif"] }
+            }}
+        }
+    </script>
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
 
-<html class="light" lang="fr"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Artisan Dashboard - L'ÉCLAT DU BÉNIN</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "surface-container-highest": "#e3e2e0",
-                    "primary-fixed": "#e5e2e1",
-                    "on-background": "#1a1c1a",
-                    "on-primary-fixed-variant": "#474646",
-                    "on-error-container": "#93000a",
-                    "tertiary-fixed-dim": "#a0d1b8",
-                    "surface-dim": "#dbdad7",
-                    "on-secondary": "#ffffff",
-                    "tertiary-container": "#002114",
-                    "primary": "#000000",
-                    "outline-variant": "#c4c7c7",
-                    "secondary": "#735c00",
-                    "tertiary-fixed": "#bbeed3",
-                    "background": "#faf9f6",
-                    "surface-tint": "#5f5e5e",
-                    "on-secondary-fixed": "#241a00",
-                    "error-container": "#ffdad6",
-                    "on-primary-container": "#858383",
-                    "on-surface-variant": "#444748",
-                    "on-tertiary": "#ffffff",
-                    "secondary-fixed-dim": "#e9c349",
-                    "surface": "#faf9f6",
-                    "secondary-container": "#fed65b",
-                    "on-secondary-container": "#745c00",
-                    "on-primary-fixed": "#1c1b1b",
-                    "secondary-fixed": "#ffe088",
-                    "surface-variant": "#e3e2e0",
-                    "primary-fixed-dim": "#c9c6c5",
-                    "surface-container-high": "#e9e8e5",
-                    "on-secondary-fixed-variant": "#574500",
-                    "surface-container-lowest": "#ffffff",
-                    "on-tertiary-fixed": "#002114",
-                    "surface-bright": "#faf9f6",
-                    "outline": "#747878",
-                    "on-surface": "#1a1c1a",
-                    "surface-container-low": "#f4f3f1",
-                    "on-tertiary-container": "#5e8e77",
-                    "inverse-surface": "#2f312f",
-                    "on-error": "#ffffff",
-                    "tertiary": "#000000",
-                    "inverse-on-surface": "#f2f1ee",
-                    "primary-container": "#1c1b1b",
-                    "surface-container": "#efeeeb",
-                    "inverse-primary": "#c9c6c5",
-                    "on-tertiary-fixed-variant": "#204f3c",
-                    "on-primary": "#ffffff",
-                    "error": "#ba1a1a"
-            },
-            "borderRadius": {
-                    "DEFAULT": "0.125rem",
-                    "lg": "0.25rem",
-                    "xl": "0.5rem",
-                    "full": "0.75rem"
-            },
-            "spacing": {
-                    "gutter": "24px",
-                    "margin-tablet": "40px",
-                    "margin-desktop": "80px",
-                    "margin-mobile": "20px",
-                    "container-max": "1280px",
-                    "section-gap": "120px"
-            },
-            "fontFamily": {
-                    "display-lg-mobile": ["Playfair Display"],
-                    "headline-lg": ["Playfair Display"],
-                    "label-caps": ["Montserrat"],
-                    "display-lg": ["Playfair Display"],
-                    "price-display": ["Montserrat"],
-                    "body-md": ["Montserrat"],
-                    "headline-md": ["Playfair Display"],
-                    "body-lg": ["Montserrat"]
-            },
-            "fontSize": {
-                    "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
-                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
-                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
-                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "price-display": ["20px", {"lineHeight": "24px", "fontWeight": "500"}],
-                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
-            }
-          },
-        },
-      }
-    </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        /* Sidebar active link */
+        .nav-link { display: flex; align-items: center; gap: 12px; padding: 10px 16px; font-size: 13px; font-weight: 500; border-radius: 2px; transition: all 0.15s; color: rgba(255,255,255,0.55); }
+        .nav-link:hover { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.9); }
+        .nav-link.active { background: rgba(255,255,255,0.1); color: #ffffff; }
+        .nav-link .material-symbols-outlined { font-size: 20px; }
+
+        /* Carte stat avec hover animé */
+        .stat-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .stat-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+
+        /* Badge approuvé */
+        .badge-approved { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; display: inline-flex; align-items: center; gap: 4px; padding: 2px 10px; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+
+        /* Animation entrée */
+        @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+        .fade-up { animation: fadeUp 0.4s ease forwards; }
+        .delay-1 { animation-delay: 0.05s; opacity: 0; }
+        .delay-2 { animation-delay: 0.1s; opacity: 0; }
+        .delay-3 { animation-delay: 0.15s; opacity: 0; }
+        .delay-4 { animation-delay: 0.2s; opacity: 0; }
+
+        /* Shimmer pour les zones vides */
+        .empty-shimmer {
+            background: linear-gradient(90deg, #f4f3f1 25%, #eae9e6 50%, #f4f3f1 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
         }
-        .luxury-glass {
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-        }
-        .gold-shimmer {
-            background: linear-gradient(90deg, #735c00 0%, #fed65b 50%, #735c00 100%);
-            background-size: 200% auto;
-            animation: shimmer 3s linear infinite;
-        }
-        @keyframes shimmer {
-            to { background-position: 200% center; }
-        }
-        .asymmetric-grid {
-            display: grid;
-            grid-template-columns: 1fr 320px;
-            gap: 24px;
-        }
-        @media (max-width: 1024px) {
-            .asymmetric-grid { grid-template-columns: 1fr; }
-        }
+        @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+        /* Barre de complétion du profil */
+        .profile-fill { transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1); }
     </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-  </head>
-<body class="bg-background text-on-background font-body-md min-h-screen">
-<!-- TopAppBar -->
-<header class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-outline-variant/30 px-gutter py-4 flex justify-between items-center">
-<div class="flex items-center gap-4">
-<button class="cursor-pointer transition-opacity active:opacity-80">
-<span class="material-symbols-outlined text-primary">menu</span>
-</button>
-<h1 class="font-headline-md text-headline-md font-bold text-primary uppercase tracking-widest">L'ÉCLAT DU BÉNIN</h1>
-</div>
-<div class="flex items-center gap-6">
-<span class="hidden md:block font-label-caps text-label-caps uppercase tracking-widest text-primary border-b border-primary">Dashboard</span>
-<span class="hidden md:block font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant/80 hover:text-primary transition-colors duration-300 cursor-pointer">Boutique</span>
-<button class="cursor-pointer transition-opacity active:opacity-80">
-<span class="material-symbols-outlined text-primary">account_circle</span>
-</button>
-</div>
-</header>
-<!-- Sidebar / NavigationDrawer -->
-<aside class="h-full w-80 fixed left-0 top-0 z-[60] bg-surface border-r border-outline-variant/20 shadow-sm hidden lg:flex flex-col py-8 pt-24">
-<div class="px-6 mb-12 flex items-center gap-4">
-<div class="w-12 h-12 rounded-full overflow-hidden border border-secondary/30">
-<img alt="Artisan Portrait" class="w-full h-full object-cover" data-alt="Close-up portrait of a master Beninese artisan in a sun-drenched Cotonou studio. The lighting is warm and natural, casting soft shadows that highlight the craftsmanship and dignity in the artisan's expression. The background is a blurred ivory workshop setting, maintaining a luxury, high-end editorial feel with deep blacks and ivory tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4hi2peHVHqAelsvDXmmMr-tWPSWlYBh59gMqemHmNDIkOo0oxSMEP1AXq9xH_6JBKWqeeaxgouty7A9C6HtL7WF_QG4hUlNP9dQuWB17S0Vk2xvTarcgA5LasuyJIOXY3bEMHlVmSZ-peRS46aWBMIN1ZJnPTRNUZNJ862JTw4vhyXlzz_-sBD5lxP9kPBLMHWCjkjwqOCjzpxiJljKTtH9O__0pa8qAcRqQSsduKkTp15s5_VbVn_OSg5-sbDCy-vMJmWMjWxA"/>
-</div>
-<div>
-<h3 class="font-headline-md text-[18px] text-primary">Master Artisan</h3>
-<p class="font-label-caps text-[10px] text-on-surface-variant">Cotonou, BJ</p>
-</div>
-</div>
-<nav class="flex-1 space-y-1">
-<div class="flex items-center gap-4 px-6 py-4 cursor-pointer bg-primary text-on-primary font-semibold">
-<span class="material-symbols-outlined">dashboard</span>
-<span class="font-body-md text-body-md">Dashboard</span>
-</div>
-<div class="flex items-center gap-4 px-6 py-4 cursor-pointer text-on-surface-variant hover:bg-surface-container-high transition-all duration-200">
-<span class="material-symbols-outlined">storefront</span>
-<span class="font-body-md text-body-md">My Boutique</span>
-</div>
-<div class="flex items-center gap-4 px-6 py-4 cursor-pointer text-on-surface-variant hover:bg-surface-container-high transition-all duration-200">
-<span class="material-symbols-outlined">auto_awesome_motion</span>
-<span class="font-body-md text-body-md">Product Gallery</span>
-</div>
-<div class="flex items-center gap-4 px-6 py-4 cursor-pointer text-on-surface-variant hover:bg-surface-container-high transition-all duration-200">
-<span class="material-symbols-outlined">payments</span>
-<span class="font-body-md text-body-md">Sales &amp; Analytics</span>
-</div>
-<div class="flex items-center gap-4 px-6 py-4 cursor-pointer text-on-surface-variant hover:bg-surface-container-high transition-all duration-200">
-<span class="material-symbols-outlined">support_agent</span>
-<span class="font-body-md text-body-md">Artisan Support</span>
-</div>
-</nav>
-<div class="px-6 mt-auto">
-<div class="p-4 bg-surface-container-low border border-outline-variant/30 rounded-lg">
-<p class="font-label-caps text-[10px] text-secondary uppercase mb-2">Seller Status</p>
-<p class="font-body-md font-bold text-primary">Premium Seller</p>
-</div>
-</div>
-</aside>
-<!-- Main Content Canvas -->
-<main class="lg:ml-80 pt-32 pb-20 px-6 md:px-margin-desktop max-w-container-max mx-auto">
-<!-- Header Section -->
-<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
-<div>
-<p class="font-label-caps text-label-caps text-secondary uppercase tracking-[0.2em] mb-2">Tableau de Bord</p>
-<h2 class="font-display-lg text-[48px] leading-tight text-primary">Artisanal Excellence</h2>
-</div>
-<button class="bg-primary text-on-primary font-label-caps text-label-caps px-8 py-4 uppercase tracking-widest hover:bg-on-surface-variant transition-all duration-300 flex items-center gap-3">
-<span class="material-symbols-outlined text-[20px]">add_circle</span>
-                Add New Masterpiece
+</head>
+<body class="bg-background text-on-surface min-h-screen flex">
+
+{{-- ================================================================
+     SIDEBAR
+     ================================================================ --}}
+<aside class="fixed left-0 top-0 h-full w-64 bg-primary flex flex-col z-50" id="sidebar">
+
+    {{-- Logo --}}
+    <div class="px-6 py-7 border-b border-white/10">
+        <p class="text-[10px] font-semibold text-white/30 uppercase tracking-widest mb-1">Espace Artisan</p>
+        <h1 class="text-white font-bold uppercase tracking-widest leading-tight" style="font-family:'Playfair Display',serif; font-size:15px;">
+            L'ÉCLAT DU BÉNIN
+        </h1>
+    </div>
+
+    {{-- Profil boutique --}}
+    <div class="px-6 py-5 border-b border-white/10">
+        <div class="flex items-center gap-3">
+            {{-- Avatar initiales --}}
+            <div class="w-10 h-10 bg-secondary-fixed flex items-center justify-center flex-shrink-0">
+                <span class="text-primary text-sm font-bold uppercase">
+                    {{ strtoupper(substr($application->shop_name ?? $application->full_name, 0, 2)) }}
+                </span>
+            </div>
+            <div class="min-w-0">
+                <p class="text-white text-sm font-semibold truncate">{{ $application->shop_name }}</p>
+                <div class="flex items-center gap-1.5 mt-0.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-green-400 flex-shrink-0"></span>
+                    <p class="text-[10px] text-white/50 uppercase tracking-widest">Boutique Active</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- Navigation --}}
+    <nav class="flex-1 px-3 py-4 space-y-0.5 overflow-y-auto">
+
+        <p class="px-4 pt-2 pb-1 text-[10px] font-semibold text-white/25 uppercase tracking-widest">Principal</p>
+
+        <a href="{{ route('artisan.dashboard') }}" class="nav-link active">
+            <span class="material-symbols-outlined">dashboard</span>
+            Tableau de Bord
+        </a>
+
+        <a href="#" class="nav-link">
+            <span class="material-symbols-outlined">inventory_2</span>
+            Mes Produits
+            <span class="ml-auto text-[10px] bg-white/10 px-2 py-0.5 rounded-full">{{ $stats['products'] }}</span>
+        </a>
+
+        <a href="#" class="nav-link">
+            <span class="material-symbols-outlined">receipt_long</span>
+            Commandes
+            <span class="ml-auto text-[10px] bg-white/10 px-2 py-0.5 rounded-full">{{ $stats['orders'] }}</span>
+        </a>
+
+        <a href="#" class="nav-link">
+            <span class="material-symbols-outlined">bar_chart</span>
+            Analytiques
+        </a>
+
+        <p class="px-4 pt-4 pb-1 text-[10px] font-semibold text-white/25 uppercase tracking-widest">Boutique</p>
+
+        <a href="#" class="nav-link">
+            <span class="material-symbols-outlined">storefront</span>
+            Ma Boutique
+        </a>
+
+        <a href="#" class="nav-link">
+            <span class="material-symbols-outlined">photo_library</span>
+            Galerie
+        </a>
+
+        <a href="#" class="nav-link">
+            <span class="material-symbols-outlined">local_shipping</span>
+            Livraison
+        </a>
+
+        <p class="px-4 pt-4 pb-1 text-[10px] font-semibold text-white/25 uppercase tracking-widest">Compte</p>
+
+        <a href="#" class="nav-link">
+            <span class="material-symbols-outlined">manage_accounts</span>
+            Paramètres
+        </a>
+
+        <a href="#" class="nav-link">
+            <span class="material-symbols-outlined">help_outline</span>
+            Aide & Support
+        </a>
+    </nav>
+
+    {{-- Déconnexion --}}
+    <div class="px-3 py-4 border-t border-white/10">
+        <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button type="submit" class="nav-link w-full text-left hover:bg-red-900/20 hover:text-red-300">
+                <span class="material-symbols-outlined">logout</span>
+                Se Déconnecter
             </button>
+        </form>
+    </div>
+
+</aside>
+
+{{-- ================================================================
+     CONTENU PRINCIPAL
+     ================================================================ --}}
+<div class="ml-64 flex-1 flex flex-col min-h-screen">
+
+    {{-- TOPBAR --}}
+    <header class="sticky top-0 z-40 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 px-8 py-4 flex items-center justify-between">
+        <div>
+            <h2 class="font-bold text-primary" style="font-family:'Playfair Display',serif; font-size:20px;">
+                Tableau de Bord
+            </h2>
+            <p class="text-xs text-on-surface-variant mt-0.5">
+                {{ now()->isoFormat('dddd D MMMM YYYY') }} — Bienvenue, {{ auth()->user()->name }}
+            </p>
+        </div>
+        <div class="flex items-center gap-4">
+            {{-- Statut boutique --}}
+            <span class="badge-approved">
+                <span class="material-symbols-outlined text-[12px]" style="font-variation-settings:'FILL' 1;">verified</span>
+                Boutique Approuvée
+            </span>
+            {{-- Bouton principal --}}
+            <a href="#"
+               class="flex items-center gap-2 bg-primary text-white px-5 py-2.5 text-xs font-semibold uppercase tracking-widest hover:bg-on-surface-variant transition-all">
+                <span class="material-symbols-outlined text-[16px]">add</span>
+                Ajouter un Produit
+            </a>
+        </div>
+    </header>
+
+    <main class="flex-1 p-8 space-y-8">
+
+        {{-- ── MESSAGE DE BIENVENUE (flash, s'affiche une seule fois) ── --}}
+        @if(session('welcome'))
+            <div class="fade-up p-5 border-l-4 border-on-tertiary-container bg-white flex items-start gap-4" id="welcome-banner">
+                <span class="material-symbols-outlined text-on-tertiary-container text-3xl flex-shrink-0" style="font-variation-settings:'FILL' 1;">celebration</span>
+                <div class="flex-1">
+                    <p class="font-semibold text-primary">{{ session('welcome') }}</p>
+                    <p class="text-sm text-on-surface-variant mt-1">
+                        Votre boutique <strong>{{ $application->shop_name }}</strong> est maintenant visible sur L'Éclat du Bénin.
+                        Commencez par ajouter vos premiers produits.
+                    </p>
+                </div>
+                <button onclick="this.parentElement.remove()" class="text-on-surface-variant hover:text-primary flex-shrink-0">
+                    <span class="material-symbols-outlined text-[18px]">close</span>
+                </button>
+            </div>
+        @endif
+
+        {{-- ── SECTION 1 : CARTES DE STATISTIQUES ── --}}
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-5">
+
+            {{-- Produits --}}
+            <div class="stat-card bg-surface border border-outline-variant/30 p-6 fade-up delay-1">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="w-10 h-10 bg-surface-container flex items-center justify-center">
+                        <span class="material-symbols-outlined text-secondary">inventory_2</span>
+                    </div>
+                    <span class="text-[10px] text-on-surface-variant/50 uppercase tracking-widest">Ce mois</span>
+                </div>
+                <p class="text-3xl font-bold text-primary">{{ $stats['products'] }}</p>
+                <p class="text-xs text-on-surface-variant uppercase tracking-widest mt-1">Produits publiés</p>
+                @if($stats['products'] === 0)
+                    <p class="text-[10px] text-secondary mt-3 font-semibold">→ Ajoutez votre 1er produit</p>
+                @endif
+            </div>
+
+            {{-- Vues --}}
+            <div class="stat-card bg-surface border border-outline-variant/30 p-6 fade-up delay-2">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="w-10 h-10 bg-surface-container flex items-center justify-center">
+                        <span class="material-symbols-outlined text-secondary">visibility</span>
+                    </div>
+                    <span class="text-[10px] text-on-surface-variant/50 uppercase tracking-widest">Ce mois</span>
+                </div>
+                <p class="text-3xl font-bold text-primary">{{ number_format($stats['views']) }}</p>
+                <p class="text-xs text-on-surface-variant uppercase tracking-widest mt-1">Vues de la boutique</p>
+            </div>
+
+            {{-- Commandes --}}
+            <div class="stat-card bg-surface border border-outline-variant/30 p-6 fade-up delay-3">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="w-10 h-10 bg-surface-container flex items-center justify-center">
+                        <span class="material-symbols-outlined text-secondary">receipt_long</span>
+                    </div>
+                    <span class="text-[10px] text-on-surface-variant/50 uppercase tracking-widest">En cours</span>
+                </div>
+                <p class="text-3xl font-bold text-primary">{{ $stats['orders'] }}</p>
+                <p class="text-xs text-on-surface-variant uppercase tracking-widest mt-1">Commandes reçues</p>
+            </div>
+
+            {{-- Revenus --}}
+            <div class="stat-card bg-primary p-6 fade-up delay-4">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="w-10 h-10 bg-white/10 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-secondary-fixed">payments</span>
+                    </div>
+                    <span class="text-[10px] text-white/40 uppercase tracking-widest">Ce mois</span>
+                </div>
+                <p class="text-3xl font-bold text-white">{{ number_format($stats['revenue']) }}</p>
+                <p class="text-xs text-white/60 uppercase tracking-widest mt-1">Revenus (FCFA)</p>
+            </div>
+
+        </div>
+
+        {{-- ── SECTION 2 : CONTENU PRINCIPAL (2 colonnes) ── --}}
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+            {{-- COLONNE LARGE : Premiers pas (quand boutique vide) --}}
+            <div class="lg:col-span-2 space-y-5 fade-up delay-2">
+
+                {{-- Carte "Démarrer" --}}
+                <div class="bg-surface border border-outline-variant/30 overflow-hidden">
+                    <div class="px-6 pt-6 pb-4 border-b border-outline-variant/20">
+                        <h3 class="font-bold text-primary uppercase tracking-widest text-xs">Premiers Pas</h3>
+                        <p class="text-sm text-on-surface-variant mt-1">Complétez ces étapes pour maximiser votre visibilité sur la plateforme.</p>
+                    </div>
+
+                    <div class="divide-y divide-outline-variant/20">
+
+                        {{-- Étape 1 : Compte créé ✅ --}}
+                        <div class="flex items-center gap-5 px-6 py-4">
+                            <div class="w-8 h-8 bg-on-tertiary-container/15 flex items-center justify-center flex-shrink-0">
+                                <span class="material-symbols-outlined text-on-tertiary-container text-[18px]" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-sm font-semibold text-primary">Compte & Boutique créés</p>
+                                <p class="text-xs text-on-surface-variant mt-0.5">Inscription complète et validée par le Comité.</p>
+                            </div>
+                            <span class="text-[10px] font-semibold text-on-tertiary-container uppercase tracking-widest">Complété</span>
+                        </div>
+
+                        {{-- Étape 2 : Ajouter produit --}}
+                        <div class="flex items-center gap-5 px-6 py-4 bg-secondary-fixed/10">
+                            <div class="w-8 h-8 bg-secondary-container flex items-center justify-center flex-shrink-0">
+                                <span class="material-symbols-outlined text-secondary text-[18px]">inventory_2</span>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-sm font-semibold text-primary">Ajoutez votre premier produit</p>
+                                <p class="text-xs text-on-surface-variant mt-0.5">Photos, description, prix — votre vitrine commence ici.</p>
+                            </div>
+                            <a href="#" class="text-[10px] font-semibold text-secondary uppercase tracking-widest border-b border-secondary hover:text-primary hover:border-primary transition-colors whitespace-nowrap">
+                                Commencer →
+                            </a>
+                        </div>
+
+                        {{-- Étape 3 : Photo de couverture --}}
+                        <div class="flex items-center gap-5 px-6 py-4 opacity-60">
+                            <div class="w-8 h-8 bg-surface-container flex items-center justify-center flex-shrink-0">
+                                <span class="material-symbols-outlined text-outline text-[18px]">add_photo_alternate</span>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-sm font-semibold text-primary">Photo de couverture de la boutique</p>
+                                <p class="text-xs text-on-surface-variant mt-0.5">Une image éditoriale qui représente votre univers artisanal.</p>
+                            </div>
+                            <span class="text-[10px] text-on-surface-variant/50 uppercase tracking-widest">À faire</span>
+                        </div>
+
+                        {{-- Étape 4 : Coordonnées bancaires --}}
+                        <div class="flex items-center gap-5 px-6 py-4 opacity-60">
+                            <div class="w-8 h-8 bg-surface-container flex items-center justify-center flex-shrink-0">
+                                <span class="material-symbols-outlined text-outline text-[18px]">account_balance</span>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-sm font-semibold text-primary">Coordonnées de paiement</p>
+                                <p class="text-xs text-on-surface-variant mt-0.5">Mobile money ou virement bancaire pour recevoir vos revenus.</p>
+                            </div>
+                            <span class="text-[10px] text-on-surface-variant/50 uppercase tracking-widest">À faire</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                {{-- Zone produits (vide pour l'instant) --}}
+                <div class="bg-surface border border-outline-variant/30">
+                    <div class="flex items-center justify-between px-6 pt-5 pb-4 border-b border-outline-variant/20">
+                        <h3 class="font-bold text-primary uppercase tracking-widest text-xs">Mes Produits</h3>
+                        <a href="#" class="text-[10px] text-secondary font-semibold uppercase tracking-widest hover:text-primary transition-colors">
+                            Voir tout →
+                        </a>
+                    </div>
+
+                    {{-- État vide --}}
+                    <div class="py-16 flex flex-col items-center justify-center text-center px-8">
+                        <div class="w-16 h-16 border border-dashed border-outline-variant flex items-center justify-center mb-5">
+                            <span class="material-symbols-outlined text-3xl text-outline-variant">inventory_2</span>
+                        </div>
+                        <p class="font-semibold text-primary text-sm uppercase tracking-widest mb-2">Aucun produit pour l'instant</p>
+                        <p class="text-xs text-on-surface-variant max-w-xs leading-relaxed mb-6">
+                            Votre boutique est prête à recevoir vos créations artisanales. Présentez vos pièces uniques à notre clientèle de prestige.
+                        </p>
+                        <a href="#"
+                           class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 text-xs font-semibold uppercase tracking-widest hover:bg-on-surface-variant transition-all">
+                            <span class="material-symbols-outlined text-[16px]">add</span>
+                            Ajouter mon premier produit
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            {{-- COLONNE DROITE : Infos boutique + complétion profil --}}
+            <div class="space-y-5 fade-up delay-3">
+
+                {{-- Carte boutique --}}
+                <div class="bg-surface border border-outline-variant/30 overflow-hidden">
+                    <div class="h-24 bg-primary relative overflow-hidden">
+                        <div class="absolute inset-0 opacity-10" style="background: repeating-linear-gradient(45deg, #735c00, #735c00 1px, transparent 1px, transparent 10px);"></div>
+                        <div class="absolute bottom-4 left-5">
+                            <span class="text-[10px] font-semibold text-secondary-fixed uppercase tracking-widest">Boutique Vérifiée</span>
+                        </div>
+                    </div>
+                    <div class="px-5 pb-5">
+                        <div class="flex items-end justify-between -mt-5 mb-4">
+                            <div class="w-12 h-12 bg-secondary-fixed flex items-center justify-center border-2 border-surface">
+                                <span class="text-primary text-base font-bold uppercase">
+                                    {{ strtoupper(substr($application->shop_name ?? '', 0, 2)) }}
+                                </span>
+                            </div>
+                            <a href="#" class="text-[10px] text-secondary font-semibold uppercase tracking-widest border-b border-secondary hover:text-primary hover:border-primary transition-colors">
+                                Modifier
+                            </a>
+                        </div>
+                        <h4 class="font-bold text-primary" style="font-family:'Playfair Display',serif;">
+                            {{ $application->shop_name }}
+                        </h4>
+                        <p class="text-xs text-on-surface-variant mt-1">
+                            {{ ucfirst($application->craft_type ?? 'Artisanat') }}
+                        </p>
+                        <p class="text-xs text-on-surface-variant mt-3 leading-relaxed line-clamp-3">
+                            {{ $application->shop_story }}
+                        </p>
+                    </div>
+                </div>
+
+                {{-- Complétion du profil --}}
+                <div class="bg-surface border border-outline-variant/30 p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <h4 class="text-xs font-bold text-primary uppercase tracking-widest">Profil Complété</h4>
+                        <span class="text-xs font-bold text-secondary" id="completion-pct">25%</span>
+                    </div>
+                    <div class="h-1.5 bg-surface-container-highest overflow-hidden mb-4">
+                        <div class="h-full bg-secondary profile-fill" style="width: 0%" id="completion-bar"></div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2 text-xs">
+                            <span class="material-symbols-outlined text-[14px] text-on-tertiary-container" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                            <span class="text-on-surface-variant">Informations de profil</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs">
+                            <span class="material-symbols-outlined text-[14px] text-on-tertiary-container" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                            <span class="text-on-surface-variant">Configuration de boutique</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs opacity-50">
+                            <span class="material-symbols-outlined text-[14px] text-outline">radio_button_unchecked</span>
+                            <span class="text-on-surface-variant">Premier produit ajouté</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs opacity-50">
+                            <span class="material-symbols-outlined text-[14px] text-outline">radio_button_unchecked</span>
+                            <span class="text-on-surface-variant">Photo de couverture</span>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Infos pratiques --}}
+                <div class="bg-surface border border-outline-variant/30 p-5 space-y-4">
+                    <h4 class="text-xs font-bold text-primary uppercase tracking-widest">Informations</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0 mt-0.5">email</span>
+                            <div>
+                                <p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Email</p>
+                                <p class="text-xs text-primary font-semibold">{{ auth()->user()->email }}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0 mt-0.5">phone</span>
+                            <div>
+                                <p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Téléphone</p>
+                                <p class="text-xs text-primary font-semibold">{{ $application->phone ?? '—' }}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0 mt-0.5">calendar_today</span>
+                            <div>
+                                <p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Membre depuis</p>
+                                <p class="text-xs text-primary font-semibold">{{ $application->reviewed_at?->format('d/m/Y') ?? $application->created_at->format('d/m/Y') }}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0 mt-0.5">category</span>
+                            <div>
+                                <p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Domaine</p>
+                                <p class="text-xs text-primary font-semibold">{{ $application->profile_type_label }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    {{-- Footer --}}
+    <footer class="border-t border-outline-variant/30 px-8 py-4 flex items-center justify-between">
+        <p class="text-[10px] text-on-surface-variant/50 uppercase tracking-widest">
+            © 2024 L'Éclat du Bénin — Espace Artisan
+        </p>
+        <a href="#" class="text-[10px] text-on-surface-variant/50 hover:text-primary transition-colors uppercase tracking-widest">
+            Aide & Support
+        </a>
+    </footer>
+
 </div>
-<!-- KPI Bento Grid -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-<div class="p-8 bg-surface-container-lowest border border-outline-variant/30 flex flex-col justify-between h-48 transition-transform hover:scale-[1.02]">
-<div class="flex justify-between items-start">
-<span class="material-symbols-outlined text-secondary">payments</span>
-<span class="text-emerald-600 font-label-caps text-[10px]">+12.5%</span>
-</div>
-<div>
-<p class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-1">Net Sales</p>
-<p class="font-price-display text-[28px] text-primary">1.250.000 FCFA</p>
-</div>
-</div>
-<div class="p-8 bg-surface-container-lowest border border-outline-variant/30 flex flex-col justify-between h-48 transition-transform hover:scale-[1.02]">
-<div class="flex justify-between items-start">
-<span class="material-symbols-outlined text-secondary">shopping_bag</span>
-<span class="text-emerald-600 font-label-caps text-[10px]">+4.2%</span>
-</div>
-<div>
-<p class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-1">Order Volume</p>
-<p class="font-price-display text-[28px] text-primary">48 Orders</p>
-</div>
-</div>
-<div class="p-8 bg-surface-container-lowest border border-outline-variant/30 flex flex-col justify-between h-48 transition-transform hover:scale-[1.02]">
-<div class="flex justify-between items-start">
-<span class="material-symbols-outlined text-secondary">visibility</span>
-<span class="text-secondary font-label-caps text-[10px]">Stable</span>
-</div>
-<div>
-<p class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-1">Profile Views</p>
-<p class="font-price-display text-[28px] text-primary">3,842</p>
-</div>
-</div>
-</div>
-<!-- Analytics & Links Asymmetric Layout -->
-<div class="asymmetric-grid mb-section-gap">
-<!-- Sales Trends Chart Container -->
-<div class="bg-surface-container-lowest border border-outline-variant/30 p-8">
-<div class="flex justify-between items-center mb-10">
-<h3 class="font-headline-md text-headline-md text-primary">Sales Trends</h3>
-<div class="flex gap-4">
-<span class="font-label-caps text-[10px] text-primary underline cursor-pointer">WEEKLY</span>
-<span class="font-label-caps text-[10px] text-on-surface-variant cursor-pointer">MONTHLY</span>
-</div>
-</div>
-<!-- Visual Placeholder for a Luxury Chart -->
-<div class="relative h-64 w-full flex items-end justify-between px-2 overflow-hidden">
-<div class="absolute inset-0 opacity-10 pointer-events-none">
-<div class="w-full h-full" style="background-image: radial-gradient(#735c00 1px, transparent 1px); background-size: 32px 32px;"></div>
-</div>
-<!-- Custom SVG Line Chart -->
-<svg class="absolute bottom-0 left-0 w-full h-full" preserveaspectratio="none" viewbox="0 0 800 200">
-<path d="M0,150 Q100,120 200,140 T400,80 T600,100 T800,40" fill="none" stroke="#735c00" stroke-width="2"></path>
-<path d="M0,150 Q100,120 200,140 T400,80 T600,100 T800,40 L800,200 L0,200 Z" fill="url(#goldGradient)" opacity="0.05"></path>
-<defs>
-<lineargradient id="goldGradient" x1="0%" x2="0%" y1="0%" y2="100%">
-<stop offset="0%" style="stop-color:#fed65b;stop-opacity:1"></stop>
-<stop offset="100%" style="stop-color:#ffffff;stop-opacity:0"></stop>
-</lineargradient>
-</defs>
-</svg>
-<!-- Column bars for visual rhythm -->
-<div class="w-1 bg-outline-variant/20 h-full"></div>
-<div class="w-1 bg-outline-variant/20 h-full"></div>
-<div class="w-1 bg-outline-variant/20 h-full"></div>
-<div class="w-1 bg-outline-variant/20 h-full"></div>
-<div class="w-1 bg-outline-variant/20 h-full"></div>
-<div class="w-1 bg-outline-variant/20 h-full"></div>
-<div class="w-1 bg-outline-variant/20 h-full"></div>
-</div>
-<div class="flex justify-between mt-4 text-on-surface-variant font-label-caps text-[10px]">
-<span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span><span>SUN</span>
-</div>
-</div>
-<!-- Quick Links / Manage Boutique -->
-<div class="space-y-6">
-<div class="bg-primary text-on-primary p-8">
-<h4 class="font-headline-md text-[18px] mb-6">Manage Boutique</h4>
-<ul class="space-y-4">
-<li class="flex items-center justify-between group cursor-pointer">
-<span class="font-body-md text-sm">Update Collection</span>
-<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">chevron_right</span>
-</li>
-<li class="flex items-center justify-between group cursor-pointer border-t border-on-primary/20 pt-4">
-<span class="font-body-md text-sm">Shipping Profiles</span>
-<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">chevron_right</span>
-</li>
-<li class="flex items-center justify-between group cursor-pointer border-t border-on-primary/20 pt-4">
-<span class="font-body-md text-sm">Marketing Tools</span>
-<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">chevron_right</span>
-</li>
-<li class="flex items-center justify-between group cursor-pointer border-t border-on-primary/20 pt-4">
-<span class="font-body-md text-sm">Review Center</span>
-<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">chevron_right</span>
-</li>
-</ul>
-</div>
-<div class="bg-secondary-container p-8 flex flex-col justify-center">
-<p class="font-label-caps text-[10px] text-on-secondary-container uppercase mb-2">Need Expert Help?</p>
-<h4 class="font-headline-md text-[18px] text-on-secondary-container mb-4">Artisan Concierge</h4>
-<button class="border border-on-secondary-container text-on-secondary-container font-label-caps text-[10px] py-3 uppercase tracking-widest hover:bg-on-secondary-container hover:text-white transition-colors">Start Consultation</button>
-</div>
-</div>
-</div>
-<!-- Recent Orders List -->
-<section>
-<div class="flex justify-between items-center mb-8">
-<h3 class="font-headline-md text-headline-md text-primary">Recent Acquisitions</h3>
-<span class="font-label-caps text-label-caps text-secondary cursor-pointer hover:underline">VIEW ALL ORDERS</span>
-</div>
-<div class="space-y-4">
-<!-- Order Row 1 -->
-<div class="flex items-center justify-between p-4 bg-surface-container-lowest border border-outline-variant/30 hover:border-secondary transition-colors group">
-<div class="flex items-center gap-6">
-<div class="w-20 h-20 bg-surface-container overflow-hidden">
-<img alt="Order Thumbnail" class="w-full h-full object-cover" data-alt="A high-end, luxury close-up of a handcrafted Beninese leather bag. The product is shot in a professional studio setting with dramatic side-lighting that emphasizes the texture of the grain. The color palette is rich earth tones, deep blacks, and subtle ivory highlights, reflecting a museum-gallery aesthetic for an elite marketplace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJsDrzZ_xEDElcnClrD_mrBmTRKDLEuygNWn9Bd-2w21HBk2U7sdCq32jKOxzbsjTjPRhUd8y_UR0a5wy69RTSYCbHJYGTXoRFcPv-UL7t4m7s3W2FGOEgeu1dcsrNtXuSsd5lhnNhBN6kn7XoGzoXXaJiUBRB52q_gmzs-NTf0tc5-Buo2N2DhxQUhnD8VIyTTDtoE0W9avhaDoYmBn7xanxfVhiPlzoMRq10fiXvDeZm4Gl1f8ednz-f0M4XRwfKAEl_-GJVGQ"/>
-</div>
-<div>
-<p class="font-label-caps text-[10px] text-on-surface-variant uppercase mb-1">Order #B8921</p>
-<h4 class="font-body-md font-bold text-primary">Royal Fon Leather Satchel</h4>
-<p class="font-label-caps text-[10px] text-emerald-600 uppercase">Shipped to: Paris, FR</p>
-</div>
-</div>
-<div class="text-right flex flex-col items-end gap-2">
-<p class="font-price-display text-primary">245.000 FCFA</p>
-<span class="px-3 py-1 bg-surface-container text-on-surface-variant font-label-caps text-[9px] uppercase tracking-wider">Completed</span>
-</div>
-</div>
-<!-- Order Row 2 -->
-<div class="flex items-center justify-between p-4 bg-surface-container-lowest border border-outline-variant/30 hover:border-secondary transition-colors group">
-<div class="flex items-center gap-6">
-<div class="w-20 h-20 bg-surface-container overflow-hidden">
-<img alt="Order Thumbnail" class="w-full h-full object-cover" data-alt="Exquisite artisanal jewelry piece, a bronze and gold-leaf necklace displayed on a minimalist ivory bust. The lighting is soft and diffused, creating a serene and exclusive atmosphere. High-contrast deep blacks and warm gold tones dominate the frame, aligning with an editorial luxury fashion design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxM3z5d8HUvr4vSTCVBYCxHHr2KZWGCaFch3xkm4BX4JRh_5HmPJSAdlEhtWuQ0QehvtWczHIptEjXFiAzuJJnklLgFelY1w-nJA4ts3E60WRpRXc0tb7ZzgsIHDh5XuXovMguVT8VnWc8IY9jswvl3T5D2nHSo8ZHsBkxw6kCcO3SYd91hLdwFQIe3VJbHuH7qO6uMJmsuwEHCKJbDC7XazExcQU-1IMODvPbJW43CxZXb-op2SyMXX0ZuLpj_ODVSTQAPxKdNw"/>
-</div>
-<div>
-<p class="font-label-caps text-[10px] text-on-surface-variant uppercase mb-1">Order #B8920</p>
-<h4 class="font-body-md font-bold text-primary">Dahomey Bronze Necklace</h4>
-<p class="font-label-caps text-[10px] text-secondary uppercase">Processing: Lagos, NG</p>
-</div>
-</div>
-<div class="text-right flex flex-col items-end gap-2">
-<p class="font-price-display text-primary">180.000 FCFA</p>
-<span class="px-3 py-1 bg-secondary-container text-on-secondary-container font-label-caps text-[9px] uppercase tracking-wider">In Progress</span>
-</div>
-</div>
-<!-- Order Row 3 -->
-<div class="flex items-center justify-between p-4 bg-surface-container-lowest border border-outline-variant/30 hover:border-secondary transition-colors group">
-<div class="flex items-center gap-6">
-<div class="w-20 h-20 bg-surface-container overflow-hidden">
-<img alt="Order Thumbnail" class="w-full h-full object-cover" data-alt="Handcrafted ceramic vessel with traditional Beninese patterns, presented in a high-key minimalist setting. The vessel's matte black finish contrasts beautifully with the warm ivory background. Studio lighting highlights the intricate surface details and artisanal heritage, maintaining a clean, luxurious, and vivid visual narrative." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjS0zIQeX9NcNqSPQ2H9L_oZbNY-UdqnC2DH0y2H64sdshR_XMewmM6iqXsYwJgQJvHBksmH2Ek9fOyyzlY5HicbAwFodNpIVtJAdGD-z1XVeLU_OMNzA2bWwfTVKtBC7AbdGlA-WOKxukI5lypSgLSWVQ3iMSmaA0lRLal83EH91vC5e-ciiwYF4mfCh2Mjj4JxxUKifiP64a3XDF8emMsCbW6OMHdmuqF1Hcwofx4sG85UOLWs5IQGSE-eymHzqtBMxuSFCT5g"/>
-</div>
-<div>
-<p class="font-label-caps text-[10px] text-on-surface-variant uppercase mb-1">Order #B8919</p>
-<h4 class="font-body-md font-bold text-primary">Abomey Pattern Ceramic</h4>
-<p class="font-label-caps text-[10px] text-on-surface-variant uppercase">New: Cotonou, BJ</p>
-</div>
-</div>
-<div class="text-right flex flex-col items-end gap-2">
-<p class="font-price-display text-primary">95.000 FCFA</p>
-<span class="px-3 py-1 bg-surface-variant text-on-surface-variant font-label-caps text-[9px] uppercase tracking-wider">Awaiting Pmt</span>
-</div>
-</div>
-</div>
-</section>
-</main>
-<!-- Footer -->
-<footer class="w-full mt-section-gap border-t border-outline-variant/50 bg-surface-container-lowest">
-<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-12 w-full max-w-container-max mx-auto">
-<h1 class="font-headline-md text-headline-md text-primary mb-6 md:mb-0">L'ÉCLAT DU BÉNIN</h1>
-<div class="flex flex-wrap gap-8 items-center justify-center mb-8 md:mb-0">
-<span class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant/80 hover:text-primary transition-colors cursor-pointer">The Artisans</span>
-<span class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant/80 hover:text-primary transition-colors cursor-pointer">Our Story</span>
-<span class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant/80 hover:text-primary transition-colors cursor-pointer">Seller Terms</span>
-<span class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant/80 hover:text-primary transition-colors cursor-pointer">Privacy</span>
-</div>
-<p class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant/60">© 2024 L'Éclat du Bénin. Heritage Excellence.</p>
-</div>
-</footer>
-<!-- FAB (Suppressed for focused dashboard experience as per mandate) -->
+
 <script>
-        // Micro-interactions for chart responsiveness
-        document.addEventListener('DOMContentLoaded', () => {
-            const chartBars = document.querySelectorAll('.asymmetric-grid .w-1');
-            chartBars.forEach((bar, index) => {
-                const height = Math.floor(Math.random() * 60) + 20;
-                bar.style.height = '0%';
-                setTimeout(() => {
-                    bar.style.transition = `height 1s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.1}s`;
-                    bar.style.height = `${height}%`;
-                }, 100);
-            });
-        });
-    </script>
-</body></html>
+document.addEventListener('DOMContentLoaded', () => {
+    // Animer la barre de complétion du profil (25% = 2 étapes sur 4)
+    setTimeout(() => {
+        document.getElementById('completion-bar').style.width = '25%';
+    }, 600);
+});
+</script>
+
+</body>
+</html>
