@@ -34,6 +34,12 @@ class LoginController extends Controller
 
         $request->session()->regenerate();
 
+        // Redirection spécifique pour les administrateurs
+        $user = Auth::user();
+        if (method_exists($user, 'isAdmin') ? $user->isAdmin() : ($user->role ?? null) === \App\Models\User::ROLE_ADMIN) {
+            return redirect()->intended(route('admin.artisans.index'));
+        }
+
         return redirect()->intended('/');
     }
 

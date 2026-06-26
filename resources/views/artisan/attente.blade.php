@@ -12,7 +12,7 @@
             darkMode: "class",
             theme: { extend: {
                 colors: {
-                    "surface-container-low":"#f4f3f1","surface-container":"#efeeeb","primary":"#000000",
+                    "surface-container-low":"#f4f3f1","surface-container":"#efeeeb","primary":"#012F24 ",
                     "surface-container-highest":"#e3e2e0","on-surface-variant":"#444748",
                     "secondary-fixed-dim":"#e9c349","outline":"#747878","surface-container-lowest":"#ffffff",
                     "background":"#faf9f6","on-surface":"#1a1c1a","secondary-fixed":"#ffe088",
@@ -311,7 +311,7 @@
 <footer class="w-full mt-section-gap border-t border-outline-variant/50 bg-surface-container-lowest py-12">
     <div class="max-w-container-max mx-auto px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-8">
         <h2 class="font-headline-md text-headline-md text-primary font-bold">L'ÉCLAT DU BÉNIN</h2>
-        
+
         <p class="font-label-caps text-label-caps text-on-surface-variant/60">© 2026 L'ÉCLAT DU BÉNIN.</p>
     </div>
 </footer>

@@ -22,7 +22,7 @@
                         "on-background": "#1a1c1a",
                         "background": "#faf9f6",
                         "error": "#ba1a1a",
-                        "tertiary": "#000000",
+                        "tertiary": "#012F24 ",
                         "surface-container-low": "#f4f3f1",
                         "secondary-fixed-dim": "#e9c349",
                         "surface-container-high": "#e9e8e5",
@@ -49,10 +49,10 @@
                         "surface-tint": "#5f5e5e",
                         "surface-container": "#efeeeb",
                         "tertiary-fixed-dim": "#a0d1b8",
-                        "secondary": "#735c00",
+                        "secondary": "#D9AF4B ",
                         "on-primary-fixed-variant": "#474646",
                         "secondary-container": "#fed65b",
-                        "primary": "#000000",
+                        "primary": "#012F24 ",
                         "surface-dim": "#dbdad7",
                         "on-tertiary-fixed": "#002114",
                         "inverse-on-surface": "#f2f1ee",
@@ -145,7 +145,7 @@
             height: 1px;
             bottom: -2px;
             left: 0;
-            background-color: #735c00;
+            background-color: #D9AF4B ;
             transition: width 0.3s ease;
         }
 
@@ -264,14 +264,14 @@
         .divider-gold {
             width: 40px;
             height: 2px;
-            background: linear-gradient(90deg, transparent, #735c00, transparent);
+            background: linear-gradient(90deg, transparent, #D9AF4B , transparent);
             margin: 16px 0;
         }
 
         .divider-gold-center {
             width: 60px;
             height: 1px;
-            background: linear-gradient(90deg, transparent, #735c00, transparent);
+            background: linear-gradient(90deg, transparent, #D9AF4B , transparent);
             margin: 0 auto 24px;
         }
 
@@ -290,7 +290,7 @@
 
         /* Texte avec gradient */
         .text-gradient {
-            background: linear-gradient(135deg, #000000, #444748);
+            background: linear-gradient(135deg, #012F24 , #444748);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -308,7 +308,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, #735c00, #735c00);
+            background: linear-gradient(90deg, #D9AF4B , #D9AF4B );
             transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 

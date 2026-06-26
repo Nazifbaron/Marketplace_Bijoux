@@ -13,7 +13,7 @@
             darkMode:"class",
             theme: { extend: {
                 colors: {
-                    "surface-container-low":"#f4f3f1","surface-container":"#efeeeb","primary":"#000000",
+                    "surface-container-low":"#f4f3f1","surface-container":"#efeeeb","primary":"#012F24 ",
                     "surface-container-highest":"#e3e2e0","surface-container-high":"#e9e8e5",
                     "on-surface-variant":"#444748","secondary-fixed-dim":"#e9c349","outline":"#747878",
                     "surface-container-lowest":"#ffffff","background":"#faf9f6","on-surface":"#1a1c1a",

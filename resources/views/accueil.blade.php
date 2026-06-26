@@ -5,7 +5,7 @@
             <div class="absolute inset-0 hero-gradient"></div>
         </div>
         <div class="relative z-10 text-center px-margin-mobile max-w-4xl">
-            <p class="font-label-caps text-label-caps text-secondary tracking-[0.3em] mb-6 reveal">HERITAGE &amp; LUXE</p>
+            <!--<p class="font-label-caps text-label-caps text-secondary tracking-[0.3em] mb-6 reveal">HERITAGE &amp; LUXE</p>-->
             <h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-8 leading-tight reveal">L'Excellence de l'Artisanat Béninois</h2>
             <div class="flex flex-col md:flex-row gap-6 justify-center reveal">
                 <a href="/collection" class="btn-luxury bg-primary text-on-primary px-10 py-4 font-label-caps text-label-caps uppercase tracking-widest shadow-lg hover:shadow-xl hover:scale-105">

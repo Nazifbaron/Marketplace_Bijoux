@@ -155,16 +155,13 @@ class ArtisanOnboardingController extends Controller
 
         // --- NOTIFICATION ADMIN ---
         // Envoyer un email à l'admin pour lui dire qu'un nouveau dossier est là
-        // (Décommente quand tu as configuré MAIL_* dans .env)
-        /*
         try {
-            Mail::to(config('mail.admin_address', 'admin@eclat-benin.com'))
+            \Illuminate\Support\Facades\Mail::to(config('mail.admin_address', 'admin@eclat-benin.com'))
                 ->send(new \App\Mail\NewApplicationReceived($application));
         } catch (\Exception $e) {
             Log::error('Erreur envoi email admin: ' . $e->getMessage());
             // On ne bloque pas l'utilisateur si l'email échoue
         }
-        */
 
         // Vider la session (plus besoin de l'application_id)
         session()->forget('application_id');
@@ -189,17 +186,14 @@ class ArtisanOnboardingController extends Controller
      public function checkStatus()
     {
         $application = ArtisanApplication::where('user_id', Auth::id())->first();
-
         if (!$application) {
             return response()->json(['status' => 'none', 'redirect' => null]);
         }
-
         $redirect = null;
 
         if ($application->isApproved()) {
             $redirect = route('artisan.dashboard');
         }
-
         return response()->json([
             'status'   => $application->status,
             'redirect' => $redirect,

@@ -47,6 +47,8 @@ class AuthenticatedLoginController extends Controller
 
         $request->session()->regenerate();
 
+        
+
         return $this->redirectAfterLogin();
     }
 
@@ -65,6 +67,10 @@ class AuthenticatedLoginController extends Controller
     public function redirectAfterLogin()
     {
         $user = Auth::user();
+        // Si l'utilisateur est admin, priorité au dashboard admin
+        if (method_exists($user, 'isAdmin') ? $user->isAdmin() : ($user->role ?? null) === \App\Models\User::ROLE_ADMIN) {
+            return redirect()->route('admin.artisans.index');
+        }
 
         // ── 2. Chercher la demande artisan de cet utilisateur ──
         $application = ArtisanApplication::where('user_id', $user->id)->first();
@@ -74,6 +80,7 @@ class AuthenticatedLoginController extends Controller
             return redirect()->route('artisan.onboarding.step1')
                 ->with('info', 'Commencez votre candidature pour rejoindre L\'Éclat du Bénin.');
         }
+
         // ── 4. Rediriger selon le statut de la demande ──
         return match($application->status) {
 

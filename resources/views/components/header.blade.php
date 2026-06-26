@@ -1,8 +1,9 @@
 <nav class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-outline-variant/30 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 w-full">
-    <!--<div class="flex items-center gap-4">
-            <span class="material-symbols-outlined text-primary cursor-pointer transition-transform duration-200 active:scale-95" data-icon="menu">menu</span>
-        </div>-->
-    <h1 class="font-display-lg text-headline-md tracking-widest text-primary">L'ÉCLAT DU BÉNIN</h1>
+        <div class="flex items-center gap-4">
+            <a href="/">
+                <img src="{{ asset('images/logo.jpeg')}}" alt="Logo" class="w-14 h-14 sm:w-20 sm:h-10 object-contain ">
+            </a>
+        </div>
     <div class="flex items-center gap-6">
         <div class="hidden md:flex gap-8 items-center">
             <a class="font-label-caps text-label-caps text-primary font-bold line-hover relative" href="/">HOME</a>

@@ -113,4 +113,16 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
+        /*
+        |--------------------------------------------------------------------------
+        | Admin address (application notifications)
+        |--------------------------------------------------------------------------
+        |
+        | Email address that receives administrative notifications such as new
+        | artisan applications. You can override this in your .env file by
+        | setting MAIL_ADMIN_ADDRESS.
+        |
+        */
+        'admin_address' => env('MAIL_ADMIN_ADDRESS', 'admin@eclat-benin.com'),
+
 ];

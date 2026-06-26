@@ -1,41 +1,69 @@
-<footer class="bg-primary text-on-primary w-full py-12 border-t border-outline-variant/10">
-    <div class="flex flex-col md:flex-row justify-between items-start px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto gap-12">
-        <div class="max-w-sm">
-            <h2 class="font-display-lg text-headline-md text-on-primary mb-6">L'ÉCLAT DU BÉNIN</h2>
-            <p class="font-body-md text-on-primary/70 leading-relaxed">
-                L'expression ultime du luxe artisanal ouest-africain. Chaque pièce est une histoire, chaque détail est une signature.
-            </p>
-        </div>
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-12 w-full md:w-auto">
-            <div>
-                <h5 class="font-label-caps text-label-caps mb-6 text-secondary-fixed-dim">EXPLORER</h5>
-                <ul class="space-y-4 font-body-md text-on-primary/70">
-                    <li><a class="hover:text-secondary-fixed transition-colors" href="#">Artisans</a></li>
-                    <li><a class="hover:text-secondary-fixed transition-colors" href="#">Nos Collections</a></li>
-                    <li><a class="hover:text-secondary-fixed transition-colors" href="#">Héritage</a></li>
-                    <li><a class="hover:text-secondary-fixed transition-colors" href="#">Boutiques</a></li>
-                </ul>
-            </div>
-            <div>
-                <h5 class="font-label-caps text-label-caps mb-6 text-secondary-fixed-dim">SERVICE</h5>
-                <ul class="space-y-4 font-body-md text-on-primary/70">
-                    <li><a class="hover:text-secondary-fixed transition-colors" href="#">Livraison</a></li>
-                    <li><a class="hover:text-secondary-fixed transition-colors" href="#">Retours</a></li>
-                    <li><a class="hover:text-secondary-fixed transition-colors" href="#">Sur Mesure</a></li>
-                    <li><a class="hover:text-secondary-fixed transition-colors" href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div>
-                <h5 class="font-label-caps text-label-caps mb-6 text-secondary-fixed-dim">SUIVEZ-NOUS</h5>
-                <div class="flex gap-4">
-                    <span class="material-symbols-outlined cursor-pointer hover:text-secondary-fixed transition-colors" data-icon="public">public</span>
-                    <span class="material-symbols-outlined cursor-pointer hover:text-secondary-fixed transition-colors" data-icon="photo_camera">photo_camera</span>
+{{--
+    COMPOSANT : <x-footer />
+    =====================================================================
+    Pied de page commun à toutes les pages publiques du site
+    (collection, bijoux, art, maroquinerie, fiche produit...).
+    =====================================================================
+--}}
+<footer class="bg-primary border-t border-white/10 pt-section-gap pb-12">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+
+            {{-- Colonne marque --}}
+            <div class="md:col-span-2">
+                <h2 class="font-display-lg text-headline-lg text-white mb-4">L'ÉCLAT DU BÉNIN</h2>
+                <p class="font-body-md text-white/60 max-w-sm leading-relaxed">
+                    Une place de marché de prestige dédiée au savoir-faire artisanal béninois.
+                    Chaque pièce raconte une histoire transmise de génération en génération.
+                </p>
+                <div class="flex gap-4 mt-6">
+                    <a href="#" class="w-10 h-10 border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:border-white/50 transition-all">
+                        <span class="material-symbols-outlined text-[18px]">photo_camera</span>
+                    </a>
+                    <a href="#" class="w-10 h-10 border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:border-white/50 transition-all">
+                        <span class="material-symbols-outlined text-[18px]">facebook</span>
+                    </a>
+                    <a href="#" class="w-10 h-10 border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:border-white/50 transition-all">
+                        <span class="material-symbols-outlined text-[18px]">mail</span>
+                    </a>
                 </div>
             </div>
+
+            {{-- Colonne navigation --}}
+            <div>
+                <p class="font-label-caps text-label-caps text-secondary-fixed mb-5">COLLECTIONS</p>
+                <nav class="flex flex-col gap-3">
+                    <a href="{{ route('collection.index') }}" class="font-body-md text-white/70 hover:text-white transition-colors">Toute la Collection</a>
+                    @foreach(\App\Models\Category::orderBy('display_order')->get() as $cat)
+                        <a href="{{ route('collection.category', $cat) }}" class="font-body-md text-white/70 hover:text-white transition-colors">{{ $cat->name }}</a>
+                    @endforeach
+                </nav>
+            </div>
+
+            {{-- Colonne entreprise --}}
+            <div>
+                <p class="font-label-caps text-label-caps text-secondary-fixed mb-5">L'ENTREPRISE</p>
+                <nav class="flex flex-col gap-3">
+                    <a href="#" class="font-body-md text-white/70 hover:text-white transition-colors">Notre Histoire</a>
+                    <a href="{{ route('artisan.onboarding.step1') }}" class="font-body-md text-white/70 hover:text-white transition-colors">Devenir Artisan Partenaire</a>
+                    <a href="#" class="font-body-md text-white/70 hover:text-white transition-colors">Conditions Vendeur</a>
+                    <a href="#" class="font-body-md text-white/70 hover:text-white transition-colors">Confidentialité</a>
+                </nav>
+            </div>
+
         </div>
-    </div>
-    <div class="max-w-container-max  mx-auto px-margin-mobile mt-2 pt-4 border-t border-on-primary/10 flex flex-col justify-center items-center ">
-        <p class="font-body-md text-on-primary/70 text-sm">© 2026 L'Éclat du Bénin. Artisanal Excellence à Cotonou.</p>
+
+        <div class="h-px w-full bg-white/10 mb-8"></div>
+
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="font-label-caps text-[10px] text-white/40 uppercase tracking-widest">
+                © {{ date('Y') }} L'Éclat du Bénin. Heritage Excellence.
+            </p>
+            <p class="font-label-caps text-[10px] text-white/40 uppercase tracking-widest">
+                Conçu à Cotonou, Bénin
+            </p>
+        </div>
 
     </div>
 </footer>
