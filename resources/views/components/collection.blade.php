@@ -1,25 +1,9 @@
-{{--
-    COMPOSANT LAYOUT : <x-collection>...</x-collection>
-    =====================================================================
-    Layout englobant utilisé par les pages qui n'ont PAS de hero plein
-    écran (contrairement aux pages catégorie bijoux/art/maroquinerie qui
-    ont leur propre structure complète avec hero immersif).
-
-    Utilisé par :
-      - collection/index.blade.php (page "Toute la Collection")
-      - collection/product-detail.blade.php (fiche produit)
-
-    Le contenu placé entre les balises <x-collection> ... </x-collection>
-    est injecté à la place de {{ $slot }} ci-dessous, à l'intérieur
-    d'un conteneur centré avec le padding standard du design system.
-    =====================================================================
---}}
 <!DOCTYPE html>
 <html class="light" lang="fr">
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>{{ $title ?? "Collection | L'Éclat du Bénin" }}</title>
+    <title>{{ $title ?? "Collection | Luxe Maquette" }}</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
@@ -29,16 +13,16 @@
             theme: { extend: {
                 colors: {
                     "on-secondary-container":"#745c00","on-tertiary-fixed-variant":"#204f3c","on-tertiary-fixed":"#002114",
-                    "on-secondary-fixed-variant":"#574500","on-surface":"#1a1c1a","on-primary-container":"#858383",
+                    "on-secondary-fixed-variant":"#574500","on-surface":"#012F24 ","on-primary-container":"#858383",
                     "error":"#ba1a1a","background":"#faf9f6","primary-fixed-dim":"#c9c6c5","on-primary":"#ffffff",
-                    "outline-variant":"#c4c7c7","on-error":"#ffffff","on-background":"#1a1c1a","primary-fixed":"#e5e2e1",
+                    "outline-variant":"#c4c7c7","on-error":"#ffffff","on-background":"#012F24 ","primary-fixed":"#e5e2e1",
                     "primary-container":"#1c1b1b","tertiary-fixed":"#bbeed3","surface-tint":"#5f5e5e",
                     "surface-container-lowest":"#ffffff","inverse-primary":"#c9c6c5","tertiary-fixed-dim":"#a0d1b8",
                     "on-tertiary-container":"#5e8e77","surface-container":"#efeeeb","surface-variant":"#e3e2e0",
                     "secondary":"#735c00","secondary-fixed":"#ffe088","on-primary-fixed-variant":"#474646",
-                    "tertiary":"#000000","surface-bright":"#faf9f6","on-secondary":"#ffffff",
+                    "tertiary":"#012F24 ","surface-bright":"#faf9f6","on-secondary":"#ffffff",
                     "inverse-on-surface":"#f2f1ee","surface-container-low":"#f4f3f1","surface-container-highest":"#e3e2e0",
-                    "on-tertiary":"#ffffff","primary":"#000000","on-primary-fixed":"#1c1b1b","inverse-surface":"#2f312f",
+                    "on-tertiary":"#ffffff","primary":"#012F24 ","on-primary-fixed":"#1c1b1b","inverse-surface":"#2f312f",
                     "on-error-container":"#93000a","surface-dim":"#dbdad7","on-secondary-fixed":"#241a00",
                     "surface-container-high":"#e9e8e5","secondary-container":"#fed65b","tertiary-container":"#002114",
                     "outline":"#747878","on-surface-variant":"#444748","surface":"#faf9f6","error-container":"#ffdad6",
@@ -83,7 +67,7 @@
     <div class="fixed inset-0 bg-black/40 z-[60] hidden opacity-0 transition-opacity duration-300" id="drawer-overlay" onclick="toggleDrawer()"></div>
     <aside class="fixed top-0 left-0 h-full w-80 bg-surface z-[70] -translate-x-full transition-transform duration-300 ease-in-out shadow-sm flex flex-col gap-4 p-8" id="drawer">
         <div class="flex justify-between items-center mb-8">
-            <span class="font-display-lg text-headline-md text-primary">L'ÉCLAT DU BÉNIN</span>
+            <span class="font-display-lg text-headline-md text-primary">Luxe Maquette</span>
             <span class="material-symbols-outlined cursor-pointer" onclick="toggleDrawer()">close</span>
         </div>
         <nav class="flex flex-col gap-2">

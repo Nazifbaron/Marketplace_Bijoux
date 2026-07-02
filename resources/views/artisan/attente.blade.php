@@ -79,8 +79,9 @@
 {{-- HEADER --}}
 <header class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-outline-variant/30 flex justify-between items-center px-gutter py-4">
     <div class="flex items-center gap-4">
-        <span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
-        <h1 class="font-headline-md text-headline-md font-bold text-primary uppercase tracking-widest">L'ÉCLAT DU BÉNIN</h1>
+        <a href="/">
+            <img src="{{ asset('images/logo.jpeg')}}" alt="Logo" class="w-14 h-14 sm:w-20 sm:h-10 object-contain ">
+        </a>
     </div>
     <div>
         <span class="material-symbols-outlined text-primary cursor-pointer">account_circle</span>
@@ -308,11 +309,11 @@
 </main>
 
 {{-- FOOTER --}}
-<footer class="w-full mt-section-gap border-t border-outline-variant/50 bg-surface-container-lowest py-12">
+<footer class="w-full mt-section-gap border-t border-outline-variant/50 bg-primary py-12">
     <div class="max-w-container-max mx-auto px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-8">
-        <h2 class="font-headline-md text-headline-md text-primary font-bold">L'ÉCLAT DU BÉNIN</h2>
+        <h2 class="font-headline-md text-headline-md text-on-primary font-bold">Luxe Maquette</h2>
 
-        <p class="font-label-caps text-label-caps text-on-surface-variant/60">© 2026 L'ÉCLAT DU BÉNIN.</p>
+        <p class="font-label-caps text-on-primary text-on-surface-variant/60">© 2026 L'ÉCLAT DU BÉNIN.</p>
     </div>
 </footer>
 

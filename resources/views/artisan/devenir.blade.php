@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>L'Éclat du Bénin | Rejoignez le Cercle des Maîtres</title>
+    <title>Luxe Maquette</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
@@ -159,7 +159,9 @@
     <!-- TopAppBar -->
     <header class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-outline-variant/30 flex justify-between items-center px-gutter py-4">
         <div class="flex items-center gap-4">
-            <!--<span class="material-symbols-outlined text-primary cursor-pointer active:opacity-80 transition-opacity">menu</span>-->
+            <a href="/">
+                <img src="{{ asset('images/logo.jpeg')}}" alt="Logo" class="w-14 h-14 sm:w-20 sm:h-10 object-contain ">
+            </a>
         </div>
         <div class="hidden md:flex gap-8 items-center">
             <a class="font-label-caps text-label-caps text-primary font-bold line-hover relative" href="/">HOME</a>
@@ -178,12 +180,12 @@
             <div class="absolute inset-0 luxury-gradient"></div>
         </div>
         <div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-4xl">
-            <span class="font-label-caps text-label-caps text-secondary-fixed mb-6 block uppercase tracking-[0.3em]">Héritage &amp; Excellence</span>
+            <!--<span class="font-label-caps text-label-caps text-secondary-fixed mb-6 block uppercase tracking-[0.3em]">Héritage &amp; Excellence</span>-->
             <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-surface mb-8">
-                Rejoignez notre marketplace d’artisanat haut de gamme
+                Rejoignez notre marketplace de luxe haut de gamme
             </h1>
             <p class="font-body-lg text-body-lg text-surface-container-low mb-12 max-w-2xl mx-auto">
-                Exposez vos créations à une clientèle locale à la recherche de produits authentiques, raffinés et porteurs d’histoire.
+                Exposez vos produits et créations à une clientèle locale à la recherche de produits authentiques, raffinés et porteurs d’histoire.
             </p>
             <a href="{{ route('artisan.onboarding.step1') }}" class="bg-primary text-on-primary px-12 py-5 font-label-caps text-label-caps uppercase tracking-widest transition-all duration-300 hover:bg-on-surface-variant hover:shadow-xl active:scale-95">
                 Créer ma boutique
@@ -208,7 +210,7 @@
                 <div>
                     <h3 class="font-headline-md text-headline-md mb-4">Visibilité </h3>
                     <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                        Faites découvrir votre travail au Bénin comme ailleurs grâce à une marketplace pensée pour valoriser les talents artisanaux.
+                        Faites découvrir vos produits au Bénin comme ailleurs grâce à notre marketplace.
                     </p>
                 </div>
             </div>
@@ -221,7 +223,7 @@
                 <div>
                     <h3 class="font-headline-md text-headline-md mb-4">Une vitrine haut de gamme</h3>
                     <p class="font-body-md text-body-md text-primary-fixed-dim leading-relaxed">
-                        Présentez vos produits dans un univers visuel premium qui met en valeur la qualité de vos créations et renforce la confiance des acheteurs.
+                        Présentez vos produits dans un univers visuel premium qui met en valeur la qualité de vos produits et renforce la confiance des acheteurs.
                     </p>
                 </div>
             </div>
@@ -255,14 +257,14 @@
                         <span class="material-symbols-outlined text-primary">auto_awesome</span>
                         <div>
                             <h4 class="font-body-lg font-bold mb-2">Une expérience sur mesure</h4>
-                            <p class="font-body-md text-on-surface-variant">Seuls les artisans répondant à nos critères de haute excellence sont invités.</p>
+                            <p class="font-body-md text-on-surface-variant">Seuls les fournisseurs répondant à nos critères de haute excellence sont invités.</p>
                         </div>
                     </div>
                     <div class="flex gap-6">
                         <span class="material-symbols-outlined text-primary">diamond</span>
                         <div>
                             <h4 class="font-body-lg font-bold mb-2">Positionnement de marque</h4>
-                            <p class="font-body-md text-on-surface-variant">Nous racontons votre histoire avec des photographies et du texte de qualité éditoriale.</p>
+                            <p class="font-body-md text-on-surface-variant">Nous exposons vos produits avec des photographies et du texte de qualité éditoriale.</p>
                         </div>
                     </div>
                 </div>
@@ -274,7 +276,7 @@
         <div class="max-w-3xl mx-auto">
             <h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-8">Prêt à ouvrir votre boutique ?</h2>
             <p class="font-body-lg text-body-lg text-on-surface-variant mb-12">
-                Votre savoir-faire mérite une visibilité à la hauteur de votre talent. Rejoignez une marketplace qui valorise les créations artisanales haut de gamme.
+                Votre savoir-faire mérite une visibilité à la hauteur de votre talent. Rejoignez une marketplace qui valorise les articles haut de gamme.
             </p>
             <div class="flex flex-col md:flex-row justify-center gap-6">
                 <a href="/inscription" class="bg-primary text-on-primary px-16 py-6 font-label-caps text-label-caps uppercase tracking-widest hover:bg-on-surface-variant transition-colors duration-300">

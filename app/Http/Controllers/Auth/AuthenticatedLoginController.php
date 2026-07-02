@@ -4,12 +4,52 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\ArtisanApplication;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules\Password;
 
 
 class AuthenticatedLoginController extends Controller
 {
+
+    public function show()
+    {
+        if (Auth::check()) {
+            return redirect('/');
+        }
+
+        return view('auth.register');
+    }
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'min:3', 'max:100'],
+            'email' => ['required', 'email', 'unique:users,email'],
+            'password' => ['required', 'confirmed', Password::min(6)],
+        ], [
+            'name.required' => 'Le nom est obligatoire.',
+            'email.required' => 'L’email est obligatoire.',
+            'email.email' => 'L’adresse email n’est pas valide.',
+            'email.unique' => 'Cette adresse email est déjà utilisée.',
+            'password.confirmed' => 'Les mots de passe ne correspondent pas.',
+            'password.min' => 'Le mot de passe doit faire au moins 6 caractères.',
+        ]);
+
+        $user = User::create([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'password' => Hash::make($validated['password']),
+            'role' => User::ROLE_CUSTOMER,
+        ]);
+
+        Auth::login($user);
+
+        return redirect('/')
+            ->with('success', 'Votre compte client a bien été créé.');
+    }
 
     public function showLogin()
     {
@@ -47,7 +87,7 @@ class AuthenticatedLoginController extends Controller
 
         $request->session()->regenerate();
 
-        
+
 
         return $this->redirectAfterLogin();
     }
@@ -82,16 +122,16 @@ class AuthenticatedLoginController extends Controller
         }
 
         // ── 4. Rediriger selon le statut de la demande ──
-        return match($application->status) {
+        return match ($application->status) {
 
             // Inscription incomplète : retourner à l'étape 2
             'draft',
             'pending_docs'   => redirect()->route('artisan.onboarding.step2')
-                                    ->with('info', 'Finalisez la configuration de votre boutique.'),
+                ->with('info', 'Finalisez la configuration de votre boutique.'),
 
             // Dossier approuvé : accéder au dashboard ✅
             'approved'       => redirect()->route('artisan.dashboard')
-                                    ->with('welcome', "Bienvenue {$user->name} ! Votre boutique est active."),
+                ->with('welcome', "Bienvenue {$user->name} ! Votre boutique est active."),
 
             // En attente ou rejeté : page d'attente/résultat
             'pending_review',

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>L'Éclat du Bénin — Configuration de Boutique</title>
+    <title>Luxe Maquette — Configuration de Boutique</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -76,8 +76,9 @@
 {{-- HEADER --}}
 <header class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-outline-variant/30 px-gutter py-4 flex justify-between items-center">
     <div class="flex items-center gap-4">
-        <span class="material-symbols-outlined text-primary cursor-pointer active:opacity-80">menu</span>
-        <h1 class="font-headline-md text-headline-md font-bold text-primary uppercase tracking-widest">L'ÉCLAT DU BÉNIN</h1>
+        <a href="/">
+            <img src="{{ asset('images/logo.jpeg')}}" alt="Logo" class="w-14 h-14 sm:w-20 sm:h-10 object-contain ">
+        </a>
     </div>
     <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest hidden md:block">
         Étape 02 — Configuration Boutique
@@ -329,11 +330,13 @@
     </div>
 </main>
 
-<footer class="w-full bg-surface-container-lowest border-t border-outline-variant/50">
-    <div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-12 w-full max-w-container-max mx-auto">
-        <h2 class="font-headline-md text-headline-md text-primary mb-6 md:mb-0">L'ÉCLAT DU BÉNIN</h2>
-        <p class="font-label-caps text-label-caps text-on-surface-variant/60 uppercase tracking-widest">© 2026 L'ÉCLAT DU BÉNIN. HERITAGE EXCELLENCE.</p>
-    </div>
+<footer class="w-full bg-primary border-t border-outline-variant/50 py-12 px-margin-desktop">
+        <div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="font-headline-md text-headline-md text-on-primary font-bold">Luxe Maquette</div>
+            <p class="font-label-caps text-on-primary text-on-surface-variant/60 uppercase tracking-widest">
+                © 2026 Luxe Maquette. Heritage Excellence.
+            </p>
+        </div>
 </footer>
 
 <script>

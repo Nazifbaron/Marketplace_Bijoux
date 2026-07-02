@@ -99,7 +99,7 @@
 
         <p class="text-center text-sm text-on-surface-variant mt-8">
             Pas encore artisan partenaire ?
-            <a href="{{ route('artisan.onboarding.step1') }}" class="text-secondary font-semibold hover:text-primary transition-colors">Rejoindre la maison</a>
+            <a href="{{ route('register') }}" class="text-secondary font-semibold hover:text-primary transition-colors">Rejoindre la maison</a>
         </p>
     </div>
 </main>

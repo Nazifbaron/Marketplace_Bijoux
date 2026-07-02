@@ -4,11 +4,10 @@
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
                 <span class="font-label-caps text-label-caps text-secondary mb-4 block">ARTISANAT SÉLECTIONNÉ</span>
-                <h2 class="font-display-lg text-display-lg-mobile md:text-display-lg">La Collection Heritage</h2>
+                <h2 class="font-display-lg text-display-lg-mobile md:text-display-lg">La Collection Signature</h2>
             </div>
             <p class="max-w-md text-on-surface-variant font-body-md opacity-80 italic">
-                Un hommage au savoir-faire ancestral du Dahomey, où chaque point de couture et chaque grain d'or racontent l'histoire de la souveraineté béninoise.
-            </p>
+                Chaque création incarne une vision du luxe où l’exigence, la précision et l’authenticité se rencontrent pour donner naissance à des pièces intemporelles.            </p>
         </div>
         <div class="h-px w-full bg-outline-variant/30 mt-12"></div>
     </header>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 
 /**
  * CONTROLLER : PAGES CATÉGORIE PUBLIQUES
@@ -94,4 +95,96 @@ class CollectionController extends Controller
 
         return view('collection.product-detail', compact('product', 'relatedProducts'));
     }
+
+        /**
+     * Page Bijoux — /bijoux
+     */
+    public function bijoux(Request $request)
+    {
+        $category = Category::where('slug', 'bijoux')->firstOrFail();
+
+        $query = $category->publishedProducts()
+            ->with(['images', 'vendor', 'subcategory'])
+            ->orderByDesc('created_at');
+
+        // Filtre sous-catégorie depuis l'URL (?sub=colliers)
+        if ($sub = $request->get('sub')) {
+            $query->whereHas('subcategory', fn($q) => $q->where('slug', $sub));
+        }
+
+        $products      = $query->paginate(12);
+        $subcategories = $category->subcategories;
+
+        return view('collection.bijoux', compact('category', 'products', 'subcategories'));
+    }
+
+    /**
+     * Page Art & Décoration — /art
+     */
+    public function art(Request $request)
+    {
+        $category = Category::where('slug', 'art')->firstOrFail();
+
+        $query = $category->publishedProducts()
+            ->with(['images', 'vendor', 'subcategory'])
+            ->orderByDesc('created_at');
+
+        if ($sub = $request->get('sub')) {
+            $query->whereHas('subcategory', fn($q) => $q->where('slug', $sub));
+        }
+
+        $products      = $query->paginate(9); // 9 pour la grille asymétrique
+        $subcategories = $category->subcategories;
+
+        return view('collection.art', compact('category', 'products', 'subcategories'));
+    }
+
+    /**
+     * Page Maroquinerie — /maroquerie
+     */
+    public function maroquerie(Request $request)
+    {
+        $category = Category::where('slug', 'maroquinerie')->firstOrFail();
+
+        $query = $category->publishedProducts()
+            ->with(['images', 'vendor', 'subcategory'])
+            ->orderByDesc('created_at');
+
+        if ($sub = $request->get('sub')) {
+            $query->whereHas('subcategory', fn($q) => $q->where('slug', $sub));
+        }
+
+        $products      = $query->paginate(9);
+        $subcategories = $category->subcategories;
+
+        return view('collection.maroquerie', compact('category', 'products', 'subcategories'));
+    }
+
+
+    public function quickView(Product $product): JsonResponse
+    {
+        if (!$product->isPublished()) {
+            abort(404);
+        }
+
+        $product->load(['images', 'category', 'vendor']);
+
+        return response()->json([
+            'id'                  => $product->id,
+            'name'                => $product->name,
+            'slug'                => $product->slug,
+            'description'         => $product->description,
+            'short_story'         => $product->short_story,
+            'formatted_price'     => $product->formatted_price,
+            'stock_quantity'      => $product->stock_quantity,
+            'is_verified'         => $product->is_verified,
+            'condition_label_text'=> $product->condition_label_text,
+            'primary_image'       => $product->primary_image,
+            'images'              => $product->images->map(fn($img) => ['url' => $img->url]),
+            'category_name'       => $product->category->name ?? null,
+            'vendor_id'           => $product->vendor?->id,
+            'vendor_name'         => $product->vendor?->shop_name,
+        ]);
+    }
 }
+

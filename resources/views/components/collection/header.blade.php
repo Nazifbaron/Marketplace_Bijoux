@@ -19,15 +19,17 @@
 
 <header class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-outline-variant/30 h-20 flex justify-between items-center px-margin-mobile md:px-margin-desktop glass-nav">
 
-    {{-- Bouton menu mobile / drawer --}}
+    {{-- Bouton menu mobile / drawer
     <div class="flex items-center gap-4 cursor-pointer transition-transform duration-200 active:scale-95" onclick="toggleDrawer()">
         <span class="material-symbols-outlined text-primary">menu</span>
     </div>
-
+--}}
     {{-- Logo --}}
-    <a href="{{ route('collection.index') }}" class="font-display-lg text-headline-md tracking-widest text-primary">
-        L'ÉCLAT DU BÉNIN
-    </a>
+    <div class="flex items-center gap-4">
+        <a href="/">
+            <img src="{{ asset('images/logo.jpeg')}}" alt="Logo" class="w-14 h-14 sm:w-20 sm:h-10 object-contain ">
+        </a>
+    </div>
 
     {{-- Navigation desktop --}}
     <nav class="hidden lg:flex items-center gap-10">

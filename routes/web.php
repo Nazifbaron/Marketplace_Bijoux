@@ -26,22 +26,17 @@ Route::get('/', function () {
 });
 Route::view('/artisan', 'artisan');
 Route::view('/collection', 'collection');
-Route::view('/detail', 'detail');
 Route::view('/bijoux', 'bijoux');
 Route::view('/art', 'art');
 Route::view('/maroquerie', 'maroquerie');
-Route::view('/config', 'config');
-Route::view('/attente', 'attente');
-// Rediriger `/dashboard` vers le controller qui passe les variables requises
-Route::redirect('/dashboard', '/artisan/dashboard');
-Route::view('/ajout', 'artisan.ajout');
+
 
 // ====================================================================
 // AUTH
 // ====================================================================
 
-Route::get('/register', [RegisterController::class, 'show'])->name('register.show');
-Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
+Route::get('/register', [AuthenticatedLoginController::class, 'show'])->name('register');
+Route::post('/register', [AuthenticatedLoginController::class, 'store'])->name('register.store');
 Route::get('/login', [AuthenticatedLoginController::class, 'showLogin'])->middleware('guest')->name('login');
 Route::post('/login', [AuthenticatedLoginController::class, 'login'])->middleware('guest')->name('login.submit');
 Route::post('/logout', [AuthenticatedLoginController::class, 'logout'])->middleware('auth')->name('logout');
@@ -102,6 +97,10 @@ Route::middleware('auth')->prefix('messagerie')->name('chat.')->group(function (
 Route::get('/collection', [CollectionController::class, 'index'])->name('collection.index');
 Route::get('/collection/produit/{product:slug}', [CollectionController::class, 'showProduct'])->name('collection.product');
 Route::get('/collection/{category:slug}', [CollectionController::class, 'show'])->name('collection.category');
+Route::get('/produit/{product:slug}', [CollectionController::class, 'quickView']);
+Route::get('/bijoux', [CollectionController::class, 'bijoux'])->name('collection.bijoux');
+Route::get('/art', [CollectionController::class, 'art'])->name('collection.art');
+Route::get('/maroquerie', [CollectionController::class, 'maroquerie'])->name('collection.maroquerie');
 
 // ====================================================================
 // ADMIN

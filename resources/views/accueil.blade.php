@@ -6,14 +6,14 @@
         </div>
         <div class="relative z-10 text-center px-margin-mobile max-w-4xl">
             <!--<p class="font-label-caps text-label-caps text-secondary tracking-[0.3em] mb-6 reveal">HERITAGE &amp; LUXE</p>-->
-            <h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-8 leading-tight reveal">L'Excellence de l'Artisanat Béninois</h2>
+            <h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-8 leading-tight reveal">Découvrez, créez, collectionnez le luxe</h2>
             <div class="flex flex-col md:flex-row gap-6 justify-center reveal">
                 <a href="/collection" class="btn-luxury bg-primary text-on-primary px-10 py-4 font-label-caps text-label-caps uppercase tracking-widest shadow-lg hover:shadow-xl hover:scale-105">
                     Explorer la Collection
                 </a>
-                <a href="#history" class="btn-luxury border border-secondary text-primary px-10 py-4 font-label-caps text-label-caps uppercase tracking-widest hover:bg-secondary-fixed/15 hover:border-secondary hover:scale-105">
+                <!--<a href="#history" class="btn-luxury border border-secondary text-primary px-10 py-4 font-label-caps text-label-caps uppercase tracking-widest hover:bg-secondary-fixed/15 hover:border-secondary hover:scale-105">
                     Notre Histoire
-                </a>
+                </a>-->
             </div>
         </div>
     </section>
@@ -23,7 +23,7 @@
             <div class="reveal">
                 <div class="divider-gold"></div>
                 <span class="font-label-caps text-label-caps text-secondary mb-2 block">CATÉGORIES</span>
-                <h3 class="font-headline-lg text-headline-lg text-primary">Les Univers de l'Éclat</h3>
+                <h3 class="font-headline-lg text-headline-lg text-primary">Univers Luxe Maquette</h3>
             </div>
             <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary flex items-center gap-2 transition-all duration-300 group reveal" href="#">
                 VOIR TOUT <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
@@ -32,7 +32,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
             <!-- Haute Joaillerie -->
             <div class="group cursor-pointer reveal card-luxury" style="transition-delay: 100ms;">
-                <a href="/bijoux">
+                <a href="{{ route('collection.bijoux') }}">
                     <div class="aspect-[3/4] overflow-hidden mb-6 bg-surface-container-low relative shadow-md hover:shadow-xl transition-shadow duration-500">
                         <img alt="Haute Joaillerie" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-115" data-alt="Close-up macro photography of an exquisite handcrafted gold necklace featuring traditional Beninese motifs, presented on a dark, textured velvet bust. The lighting is focused and dramatic, making the gold shimmer against the deep black background. The overall aesthetic is one of extreme luxury and artisanal precision, emphasizing the high-contrast bold style." src="{{ asset('images/home/bijoux.png') }}" />
                         <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
@@ -79,14 +79,14 @@
         </div>
     </section>
     <!-- Stade des Artisans Section -->
-    <section id="history" class="bg-surface-container-low  overflow-hidden">
+    <!--<section id="history" class="bg-surface-container-low  overflow-hidden">
         <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
             <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-20">
                 <div class="relative reveal">
                     <div class="aspect-square bg-surface-container-high relative overflow-hidden">
                         <img alt="Stade des Artisans Mathieu Kérékou" class="w-full h-full object-cover" data-alt="An expansive view of a high-end artisanal workshop located within the Mathieu Kérékou stadium complex in Cotonou. Master artisans are seen working with gold and leather in a modern, light-filled environment. The space features high ceilings, ivory walls, and minimalist workstations, conveying a sense of organized, professional excellence and cultural pride." src="{{ asset('images/home/history.png') }}" />
                     </div>
-                    <!-- Floating Badge -->
+
                     <div class="absolute -bottom-10 -right-10 bg-primary text-on-primary p-12 hidden md:block">
                         <p class="font-label-caps text-label-caps tracking-widest text-center mb-2">LOCALISATION</p>
                         <p class="font-headline-md text-headline-md text-center">COTONOU</p>
@@ -137,7 +137,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>-->
     <!-- Newsletter / Contact CTA -->
     <section class="py-section-gap px-margin-mobile text-center max-w-3xl mx-auto reveal">
         <div class="divider-gold-center"></div>
