@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html class="light" lang="fr">
-
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Luxe Maquette</title>
+    <title>Luxe Maquette | L'Art de Vivre &amp; Luxury Assets</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Montserrat:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&amp;family=Montserrat:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
     <script id="tailwind-config">
         tailwind.config = {
@@ -49,7 +47,7 @@
                         "surface-tint": "#5f5e5e",
                         "surface-container": "#efeeeb",
                         "tertiary-fixed-dim": "#a0d1b8",
-                        "secondary": "#D9AF4B ",
+                        "secondary": "#735c00",
                         "on-primary-fixed-variant": "#474646",
                         "secondary-container": "#fed65b",
                         "primary": "#012F24 ",
@@ -61,8 +59,7 @@
                         "on-surface-variant": "#444748",
                         "surface-variant": "#e3e2e0",
                         "tertiary-fixed": "#bbeed3",
-                        "secondary-fixed": "#ffe088",
-                        "gold": "#D4AF37"
+                        "secondary-fixed": "#ffe088"
                     },
                     "borderRadius": {
                         "DEFAULT": "0.125rem",
@@ -73,10 +70,10 @@
                     "spacing": {
                         "margin-tablet": "40px",
                         "margin-mobile": "20px",
-                        "section-gap": "120px",
-                        "gutter": "24px",
+                        "section-gap": "140px",
+                        "gutter": "32px",
                         "margin-desktop": "80px",
-                        "container-max": "1280px"
+                        "container-max": "1440px"
                     },
                     "fontFamily": {
                         "display-lg": ["Playfair Display"],
@@ -89,10 +86,10 @@
                         "display-lg-mobile": ["Playfair Display"]
                     },
                     "fontSize": {
-                        "display-lg": ["64px", {
-                            "lineHeight": "72px",
-                            "letterSpacing": "-0.02em",
-                            "fontWeight": "700"
+                        "display-lg": ["72px", {
+                            "lineHeight": "1",
+                            "letterSpacing": "-0.03em",
+                            "fontWeight": "900"
                         }],
                         "body-lg": ["18px", {
                             "lineHeight": "28px",
@@ -106,23 +103,23 @@
                             "lineHeight": "24px",
                             "fontWeight": "400"
                         }],
-                        "headline-lg": ["32px", {
-                            "lineHeight": "40px",
-                            "fontWeight": "600"
-                        }],
-                        "label-caps": ["12px", {
-                            "lineHeight": "16px",
-                            "letterSpacing": "0.1em",
-                            "fontWeight": "600"
-                        }],
-                        "headline-md": ["24px", {
-                            "lineHeight": "32px",
-                            "fontWeight": "600"
-                        }],
-                        "display-lg-mobile": ["40px", {
+                        "headline-lg": ["40px", {
                             "lineHeight": "48px",
-                            "letterSpacing": "-0.01em",
                             "fontWeight": "700"
+                        }],
+                        "label-caps": ["11px", {
+                            "lineHeight": "16px",
+                            "letterSpacing": "0.15em",
+                            "fontWeight": "700"
+                        }],
+                        "headline-md": ["28px", {
+                            "lineHeight": "36px",
+                            "fontWeight": "600"
+                        }],
+                        "display-lg-mobile": ["48px", {
+                            "lineHeight": "56px",
+                            "letterSpacing": "-0.02em",
+                            "fontWeight": "800"
                         }]
                     }
                 },
@@ -131,11 +128,11 @@
     </script>
     <style>
         .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
         }
 
-        .hero-gradient {
-            background: linear-gradient(to bottom, rgba(250, 249, 246, 0.4), rgb(236, 234, 228));
+        .hero-overlay {
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 60%);
         }
 
         .line-hover::after {
@@ -143,10 +140,10 @@
             position: absolute;
             width: 0;
             height: 1px;
-            bottom: -2px;
+            bottom: -4px;
             left: 0;
-            background-color: #D9AF4B ;
-            transition: width 0.3s ease;
+            background-color: #735c00;
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .line-hover:hover::after {
@@ -155,8 +152,8 @@
 
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         .reveal.active {
@@ -164,184 +161,30 @@
             transform: translateY(0);
         }
 
-        /* Animations élégantes */
-        @keyframes floatIn {
-            from {
-                opacity: 0;
-                transform: translateY(40px) scale(0.95);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+        .editorial-spacing {
+            letter-spacing: 0.2em;
         }
 
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-60px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes shimmer {
-            0% {
-                background-position: -1000px 0;
-            }
-
-            100% {
-                background-position: 1000px 0;
-            }
-        }
-
-        @keyframes pulse-subtle {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.7;
-            }
-        }
-
-        /* Cartes avec effets premium */
-        .card-luxury {
-            position: relative;
-            overflow: hidden;
-            border-radius: 2px;
-        }
-
-        .card-luxury::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.6s ease;
-            pointer-events: none;
-        }
-
-        .card-luxury:hover::before {
-            opacity: 1;
-        }
-
-        /* Boutons améliorés */
-        .btn-luxury {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .btn-luxury::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .btn-luxury:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        /* Lignes décoratives */
-        .divider-gold {
-            width: 40px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #D9AF4B , transparent);
-            margin: 16px 0;
-        }
-
-        .divider-gold-center {
-            width: 60px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #D9AF4B , transparent);
-            margin: 0 auto 24px;
-        }
-
-        /* Badges animés */
-        .badge-premium {
-            display: inline-block;
-            padding: 8px 16px;
-            background: linear-gradient(135deg, rgba(115, 92, 0, 0.1), rgba(115, 92, 0, 0.05));
-            border: 1px solid rgba(115, 92, 0, 0.2);
-            border-radius: 24px;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            animation: pulse-subtle 3s ease-in-out infinite;
-        }
-
-        /* Texte avec gradient */
-        .text-gradient {
-            background: linear-gradient(135deg, #012F24 , #444748);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Inputs stylisés */
-        .input-luxury {
-            position: relative;
-        }
-
-        .input-luxury::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #D9AF4B , #D9AF4B );
-            transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .input-luxury:focus-within::after {
-            width: 100%;
-        }
-
-        /* Effet de scroll */
-        .scroll-fade {
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-    </style>
-    <style>
-        body {
-            min-height: max(884px, 100dvh);
+        .img-zoom-container:hover img {
+            transform: scale(1.05);
         }
     </style>
 </head>
 
-<body class="bg-background text-on-background selection:bg-secondary-fixed selection:text-on-secondary-fixed">
-
+<body class="bg-background text-on-background selection:bg-secondary-fixed selection:text-on-secondary-fixed antialiased">
     <!-- TopAppBar -->
     <x-header></x-header>
-    <main class="pt-20">
-        <!-- Hero Section -->
-        {{$slot}}
+    <main>
+        <!-- Immersive Hero Section -->
+        {{ $slot }}
     </main>
     <!-- Footer -->
     <x-footer></x-footer>
     <script>
         // Scroll Reveal Animation
         const observerOptions = {
-            threshold: 0.1
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -354,13 +197,16 @@
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Smooth scroll implementation
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
     </script>

@@ -60,7 +60,8 @@
                 </span>
             @endif
         </a>
-        <a href="#" class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-white/60 hover:text-white hover:bg-white/5 transition-all">
+
+        <a href="{{ route('admin.categories.index') }}" class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-white/60 hover:text-white hover:bg-white/5 transition-all">
             <span class="material-symbols-outlined text-[20px]">people</span>
             Utilisateurs
         </a>

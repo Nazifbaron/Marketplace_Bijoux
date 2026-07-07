@@ -142,7 +142,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-xs font-semibold text-on-surface-variant uppercase tracking-widest mb-2">Prix (FCFA)</label>
-                        <input type="number" name="price" value="{{ old('price') }}" min="100" step="1000" placeholder="750000"
+                        <input type="number" name="price" value="{{ old('price') }}" step="1000" placeholder="750000"
                             class="w-full border-0 border-b border-outline-variant py-3 px-0 focus:ring-0 focus:border-secondary transition-all text-lg" />
                     </div>
                     <div>

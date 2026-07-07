@@ -5,6 +5,7 @@ use App\Http\Controllers\Artisan\ArtisanDashboardController;
 use App\Http\Controllers\Artisan\ProductController;
 use App\Http\Controllers\Artisan\OrderController as ArtisanOrderController;
 use App\Http\Controllers\Admin\AdminArtisanController;
+use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Auth\AuthenticatedLoginController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -28,7 +29,7 @@ Route::view('/artisan', 'artisan');
 Route::view('/collection', 'collection');
 Route::view('/bijoux', 'bijoux');
 Route::view('/art', 'art');
-Route::view('/maroquerie', 'maroquerie');
+Route::view('/maroquinerie', 'maroquinerie');
 
 
 // ====================================================================
@@ -100,7 +101,7 @@ Route::get('/collection/{category:slug}', [CollectionController::class, 'show'])
 Route::get('/produit/{product:slug}', [CollectionController::class, 'quickView']);
 Route::get('/bijoux', [CollectionController::class, 'bijoux'])->name('collection.bijoux');
 Route::get('/art', [CollectionController::class, 'art'])->name('collection.art');
-Route::get('/maroquerie', [CollectionController::class, 'maroquerie'])->name('collection.maroquerie');
+Route::get('/maroquinerie', [CollectionController::class, 'maroquinerie'])->name('collection.maroquinerie');
 
 // ====================================================================
 // ADMIN
@@ -126,4 +127,16 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::post('/{product}/refuser-verification', [AdminProductController::class, 'rejectVerification'])->name('verify.reject');
     });
 
+});
+
+// Routes admin catégories
+Route::prefix('admin/categories')->name('admin.categories.')->middleware(['auth','admin'])->group(function() {
+    Route::get('/',                        [AdminCategoryController::class, 'index'])->name('index');
+    Route::get('/creer',                   [AdminCategoryController::class, 'create'])->name('create');
+    Route::post('/',                       [AdminCategoryController::class, 'store'])->name('store');
+    Route::get('/{category}/modifier',     [AdminCategoryController::class, 'edit'])->name('edit');
+    Route::put('/{category}',              [AdminCategoryController::class, 'update'])->name('update');
+    Route::delete('/{category}',           [AdminCategoryController::class, 'destroy'])->name('destroy');
+    Route::post('/{category}/sous-categorie',         [AdminCategoryController::class, 'addSubcategory'])->name('subcategory.add');
+    Route::delete('/sous-categorie/{subcategory}',    [AdminCategoryController::class, 'destroySubcategory'])->name('subcategory.destroy');
 });

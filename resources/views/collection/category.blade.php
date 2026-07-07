@@ -154,6 +154,10 @@
                     </div>
                 </div>
                 <div class="relative aspect-square md:aspect-auto md:h-[500px]">
+                    <img
+                        class="w-full h-full object-cover opacity-80"
+                        data-alt="Close up of an artisan's hands working with molten bronze in a traditional foundry. Sparks fly in a dimly lit, atmospheric workshop. The photo captures the intense focus and ancestral skill required for Beninese lost-wax casting. Warm, fiery lighting tones."
+                        src="{{ asset('images/art/fer.png') }}"/>
                     <div class="absolute inset-0 flex items-center justify-center bg-white/5">
                         <div class="bg-white/10 backdrop-blur-md p-12 text-center max-w-sm border border-white/20">
                             <span class="material-symbols-outlined text-white text-5xl mb-4">workspace_premium</span>

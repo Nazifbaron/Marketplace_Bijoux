@@ -12,9 +12,9 @@
 
             {{-- Colonne marque --}}
             <div class="md:col-span-2">
-                <h2 class="font-display-lg text-headline-lg text-white mb-4">L'ÉCLAT DU BÉNIN</h2>
+                <h2 class="font-display-lg text-headline-lg text-white mb-4">Luxe Maquette</h2>
                 <p class="font-body-md text-white/60 max-w-sm leading-relaxed">
-                    Une place de marché de prestige dédiée au savoir-faire artisanal béninois.
+                    Une place de marché de prestige dédiée aux fournisseurs béninois.
                     Chaque pièce raconte une histoire transmise de génération en génération.
                 </p>
                 <div class="flex gap-4 mt-6">
@@ -57,10 +57,10 @@
         <div class="h-px w-full bg-white/10 mb-8"></div>
 
         <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="font-label-caps text-[10px] text-white/40 uppercase tracking-widest">
-                © {{ date('Y') }} L'Éclat du Bénin. Heritage Excellence.
+            <p class="font-label-caps text-[10px] text-white uppercase tracking-widest">
+                © {{ date('Y') }} Luxe Maquette. Heritage Excellence.
             </p>
-            <p class="font-label-caps text-[10px] text-white/40 uppercase tracking-widest">
+            <p class="font-label-caps text-[10px] text-white uppercase tracking-widest">
                 Conçu à Cotonou, Bénin
             </p>
         </div>

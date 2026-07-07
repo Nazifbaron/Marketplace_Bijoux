@@ -10,7 +10,7 @@ use Illuminate\Http\JsonResponse;
 /**
  * CONTROLLER : PAGES CATÉGORIE PUBLIQUES
  * =====================================================================
- * Remplace les 4 fichiers statiques (collection, bijoux, art, maroquerie)
+ * Remplace les 4 fichiers statiques (collection, bijoux, art, maroquinerie)
  * par UNE seule logique dynamique pilotée par les `slug` de catégorie.
  *
  * URLS RÉSULTANTES :
@@ -140,9 +140,9 @@ class CollectionController extends Controller
     }
 
     /**
-     * Page Maroquinerie — /maroquerie
+     * Page Maroquinerie — /maroquinerie
      */
-    public function maroquerie(Request $request)
+    public function maroquinerie(Request $request)
     {
         $category = Category::where('slug', 'maroquinerie')->firstOrFail();
 
@@ -157,7 +157,7 @@ class CollectionController extends Controller
         $products      = $query->paginate(9);
         $subcategories = $category->subcategories;
 
-        return view('collection.maroquerie', compact('category', 'products', 'subcategories'));
+        return view('collection.maroquinerie', compact('category', 'products', 'subcategories'));
     }
 
 
