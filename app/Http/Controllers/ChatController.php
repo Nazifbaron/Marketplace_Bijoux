@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ChatController extends Controller
 {
-    
+
     public function index()
     {
         $user = Auth::user();
@@ -59,6 +59,7 @@ class ChatController extends Controller
      */
     public function startWithVendor(Request $request, ArtisanApplication $vendor)
     {
+        
         $buyer = Auth::user();
 
         // findOrCreate : s'il existe déjà une conversation avec ce vendeur, on la réutilise
