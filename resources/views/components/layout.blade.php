@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Luxe Maquette | L'Art de Vivre &amp; Luxury Assets</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&amp;family=Montserrat:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
@@ -210,6 +211,7 @@
             });
         });
     </script>
+<x-cart-drawer />
 </body>
 
 </html>
