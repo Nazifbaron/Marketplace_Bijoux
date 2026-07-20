@@ -8,7 +8,7 @@
         <div class="absolute inset-0 z-0">
             <img alt="Luxury Lifestyle"
                  class="w-full h-full object-cover scale-105"
-                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkTtVV0LV90i1thkZo0EPHYoRYyUkTDJ5b7LCbbj_GdsrNoI99q5XxoxHHW1DDstZh2tyVItDwi-fT673yquIYoLatWGUN316Wk96i5rK_opVcnbRKq-gidTI0MISJFOw0Kp2R2WI0iA3dEGT6qpVLIbTL5wH0TYzBw0ZiW6n6VoEOwlz6YUbNXY2S7uesUFBpGL9Ge4m9owGaoxDJtLCRCpurRN_tTRFwJRRmtQpV3T-TbqTTeRQ9p2FCw1E6uIEJUrjOhsynlQ" />
+                 src="{{ asset('images/hero.jpg') }}" />
             <div class="absolute inset-0 hero-overlay"></div>
             <div class="absolute inset-0 bg-black/20"></div>
         </div>
