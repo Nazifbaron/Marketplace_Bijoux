@@ -15,6 +15,7 @@
     // On récupère les catégories depuis la DB pour construire le menu
     // dynamiquement (au lieu de liens en dur comme dans les fichiers originaux)
     $navCategories = \App\Models\Category::orderBy('display_order')->get();
+    $cartCount = count(session('cart', []));
 @endphp
 
 <header class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-outline-variant/30 h-20 flex justify-between items-center px-margin-mobile md:px-margin-desktop glass-nav">
@@ -62,9 +63,18 @@
             </a>
         @endauth
 
-        <div class="relative cursor-pointer transition-transform duration-200 active:scale-95">
-            <span class="material-symbols-outlined text-primary">shopping_bag</span>
-            {{-- Le compteur du panier sera branché quand le module panier sera implémenté --}}
-        </div>
+        <button onclick="openCart()"
+                class="relative w-9 h-9 flex items-center justify-center text-primary hover:text-[#c9a227] transition-colors duration-300"
+                aria-label="Panier">
+                <span class="material-symbols-outlined text-[22px]">shopping_bag</span>
+                {{-- Badge compteur --}}
+                @if($cartCount > 0)
+                    <span class="absolute -top-0.5 -right-0.5 w-4 h-4 bg-[#c9a227] text-[#012F24] text-[9px] font-bold rounded-full flex items-center justify-center" id="cart-badge">
+                        {{ $cartCount }}
+                    </span>
+                @else
+                    <span class="absolute -top-0.5 -right-0.5 w-4 h-4 bg-[#c9a227] text-[#012F24] text-[9px] font-bold rounded-full items-center justify-center hidden" id="cart-badge">0</span>
+                @endif
+            </button>
     </div>
 </header>

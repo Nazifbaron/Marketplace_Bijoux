@@ -195,5 +195,6 @@
             });
         }
     </script>
+    <x-cart-drawer />
 </body>
 </html>

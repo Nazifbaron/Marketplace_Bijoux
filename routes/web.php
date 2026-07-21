@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Auth\AuthenticatedLoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\CollectionController;
 use Illuminate\Support\Facades\Route;
@@ -140,3 +141,17 @@ Route::prefix('admin/categories')->name('admin.categories.')->middleware(['auth'
     Route::post('/{category}/sous-categorie',         [AdminCategoryController::class, 'addSubcategory'])->name('subcategory.add');
     Route::delete('/sous-categorie/{subcategory}',    [AdminCategoryController::class, 'destroySubcategory'])->name('subcategory.destroy');
 });
+
+// Panier
+ Route::post('/panier/ajouter/{product}',         [CartController::class, 'add'])->name('cart.add');
+ Route::patch('/panier/modifier/{productId}',      [CartController::class, 'update'])->name('cart.update');
+ Route::delete('/panier/retirer/{productId}',      [CartController::class, 'remove'])->name('cart.remove');
+ Route::get('/panier',                             [CartController::class, 'index'])->name('cart.index');
+ Route::delete('/panier/vider',                    [CartController::class, 'clear'])->name('cart.clear');
+ Route::get('/panier/drawer',                      [CartController::class, 'drawer'])->name('cart.drawer');
+
+// Checkout
+ Route::get('/commander',           [CartController::class, 'checkout'])->name('cart.checkout')->middleware('auth');
+ Route::post('/commander/confirmer',[CartController::class, 'placeOrder'])->name('cart.order.place')->middleware('auth');
+ Route::get('/commande/{order}/confirmation', [CartController::class, 'confirmation'])->name('cart.order.confirmation')->middleware('auth');
+

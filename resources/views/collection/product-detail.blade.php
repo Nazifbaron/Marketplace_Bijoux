@@ -81,9 +81,12 @@
             </div>
 
             <div class="flex gap-4">
-                <button class="flex-1 bg-primary text-white py-4 font-label-caps text-label-caps uppercase tracking-widest hover:bg-on-surface-variant transition-all">
-                    Ajouter au Panier
-                </button>
+                <form action="{{ route('cart.add', $product->id) }}" method="POST" class="flex-1">
+                    @csrf
+                    <button type="submit" class="w-full bg-primary text-white py-4 font-label-caps text-label-caps uppercase tracking-widest transition-all">
+                        Ajouter au Panier
+                    </button>
+                </form>
             </div>
 
             <p class="text-[11px] text-on-surface-variant/60 mt-4">
