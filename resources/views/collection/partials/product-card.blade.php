@@ -42,14 +42,27 @@
             </div>
         </div>
 
-        <div class="pt-4">
-            @if($product->short_story)
-                <p class="text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">{{ $product->short_story }}</p>
-            @endif
-            <h3 class="font-headline-md text-headline-md mb-1 group-hover:text-secondary transition-colors" style="font-size: 18px; line-height: 24px;">
-                {{ $product->name }}
-            </h3>
-            <p class="font-price-display text-price-display text-primary">{{ $product->formatted_price }}</p>
+        <div class="pt-4 flex flex-col gap-2">
+            <div class="min-h-[3.25rem]">
+                @if($product->short_story)
+                    <p class="text-[10px] text-on-surface-variant/80 uppercase tracking-[0.24em] mb-1">{{ $product->short_story }}</p>
+                @endif
+                <h3 class="font-headline-md text-headline-md leading-6 text-on-surface group-hover:text-secondary transition-colors">
+                    {{ $product->name }}
+                </h3>
+            </div>
+
+            <div class="flex items-end justify-between gap-3 pt-2 border-t border-outline-variant/40">
+                <div>
+                    <p class="text-[10px] uppercase tracking-[0.24em] text-on-surface-variant/70 mb-1">Prix</p>
+                    <p class="font-price-display text-price-display text-primary">{{ $product->formatted_price }}</p>
+                </div>
+                @if(method_exists($product, 'category') && $product->category)
+                    <span class="text-[10px] uppercase tracking-[0.24em] text-on-surface-variant/70 text-right">
+                        {{ strtoupper($product->category->name) }}
+                    </span>
+                @endif
+            </div>
         </div>
     </a>
 </div>

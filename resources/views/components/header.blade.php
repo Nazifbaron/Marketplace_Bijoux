@@ -70,21 +70,23 @@
                 </button>
 
                 {{-- Dropdown --}}
-                <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 bg-[#012F24]/95 backdrop-blur-xl border border-[#c9a227]/20 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0 shadow-2xl">
-                    <div class="p-2">
-                        <a href="{{ route('collection.index') }}"
-                           class="flex items-center gap-3 px-4 py-3 text-white/80 hover:text-[#c9a227] hover:bg-white/5 transition-all duration-200 font-label-caps text-[10px] tracking-widest group/item">
-                            <span class="material-symbols-outlined text-[14px] text-[#c9a227]/60 group-hover/item:text-[#c9a227]">grid_view</span>
-                            TOUTE LA COLLECTION
-                        </a>
-                        <div class="h-px bg-[#c9a227]/10 mx-4 my-1"></div>
-                        @foreach($navCategories as $cat)
-                            <a href="{{ route('collection.category', ['category' => $cat->slug]) }}"
-                               class="flex items-center gap-3 px-4 py-3 text-white/80 hover:text-[#c9a227] hover:bg-white/5 transition-all duration-200 font-label-caps text-[10px] tracking-widest group/item">
-                                <span class="material-symbols-outlined text-[14px] text-[#c9a227]/60 group-hover/item:text-[#c9a227]">arrow_forward</span>
-                                {{ strtoupper($cat->name) }}
+                <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[30rem] max-w-[calc(100vw-2rem)] bg-[#012F24]/95 backdrop-blur-xl border border-[#c9a227]/20 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0 shadow-2xl">
+                    <div class="p-3">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-1 max-h-[60vh] overflow-y-auto pr-1">
+                            <a href="{{ route('collection.index') }}"
+                               class="col-span-full flex items-center gap-3 px-4 py-3 text-white/80 hover:text-[#c9a227] hover:bg-white/5 transition-all duration-200 font-label-caps text-[10px] tracking-widest rounded group/item">
+                                <span class="material-symbols-outlined text-[14px] text-[#c9a227]/60 group-hover/item:text-[#c9a227]">grid_view</span>
+                                TOUTE LA COLLECTION
                             </a>
-                        @endforeach
+                            <div class="col-span-full h-px bg-[#c9a227]/10 mx-2 my-1"></div>
+                            @foreach($navCategories as $cat)
+                                <a href="{{ route('collection.category', ['category' => $cat->slug]) }}"
+                                   class="flex items-center gap-3 px-3 py-2.5 text-white/80 hover:text-[#c9a227] hover:bg-white/5 transition-all duration-200 font-label-caps text-[10px] tracking-widest rounded group/item">
+                                    <span class="material-symbols-outlined text-[14px] text-[#c9a227]/60 group-hover/item:text-[#c9a227]">arrow_forward</span>
+                                    {{ strtoupper($cat->name) }}
+                                </a>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
