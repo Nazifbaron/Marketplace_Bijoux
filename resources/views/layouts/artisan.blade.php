@@ -306,6 +306,7 @@
     </div>
 
     @yield('extra-scripts')
+   
 </body>
 
 </html>
