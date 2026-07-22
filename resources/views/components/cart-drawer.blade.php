@@ -123,6 +123,112 @@ $count = $cart->count();
         console.error('⚠️ Token CSRF non trouvé. Vérifiez que le meta tag csrf-token existe dans le <head>');
     }
 
+    // ── DÉLÉGATION D'ÉVÉNEMENTS DRAWER ──
+    // Au lieu d'attacher les events sur chaque bouton (qui disparaissent
+    // au rechargement AJAX), on écoute sur le conteneur parent permanent.
+    document.getElementById('cart-items-container').addEventListener('click', async function(e) {
+
+        const btnMinus = e.target.closest('.drawer-btn-minus');
+        const btnPlus = e.target.closest('.drawer-btn-plus');
+        const btnRemove = e.target.closest('.drawer-btn-remove');
+
+        if (!btnMinus && !btnPlus && !btnRemove) return;
+
+        const row = e.target.closest('[data-cart-item]');
+        if (!row) return;
+
+        const productId = row.dataset.cartItem;
+        const price = parseFloat(row.dataset.price);
+        const maxQty = parseInt(row.dataset.max);
+        const qtyEl = row.querySelector('.drawer-qty');
+        const current = parseInt(qtyEl.dataset.qty);
+
+        if (btnMinus) {
+            if (current <= 1) return;
+            await drawerChangeQty(productId, current - 1, price, maxQty, row, qtyEl);
+        }
+
+        if (btnPlus) {
+            if (current >= maxQty) return;
+            await drawerChangeQty(productId, current + 1, price, maxQty, row, qtyEl);
+        }
+
+        if (btnRemove) {
+            row.style.opacity = '0.4';
+            row.style.pointerEvents = 'none';
+            const res = await fetch('/panier/retirer/' + productId, {
+                method: 'DELETE',
+                headers: {
+                    'X-CSRF-TOKEN': CSRF,
+                    'Accept': 'application/json'
+                }
+            });
+            const data = await res.json();
+            if (data.success) {
+                updateCartUI(data.cart_count, data.cart_total);
+                await refreshDrawerItems();
+                if (data.is_empty) showEmptyState();
+            }
+        }
+    });
+
+    async function drawerChangeQty(productId, newQty, price, maxQty, row, qtyEl) {
+        // Désactiver visuellement pendant la requête
+        row.querySelectorAll('button').forEach(b => b.disabled = true);
+
+        try {
+            const res = await fetch('/panier/modifier/' + productId, {
+                method: 'PATCH',
+                headers: {
+                    'X-CSRF-TOKEN': CSRF,
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    quantity: newQty
+                })
+            });
+            const data = await res.json();
+
+            if (data.success) {
+                // Mettre à jour l'affichage local immédiatement
+                qtyEl.dataset.qty = newQty;
+                qtyEl.textContent = newQty;
+
+                // Sous-total de la ligne
+                const subtotalEl = row.querySelector('.drawer-item-subtotal');
+                if (subtotalEl) {
+                    subtotalEl.textContent = formatDrawerPrice(price * newQty) + ' CFA';
+                }
+
+                // Mettre à jour les totaux dans le footer du drawer
+                document.getElementById('drawer-total').textContent = data.cart_total;
+                document.getElementById('drawer-subtotal').textContent = data.cart_total;
+
+                // Badge navbar
+                updateCartUI(data.cart_count, data.cart_total);
+
+                // Réactiver les boutons avec bons états
+                row.querySelector('.drawer-btn-minus').disabled = newQty <= 1;
+                row.querySelector('.drawer-btn-plus').disabled = newQty >= maxQty;
+            }
+        } catch (e) {
+            console.error('Erreur drawer qty:', e);
+        } finally {
+            // Réactiver tous les boutons même en cas d'erreur
+            row.querySelectorAll('button').forEach(function(b) {
+                b.disabled = false;
+            });
+            // Recorriger l'état des boutons +/-
+            const currentQty = parseInt(qtyEl.dataset.qty);
+            row.querySelector('.drawer-btn-minus').disabled = currentQty <= 1;
+            row.querySelector('.drawer-btn-plus').disabled = currentQty >= maxQty;
+        }
+    }
+
+    function formatDrawerPrice(value) {
+        return Math.round(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    }
     // ── DRAWER OPEN/CLOSE ──
     function openCart() {
         document.getElementById('cart-drawer').classList.remove('translate-x-full');

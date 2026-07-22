@@ -8,7 +8,7 @@
         <div class="absolute inset-0 z-0">
             <img alt="Luxury Lifestyle"
                  class="w-full h-full object-cover scale-105"
-                 src="{{ asset('images/hero.jpg') }}" />
+                 src="{{ asset('images/hero.jpg')  }}" />
             <div class="absolute inset-0 hero-overlay"></div>
             <div class="absolute inset-0 bg-black/20"></div>
         </div>
