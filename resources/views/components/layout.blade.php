@@ -210,6 +210,8 @@
                 }
             });
         });
+
+        
     </script>
 <x-cart-drawer />
 </body>
