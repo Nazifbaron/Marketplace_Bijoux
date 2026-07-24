@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Connexion | L'Éclat du Bénin</title>
+    <title>Connexion | Luxe Maquette</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
@@ -37,7 +37,7 @@
 
 <header class="w-full px-8 py-6 flex justify-center">
     <a href="{{ url('/') }}" class="font-headline-md text-headline-md font-bold text-primary uppercase tracking-widest">
-        L'ÉCLAT DU BÉNIN
+        Luxe Maquette
     </a>
 </header>
 
@@ -65,6 +65,9 @@
 
         <form action="{{ route('login.submit') }}" method="POST" class="space-y-8" id="login-form">
             @csrf
+
+             <input type="hidden" name="redirect" value="{{ request('redirect') }}" />
+
 
             <div class="float-label-group">
                 <input type="email" id="email" name="email" placeholder=" " value="{{ old('email') }}" autocomplete="email" />
