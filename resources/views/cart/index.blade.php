@@ -183,7 +183,8 @@
                             Passer la Commande
                         </a>
                     @else
-                        <a href="{{ route('login') }}"
+
+                        <a href="{{ route('login') }}?redirect={{ urlencode(route('cart.checkout')) }}"
                            class="flex items-center justify-center gap-2 w-full bg-primary text-white py-4 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary/90 transition-all mb-3">
                             <span class="material-symbols-outlined text-[16px]">login</span>
                             Se connecter pour commander
