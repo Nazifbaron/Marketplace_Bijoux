@@ -1,0 +1,87 @@
+[1mdiff --cc resources/views/accueil.blade.php[m
+[1mindex b0b0e77,665106f..0000000[m
+[1m--- a/resources/views/accueil.blade.php[m
+[1m+++ b/resources/views/accueil.blade.php[m
+[36m@@@ -7,8 -7,8 +7,13 @@@[m
+      <section class="relative h-screen flex items-center overflow-hidden">[m
+          <div class="absolute inset-0 z-0">[m
+              <img alt="Luxury Lifestyle"[m
+[32m++<<<<<<< HEAD[m
+[32m +                 class="w-full h-full object-cover scale-105"[m
+[32m +                 src="{{ asset('images/hero.jpg') }}" />[m
+[32m++=======[m
+[32m+                 class="w-full h-full object-cover scale-105"[m
+[32m+                 src="{{ asset('images/hero.jpg') }}" />[m
+[32m++>>>>>>> 3ad92e6 (modification accueil)[m
+              <div class="absolute inset-0 hero-overlay"></div>[m
+              <div class="absolute inset-0 bg-black/20"></div>[m
+          </div>[m
+[36m@@@ -71,98 -71,98 +76,146 @@@[m
+          @endphp[m
+  [m
+          @if($categories->isEmpty())[m
+[32m++<<<<<<< HEAD[m
+[32m +            {{-- Aucune catégorie : afficher les cartes statiques de la maquette --}}[m
+[32m +            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-gutter gap-y-20">[m
+[32m +                @foreach([[m
+[32m +                    ['title' => 'Haute Joaillerie', 'sub' => 'Or 24 carats & Gemmes Rares', 'img' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuAtAlkPnt0Q0kvcxMSdH8xjsE8bV7P7HMco7GAikDqazPHX-S2rBTvaYJMgwhIt_rQPU8do03cWkBpSpRk7JsTR2cGwqHwr5sQiHy86tLjVmwBDdTvf9GKm_2HZCXmxHL_wXK8ybpAdLjj9QFb6MuEZtaBomJ4ZgcHXVTpRC7xiQhTZfwtdmR5gDzp6hIrfRMy5R0IVAZAMvkx18oDZ4v4A3CqP3KukOephfASD6fOq6owDuYojESycArxt1UopLKsxNJyJGA42fw', 'route' => null],[m
+[32m +                    ['title' => 'Maroquinerie',     'sub' => 'Cuirs Précieux & Façon Main', 'img' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuBXSjMJZRG_0EayKShKS3CjiXtWROP8luhOb_eoqOe3Ooy28KnGqPyJsJ5Ya__sPk02KeBBBX59r53xM0LZQ-mOtcqX5DLPEx6RYRE83HjnXD_rNm275HE6N6hrMT1a1foPiJ5zPVV3mKJkyNJO3dp0IRKUEMVKabAibfF-snWfYsp4TN3sD9GDJnsfNItKDzJrD48oa9xW2uP-aDozm36fKI6e4djhJuHVmaCJrKQJMKHr4v4Mq0xFoHAtlayhf9EV71WY4PTn4A', 'route' => null],[m
+[32m +                    ['title' => 'Art & Décoration', 'sub' => 'Objets de Curiosité & Patrimoine', 'img' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuAAVwWa7Gb-ta5HPbl1Jg5ioE-smscDAGeQT_rh2jH8RDii8atrwo-eFN4nL6xHIV9iZx1yg2r8YdkKxjt8du86ux56B4r9n319JAZmEjBAvkG8zEwt6-PBRCQdpFaJWwuBprajFeocb3AeCPeRKN2JwRUGWTdo2GHs3rhhHeNr0KjEOJOTh8lYZLOtBnfUEK9khqvZD5WNq6NwS5ib0wQ0sQPAkv7iyue_hC_KC-SWLDayMy6awjVqLYvjdKr5h0fnfSlcxiP08w', 'route' => null],[m
+[32m +                ] as $i => $cat)[m
+[32m +                    <div class="group cursor-pointer reveal" style="transition-delay: {{ ($i + 1) * 100 }}ms">[m
+[32m +                        <div class="aspect-[4/5] overflow-hidden mb-8 bg-surface-container-low relative img-zoom-container">[m
+[32m +                            <img class="w-full h-full object-cover transition-transform duration-1000"[m
+[32m +                                 src="{{ $cat['img'] }}" alt="{{ $cat['title'] }}" />[m
+[32m +                            <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500"></div>[m
+[32m +                        </div>[m
+[32m +                        <div class="flex justify-between items-start">[m
+[32m +                            <div>[m
+[32m +                                <h4 class="font-display-lg text-headline-md mb-2">{{ $cat['title'] }}</h4>[m
+[32m +                                <p class="font-body-md text-on-surface-variant/80 text-sm italic">{{ $cat['sub'] }}</p>[m
+[32m +                            </div>[m
+[32m +                            <span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity -translate-x-2.5 group-hover:translate-x-0 duration-300">north_east</span>[m
+[32m +                        </div>[m
+[32m++=======[m
+[32m+         {{-- Aucune catégorie : afficher les cartes statiques de la maquette --}}[m
+[32m+         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-gutter gap-y-20">[m
+[32m+             @foreach([[m
+[32m+             ['title' => 'Haute Joaillerie', 'sub' => 'Or 24 carats & Gemmes Rares', 'img' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuAtAlkPnt0Q0kvcxMSdH8xjsE8bV7P7HMco7GAikDqazPHX-S2rBTvaYJMgwhIt_rQPU8do03cWkBpSpRk7JsTR2cGwqHwr5sQiHy86tLjVmwBDdTvf9GKm_2HZCXmxHL_wXK8ybpAdLjj9QFb6MuEZtaBomJ4ZgcHXVTpRC7xiQhTZfwtdmR5gDzp6hIrfRMy5R0IVAZAMvkx18oDZ4v4A3CqP3KukOephfASD6fOq6owDuYojESycArxt1UopLKsxNJyJGA42fw', 'route' => null],[m
+[32m+             ['title' => 'Maroquinerie', 'sub' => 'Cuirs Précieux & Façon Main', 'img' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuBXSjMJZRG_0EayKShKS3CjiXtWROP8luhOb_eoqOe3Ooy28KnGqPyJsJ5Ya__sPk02KeBBBX59r53xM0LZQ-mOtcqX5DLPEx6RYRE83HjnXD_rNm275HE6N6hrMT1a1foPiJ5zPVV3mKJkyNJO3dp0IRKUEMVKabAibfF-snWfYsp4TN3sD9GDJnsfNItKDzJrD48oa9xW2uP-aDozm36fKI6e4djhJuHVmaCJrKQJMKHr4v4Mq0xFoHAtlayhf9EV71WY4PTn4A', 'route' => null],[m
+[32m+             ['title' => 'Art & Décoration', 'sub' => 'Objets de Curiosité & Patrimoine', 'img' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuAAVwWa7Gb-ta5HPbl1Jg5ioE-smscDAGeQT_rh2jH8RDii8atrwo-eFN4nL6xHIV9iZx1yg2r8YdkKxjt8du86ux56B4r9n319JAZmEjBAvkG8zEwt6-PBRCQdpFaJWwuBprajFeocb3AeCPeRKN2JwRUGWTdo2GHs3rhhHeNr0KjEOJOTh8lYZLOtBnfUEK9khqvZD5WNq6NwS5ib0wQ0sQPAkv7iyue_hC_KC-SWLDayMy6awjVqLYvjdKr5h0fnfSlcxiP08w', 'route' => null],[m
+[32m+             ] as $i => $cat)[m
+[32m+             <div class="group cursor-pointer reveal" style="transition-delay: {{ ($i + 1) * 100 }}ms">[m
+[32m+                 <div class="aspect-[4/5] overflow-hidden mb-8 bg-surface-container-low relative img-zoom-container">[m
+[32m+                     <img class="w-full h-full object-cover transition-transform duration-1000"[m
+[32m+                         src="{{ $cat['img'] }}" alt="{{ $cat['title'] }}" />[m
+[32m+                     <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500"></div>[m
+[32m+                 </div>[m
+[32m+                 <div class="flex justify-between items-start">[m
+[32m+                     <div>[m
+[32m+                         <h4 class="font-display-lg text-headline-md mb-2">{{ $cat['title'] }}</h4>[m
+[32m+                         <p class="font-body-md text-on-surface-variant/80 text-sm italic">{{ $cat['sub'] }}</p>[m
+[32m++>>>>>>> 3ad92e6 (modification accueil)[m
+                      </div>[m
+[31m-                 @endforeach[m
+[32m+                     <span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity -translate-x-2.5 group-hover:translate-x-0 duration-300">north_east</span>[m
+[32m+                 </div>[m
+              </div>[m
+[32m+             @endforeach[m
+[32m+         </div>[m
+  [m
+          @else[m
+[32m++<<<<<<< HEAD[m
+[32m +            {{-- ── Catégories depuis la DB ── --}}[m
+[32m +            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-gutter gap-y-20">[m
+[32m +                @foreach($categories as $i => $cat)[m
+[32m +                    @php[m
+[32m +                        // La dernière catégorie prend 2 colonnes si le total est impair[m
+[32m +                        $isLast = $loop->last;[m
+[32m +                        $isWide = $isLast && ($count % 4 !== 0) && $count > 4;[m
+[32m +                        // Image : utiliser hero_image si disponible, sinon une des images produits[m
+[32m +                        $heroUrl = $cat->hero_image[m
+[32m +                            ? asset('storage/' . $cat->hero_image)[m
+[32m +                            : optional($cat->products()->published()->with('images')->first()?->primary_image);[m
+[32m +                        // Route vers la catégorie[m
+[32m +                        try {[m
+[32m +                            $catRoute = route('collection.category', ['category' => $cat->slug]);[m
+[32m +                 

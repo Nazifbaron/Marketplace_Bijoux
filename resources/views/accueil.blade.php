@@ -26,11 +26,11 @@
             </p>
             <div class="flex flex-col sm:flex-row gap-6 reveal">
                 <a href="{{ route('collection.index') }}"
-                   class="bg-white text-primary px-12 py-5 font-label-caps text-label-caps uppercase tracking-widest hover:bg-secondary-fixed transition-colors duration-500 shadow-2xl text-center">
+                    class="bg-white text-primary px-12 py-5 font-label-caps text-label-caps uppercase tracking-widest hover:bg-secondary-fixed transition-colors duration-500 shadow-2xl text-center">
                     Acquérir l'Éclat
                 </a>
                 <a href="{{ route('artisan.onboarding.step1') }}"
-                   class="border border-white/40 backdrop-blur-md text-white px-12 py-5 font-label-caps text-label-caps uppercase tracking-widest hover:bg-white/10 transition-colors duration-500 text-center">
+                    class="border border-white/40 backdrop-blur-md text-white px-12 py-5 font-label-caps text-label-caps uppercase tracking-widest hover:bg-white/10 transition-colors duration-500 text-center">
                     Présenter une Œuvre
                 </a>
             </div>
@@ -64,10 +64,10 @@
         </div>
 
         @php
-            $categories = \App\Models\Category::withCount(['products' => function($q) {
-                $q->where('moderation_status', 'published');
-            }])->orderBy('display_order')->get();
-            $count = $categories->count();
+        $categories = \App\Models\Category::withCount(['products' => function($q) {
+        $q->where('moderation_status', 'published');
+        }])->orderBy('display_order')->get();
+        $count = $categories->count();
         @endphp
 
         @if($categories->isEmpty())
@@ -92,8 +92,11 @@
                             <span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity -translate-x-2.5 group-hover:translate-x-0 duration-300">north_east</span>
                         </div>
                     </div>
-                @endforeach
+                    <span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity -translate-x-2.5 group-hover:translate-x-0 duration-300">north_east</span>
+                </div>
             </div>
+            @endforeach
+        </div>
 
         @else
             {{-- ── Catégories depuis la DB ── --}}
@@ -119,50 +122,50 @@
                          style="transition-delay: {{ (($i % 4) + 1) * 100 }}ms">
                         <a href="{{ $catRoute }}" class="block">
 
-                            {{-- Image --}}
-                            <div class="{{ $isWide ? 'aspect-[16/9]' : 'aspect-[4/5]' }} overflow-hidden mb-8 bg-surface-container-low relative img-zoom-container">
-                                @if($heroUrl)
-                                    <img class="w-full h-full object-cover transition-transform duration-1000"
-                                         src="{{ $heroUrl }}" alt="{{ $cat->name }}" />
-                                @else
-                                    {{-- Placeholder élégant si pas d'image --}}
-                                    <div class="w-full h-full bg-primary flex flex-col items-center justify-center gap-4">
-                                        <span class="material-symbols-outlined text-6xl text-[#c9a227]/40">category</span>
-                                        <p class="font-label-caps text-[10px] text-[#c9a227]/60 tracking-widest uppercase">{{ $cat->name }}</p>
-                                    </div>
-                                @endif
-                                <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500"></div>
+                    {{-- Image --}}
+                    <div class="{{ $isWide ? 'aspect-[16/9]' : 'aspect-[4/5]' }} overflow-hidden mb-8 bg-surface-container-low relative img-zoom-container">
+                        @if($heroUrl)
+                        <img class="w-full h-full object-cover transition-transform duration-1000"
+                            src="{{ $heroUrl }}" alt="{{ $cat->name }}" />
+                        @else
+                        {{-- Placeholder élégant si pas d'image --}}
+                        <div class="w-full h-full bg-primary flex flex-col items-center justify-center gap-4">
+                            <span class="material-symbols-outlined text-6xl text-[#c9a227]/40">category</span>
+                            <p class="font-label-caps text-[10px] text-[#c9a227]/60 tracking-widest uppercase">{{ $cat->name }}</p>
+                        </div>
+                        @endif
+                        <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500"></div>
 
-                                {{-- Badge nombre de produits --}}
-                                @if($cat->products_count > 0)
-                                    <div class="absolute bottom-4 right-4 bg-[#012F24]/80 backdrop-blur-sm px-3 py-1.5">
-                                        <span class="font-label-caps text-[9px] text-[#c9a227] tracking-widest">
-                                            {{ $cat->products_count }} PIÈCE{{ $cat->products_count > 1 ? 'S' : '' }}
-                                        </span>
-                                    </div>
-                                @endif
-                            </div>
+                        {{-- Badge nombre de produits --}}
+                        @if($cat->products_count > 0)
+                        <div class="absolute bottom-4 right-4 bg-[#012F24]/80 backdrop-blur-sm px-3 py-1.5">
+                            <span class="font-label-caps text-[9px] text-[#c9a227] tracking-widest">
+                                {{ $cat->products_count }} PIÈCE{{ $cat->products_count > 1 ? 'S' : '' }}
+                            </span>
+                        </div>
+                        @endif
+                    </div>
 
-                            {{-- Infos texte --}}
-                            <div class="flex justify-between items-start">
-                                <div>
-                                    <h4 class="font-display-lg text-headline-md mb-2 group-hover:text-secondary transition-colors duration-300">
-                                        {{ $cat->name }}
-                                    </h4>
-                                    <p class="font-body-md text-on-surface-variant/80 text-sm italic">
-                                        {{ $cat->hero_description
+                    {{-- Infos texte --}}
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h4 class="font-display-lg text-headline-md mb-2 group-hover:text-secondary transition-colors duration-300">
+                                {{ $cat->name }}
+                            </h4>
+                            <p class="font-body-md text-on-surface-variant/80 text-sm italic">
+                                {{ $cat->hero_description
                                             ? \Illuminate\Support\Str::limit($cat->hero_description, 50)
                                             : ($cat->products_count > 0 ? $cat->products_count . ' pièce(s) disponible(s)' : 'Bientôt disponible') }}
-                                    </p>
-                                </div>
-                                <span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2.5 group-hover:translate-x-0">
-                                    north_east
-                                </span>
-                            </div>
-                        </a>
+                            </p>
+                        </div>
+                        <span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2.5 group-hover:translate-x-0">
+                            north_east
+                        </span>
                     </div>
-                @endforeach
+                </a>
             </div>
+            @endforeach
+        </div>
         @endif
 
     </section>
@@ -180,7 +183,7 @@
             </p>
             <div class="flex flex-col sm:flex-row gap-0 border border-primary/20 max-w-lg mx-auto overflow-hidden">
                 <input class="flex-1 bg-white border-0 text-primary focus:ring-0 font-body-md py-5 px-8 outline-none"
-                       placeholder="votre@email.com" type="email" />
+                    placeholder="votre@email.com" type="email" />
                 <button class="bg-primary text-on-primary px-10 py-5 font-label-caps text-label-caps tracking-widest uppercase hover:bg-on-primary-fixed-variant transition-all shrink-0">
                     S'INSCRIRE
                 </button>
