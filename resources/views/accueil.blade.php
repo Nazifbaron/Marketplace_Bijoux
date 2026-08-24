@@ -72,7 +72,7 @@
 
         @if($categories->isEmpty())
             {{-- Aucune catégorie : afficher les cartes statiques de la maquette --}}
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-gutter gap-y-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-gutter gap-y-20">
                 @foreach([
                     ['title' => 'Haute Joaillerie', 'sub' => 'Or 24 carats & Gemmes Rares', 'img' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuAtAlkPnt0Q0kvcxMSdH8xjsE8bV7P7HMco7GAikDqazPHX-S2rBTvaYJMgwhIt_rQPU8do03cWkBpSpRk7JsTR2cGwqHwr5sQiHy86tLjVmwBDdTvf9GKm_2HZCXmxHL_wXK8ybpAdLjj9QFb6MuEZtaBomJ4ZgcHXVTpRC7xiQhTZfwtdmR5gDzp6hIrfRMy5R0IVAZAMvkx18oDZ4v4A3CqP3KukOephfASD6fOq6owDuYojESycArxt1UopLKsxNJyJGA42fw', 'route' => null],
                     ['title' => 'Maroquinerie',     'sub' => 'Cuirs Précieux & Façon Main', 'img' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuBXSjMJZRG_0EayKShKS3CjiXtWROP8luhOb_eoqOe3Ooy28KnGqPyJsJ5Ya__sPk02KeBBBX59r53xM0LZQ-mOtcqX5DLPEx6RYRE83HjnXD_rNm275HE6N6hrMT1a1foPiJ5zPVV3mKJkyNJO3dp0IRKUEMVKabAibfF-snWfYsp4TN3sD9GDJnsfNItKDzJrD48oa9xW2uP-aDozm36fKI6e4djhJuHVmaCJrKQJMKHr4v4Mq0xFoHAtlayhf9EV71WY4PTn4A', 'route' => null],
@@ -97,12 +97,12 @@
 
         @else
             {{-- ── Catégories depuis la DB ── --}}
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-gutter gap-y-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-gutter gap-y-20">
                 @foreach($categories as $i => $cat)
                     @php
                         // La dernière catégorie prend 2 colonnes si le total est impair
                         $isLast = $loop->last;
-                        $isWide = $isLast && ($count % 3 !== 0) && $count > 3;
+                        $isWide = $isLast && ($count % 4 !== 0) && $count > 4;
                         // Image : utiliser hero_image si disponible, sinon une des images produits
                         $heroUrl = $cat->hero_image
                             ? asset('storage/' . $cat->hero_image)
@@ -116,7 +116,7 @@
                     @endphp
 
                     <div class="{{ $isWide ? 'lg:col-span-2' : '' }} group cursor-pointer reveal"
-                         style="transition-delay: {{ (($i % 3) + 1) * 100 }}ms">
+                         style="transition-delay: {{ (($i % 4) + 1) * 100 }}ms">
                         <a href="{{ $catRoute }}" class="block">
 
                             {{-- Image --}}
