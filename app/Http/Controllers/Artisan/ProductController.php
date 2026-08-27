@@ -27,7 +27,7 @@ class ProductController extends Controller
 
 
         if ($filter = $request->get('filter')) {
-            match($filter) {
+            match ($filter) {
                 'published' => $query->where('moderation_status', 'published'),
                 'pending'   => $query->where('moderation_status', 'pending_review'),
                 'verified'  => $query->where('verification_status', 'verified'),
@@ -47,7 +47,7 @@ class ProductController extends Controller
         return view('artisan.products.index', compact('products', 'counts', 'filter'));
     }
 
-    
+
     public function create()
     {
         $categories = Category::with('subcategories')->orderBy('display_order')->get();
@@ -66,8 +66,9 @@ class ProductController extends Controller
             'description'      => ['required', 'string', 'min:20', 'max:3000'],
             'short_story'      => ['nullable', 'string', 'max:200'],
             'price'            => ['required', 'numeric', 'min:100'],
+            'original_price' => ['nullable', 'numeric', 'min:0', 'gt:price'], // doit être > prix promo
             'stock_quantity'   => ['required', 'integer', 'min:0'],
-            'condition_label'  => ['nullable', 'in:handmade,limited_edition,made_to_order,none'],
+            'condition_label'  => ['nullable', 'in:promotion,limited_edition,made_to_order,none'],
             'images'           => ['required', 'array', 'min:1', 'max:6'],
             'images.*'         => ['image', 'mimes:jpg,jpeg,png,webp', 'max:4096'], // 4MB/image
         ], [
@@ -91,6 +92,9 @@ class ProductController extends Controller
                 'description'            => $validated['description'],
                 'short_story'            => $validated['short_story'] ?? null,
                 'price'                  => $validated['price'],
+                'original_price'         => $validated['condition_label'] === 'promotion'
+                                            ? $validated['original_price']
+                                            : null, // vider si plus en promotion
                 'stock_quantity'         => $validated['stock_quantity'],
                 'condition_label'        => $validated['condition_label'] ?? 'none',
                 // Statuts par défaut (le coeur de la logique métier) :
@@ -138,8 +142,9 @@ class ProductController extends Controller
             'description'      => ['required', 'string', 'min:20', 'max:3000'],
             'short_story'      => ['nullable', 'string', 'max:200'],
             'price'            => ['required', 'numeric', 'min:100'],
+            'original_price' => ['nullable', 'numeric', 'min:0', 'gt:price'], // doit être > prix promo
             'stock_quantity'   => ['required', 'integer', 'min:0'],
-            'condition_label'  => ['nullable', 'in:handmade,limited_edition,made_to_order,none'],
+            'condition_label'  => ['nullable', 'in:promotion,limited_edition,made_to_order,none'],
             'images'           => ['nullable', 'array', 'max:6'],
             'images.*'         => ['image', 'mimes:jpg,jpeg,png,webp', 'max:4096'],
         ]);
@@ -155,6 +160,9 @@ class ProductController extends Controller
                 'description'      => $validated['description'],
                 'short_story'      => $validated['short_story'] ?? null,
                 'price'            => $validated['price'],
+                'original_price' => $validated['condition_label'] === 'promotion'
+                    ? $validated['original_price']
+                    : null, // vider si plus en promotion
                 'stock_quantity'   => $validated['stock_quantity'],
                 'condition_label'  => $validated['condition_label'] ?? 'none',
                 // Si le produit était publié, le repasser en attente de revue

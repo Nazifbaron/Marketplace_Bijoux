@@ -5,11 +5,9 @@
     (collection, bijoux, art, maroquinerie, fiche produit...).
     =====================================================================
 --}}
-<footer class="bg-primary border-t border-white/10 pt-section-gap pb-12">
+<footer class="bg-primary border-t border-white/10 pt-10 pb-12">
     <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
             {{-- Colonne marque --}}
             <div class="md:col-span-2">
                 <h2 class="font-display-lg text-headline-lg text-white mb-4">Luxe Maquette</h2>
@@ -34,10 +32,10 @@
             <div>
                 <p class="font-label-caps text-label-caps text-secondary-fixed mb-5">COLLECTIONS</p>
                 <nav class="flex flex-col gap-3">
-                    <a href="{{ route('collection.index') }}" class="font-body-md text-white/70 hover:text-white transition-colors">Toute la Collection</a>
-                    @foreach(\App\Models\Category::orderBy('display_order')->get() as $cat)
-                        <a href="{{ route('collection.category', $cat) }}" class="font-body-md text-white/70 hover:text-white transition-colors">{{ $cat->name }}</a>
-                    @endforeach
+                    <a href="{{ route('collection.index') }}" class="font-body-md text-white/70 hover:text-white transition-colors">
+                        Explorer toute nos Collection
+                    </a>
+
                 </nav>
             </div>
 

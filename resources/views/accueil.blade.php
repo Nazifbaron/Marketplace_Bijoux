@@ -18,8 +18,8 @@
                 L'Exceptionnel au Quotidien
             </p>
             <h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-white mb-10 leading-[0.95] reveal">
-                L'ART DE VIVRE <br />
-                <span class="text-secondary-fixed">SANS COMPROMIS.</span>
+                L'ÉLÉGANCE <br />
+                <span class="text-secondary-fixed">AU QUOTIDIEN.</span>
             </h2>
             <p class="font-body-lg text-white/80 max-w-xl mb-12 reveal leading-relaxed">
                 Découvrez une sélection exclusive, où l'héritage rencontre l'excellence de la haute facture mondiale.
@@ -27,11 +27,11 @@
             <div class="flex flex-col sm:flex-row gap-6 reveal">
                 <a href="{{ route('collection.index') }}"
                     class="bg-white text-primary px-12 py-5 font-label-caps text-label-caps uppercase tracking-widest hover:bg-secondary-fixed transition-colors duration-500 shadow-2xl text-center">
-                    Acquérir l'Éclat
+                    EXPLORER LA COLLECTION
                 </a>
                 <a href="{{ route('artisan.onboarding.step1') }}"
                     class="border border-white/40 backdrop-blur-md text-white px-12 py-5 font-label-caps text-label-caps uppercase tracking-widest hover:bg-white/10 transition-colors duration-500 text-center">
-                    Présenter une Œuvre
+                    DEVENIR VENDEUR
                 </a>
             </div>
         </div>
@@ -43,24 +43,12 @@
         </div>
     </section>
 
-    {{-- ══════════════════════════════════════════════════════════════
-         SECTION CATÉGORIES — 100% DYNAMIQUE
-         ══════════════════════════════════════════════════════════════
-         Chaque catégorie créée par l'admin dans le panneau d'admin
-         apparaît ici automatiquement avec son image héro.
 
-         Disposition automatique :
-         - 1 catégorie       → pleine largeur
-         - 2 catégories      → 2 colonnes égales
-         - 3 catégories      → 3 colonnes
-         - 4 catégories      → 3 cols (1ère = lg:col-span-2) + 2 cols
-         - 5+ catégories     → grille 3 cols, dernier = lg:col-span-2
-         ══════════════════════════════════════════════════════════════ --}}
     <section class="px-margin-mobile md:px-margin-desktop py-section-gap max-w-[1440px] mx-auto">
 
-        <div class="text-center mb-24 reveal">
+        <div class="text-center mb-20 reveal">
             <span class="font-label-caps text-label-caps text-secondary editorial-spacing mb-4 block">LES DOMAINES</span>
-            <h3 class="font-display-lg text-headline-lg md:text-display-lg-mobile text-primary">Le Portfolio de Prestige</h3>
+            <h3 class="font-display-lg text-headline-lg md:text-display-lg-mobile text-primary">NOS COLLECTIONS </h3>
         </div>
 
         @php

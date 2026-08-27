@@ -39,7 +39,7 @@
             <p class="font-body-md text-body-md text-on-surface-variant">Nos artisans enrichissent la collection chaque semaine.</p>
         </div>
     @else
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-20 gap-x-gutter">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-20 gap-x-gutter">
             @foreach($products as $product)
                 @include('collection.partials.product-card', ['product' => $product])
             @endforeach

@@ -16,7 +16,7 @@ class Product extends Model
 {
     protected $fillable = [
         'artisan_application_id', 'category_id', 'subcategory_id',
-        'name', 'slug', 'description', 'short_story', 'price',
+        'name', 'slug', 'description', 'short_story', 'price', 'original_price',
         'stock_quantity', 'condition_label',
         'moderation_status', 'moderation_notes',
         'verification_status', 'verification_notes', 'verified_by', 'verified_at',
@@ -107,7 +107,7 @@ class Product extends Model
     public function getConditionLabelTextAttribute(): ?string
     {
         return match($this->condition_label) {
-            'handmade'         => 'HANDMADE',
+            'promotion'         => 'PROMOTION',
             'limited_edition'  => 'ÉDITION LIMITÉE',
             'made_to_order'    => 'SUR COMMANDE',
             default            => null,

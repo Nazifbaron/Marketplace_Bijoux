@@ -6,20 +6,7 @@ use App\Models\Category;
 use App\Models\Subcategory;
 use Illuminate\Database\Seeder;
 
-/**
- * SEEDER : CATEGORIES
- * =====================================================================
- * Exécute ce seeder UNE SEULE FOIS après la migration pour créer les
- * 4 catégories correspondant exactement aux 4 pages que tu m'as fournies.
- *
- * COMMANDE À LANCER :
- *   php artisan db:seed --class=CategorySeeder
- *
- * Les `slug` ci-dessous sont CRITIQUES : ils doivent rester exactement
- * "bijoux", "art", "maroquinerie" car c'est ce qui détermine l'URL
- * /collection/{slug} et le filtrage des produits par catégorie.
- * =====================================================================
- */
+
 class CategorySeeder extends Seeder
 {
     public function run(): void

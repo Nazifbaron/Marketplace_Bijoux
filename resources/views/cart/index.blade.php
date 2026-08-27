@@ -190,7 +190,7 @@
                             Se connecter pour commander
                         </a>
                         <p class="text-center text-[10px] text-on-surface-variant/60">
-                            Ou <a href="{{ route('artisan.onboarding.step1') }}" class="text-secondary hover:underline">créez un compte</a>
+                            Ou <a href="{{ route('register') }}" class="text-secondary hover:underline">créez un compte</a>
                         </p>
                     @endauth
 

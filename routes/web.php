@@ -14,14 +14,6 @@ use App\Http\Controllers\ChatController;
 use App\Http\Controllers\CollectionController;
 use Illuminate\Support\Facades\Route;
 
-/**
- * ROUTES V2 — AJOUTS PAR RAPPORT À LA VERSION PRÉCÉDENTE
- * =====================================================================
- * Ce fichier contient TOUTES les routes. Si tu avais déjà un web.php,
- * remplace-le entièrement par celui-ci (il inclut tout l'existant +
- * les nouveautés produits/commandes/chat/collections).
- * =====================================================================
- */
 
 Route::get('/', function () {
     return view('accueil');
