@@ -96,7 +96,7 @@
                 <div class="flex items-center justify-between mb-4">
                     <div>
                         <span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Étape 2 sur 3</span>
-                        <h2 class="font-headline-md text-headline-md text-primary mt-1">Configuration de Votre Boutique</h2>
+                        <h2 class="font-headline-md text-headline-md text-primary mt-1">Configuration de votre boutique</h2>
                     </div>
                     <div class="flex gap-2">
                         <div class="w-8 h-1 bg-secondary"></div>   {{-- Étape 1 : complète --}}

@@ -76,19 +76,11 @@ $count = $cart->count();
 
         {{-- CTAs --}}
         <div class="px-7 pb-7 space-y-3">
-            @auth
             <a href="{{ route('cart.checkout') }}"
                 class="flex items-center justify-center gap-2 w-full bg-primary text-white py-4 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary/90 transition-all">
                 <span class="material-symbols-outlined text-[16px]">lock</span>
                 Commander — {{ $total }}
             </a>
-            @else
-            <a href="{{ route('login') }}?redirect={{ urlencode(route('cart.checkout')) }}"
-                class="flex items-center justify-center gap-2 w-full bg-primary text-white py-4 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary/90 transition-all">
-                <span class="material-symbols-outlined text-[16px]">login</span>
-                Se connecter pour commander
-            </a>
-            @endauth
 
             <a href="{{ route('cart.index') }}"
                 class="flex items-center justify-center w-full border border-outline-variant text-on-surface-variant py-4 font-label-caps text-label-caps uppercase tracking-widest hover:border-primary hover:text-primary transition-all"

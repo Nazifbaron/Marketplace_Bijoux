@@ -19,10 +19,7 @@ Route::get('/', function () {
     return view('accueil');
 });
 Route::view('/artisan', 'artisan');
-Route::view('/collection', 'collection');
-Route::view('/bijoux', 'bijoux');
-Route::view('/art', 'art');
-Route::view('/maroquinerie', 'maroquinerie');
+
 
 
 // ====================================================================
@@ -143,7 +140,17 @@ Route::prefix('admin/categories')->name('admin.categories.')->middleware(['auth'
  Route::get('/panier/drawer',                      [CartController::class, 'drawer'])->name('cart.drawer');
 
 // Checkout
- Route::get('/commander',           [CartController::class, 'checkout'])->name('cart.checkout')->middleware('auth');
- Route::post('/commander/confirmer',[CartController::class, 'placeOrder'])->name('cart.order.place')->middleware('auth');
+ Route::get('/commander',           [CartController::class, 'checkout'])->name('cart.checkout');//->middleware('auth')
+ Route::post('/commander/confirmer',[CartController::class, 'placeOrder'])->name('cart.order.place');//->middleware('auth')
+ // La confirmation est protégée — un invité n'a pas de compte pour voir ses commandes
  Route::get('/commande/{order}/confirmation', [CartController::class, 'confirmation'])->name('cart.order.confirmation')->middleware('auth');
+ // Confirmation pour invité (pas de middleware auth)
+Route::get('/commande/confirmation/{order}', function(\App\Models\Order $order, \Illuminate\Http\Request $request) {
+    // Vérifier le token pour sécuriser l'accès
+    if ($order->guest_token !== $request->get('token')) {
+        abort(403, 'Lien de confirmation invalide.');
+    }
+    $order->load('items.product');
+    return view('cart.confirmation', compact('order'));
+})->name('cart.order.guest.confirmation');
 

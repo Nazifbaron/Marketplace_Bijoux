@@ -49,7 +49,7 @@
                                 </label>
                                 <input type="text"
                                     id="full_name"
-                                    value="{{ old('full_name', $user->name) }}"
+                                    value="{{ old('full_name', $user?->name) }}"
                                     placeholder="Votre nom et prénom"
                                     class="w-full border-0 border-b border-outline-variant py-3 px-0 bg-transparent focus:ring-0 focus:border-secondary transition-all text-base" />
                             </div>
@@ -66,27 +66,48 @@
                                     <input type="tel"
                                         id="phone"
                                         value="{{ old('phone') }}"
-                                        placeholder="97 00 00 00"
+                                        placeholder="01 97 00 00 00"
                                         class="flex-1 border-0 border-b border-outline-variant py-3 px-0 bg-transparent focus:ring-0 focus:border-secondary transition-all text-base" />
                                 </div>
                                 <p class="text-[10px] text-on-surface-variant/60 mt-1">
                                     Numéro utilisé pour la confirmation et la livraison
                                 </p>
                             </div>
-
                             <div>
                                 <label class="block text-xs font-semibold text-on-surface-variant uppercase tracking-widest mb-2">
-                                    Email
+                                    Email <span class="text-error">*</span>
                                 </label>
                                 <input type="email"
                                     id="email"
-                                    value="{{ $user->email }}"
-                                    disabled
-                                    class="w-full border-0 border-b border-outline-variant/30 py-3 px-0 bg-transparent text-on-surface-variant/60 text-base cursor-not-allowed" />
+                                    value="{{ old('email', $user?->email) }}"
+                                    placeholder="votre@email.com"
+                                    {{-- Désactiver uniquement si connecté --}}
+                                    {{ $user ? 'readonly' : '' }}
+                                    class="w-full border-0 border-b border-outline-variant py-3 px-0 bg-transparent focus:ring-0 focus:border-secondary transition-all text-base
+                                    {{ $user ? 'text-on-surface-variant/60 cursor-not-allowed' : '' }}" />
+                                @if($user)
+                                <p class="text-[10px] text-on-surface-variant/60 mt-1">Email de votre compte</p>
+                                @endif
                                 <p class="text-[10px] text-on-surface-variant/60 mt-1">
                                     La confirmation sera envoyée à cette adresse
                                 </p>
                             </div>
+
+
+                            {{-- Proposition de connexion pour les invités --}}
+                            @guest
+                            <div class="p-4 bg-surface-container-low border-l-2 border-secondary flex items-start gap-3">
+                                <span class="material-symbols-outlined text-secondary flex-shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1">info</span>
+                                <p class="text-xs text-on-surface-variant leading-relaxed">
+                                    Vous avez déjà un compte ?
+                                    <a href="{{ route('login') }}?redirect={{ urlencode(route('cart.checkout')) }}"
+                                        class="text-secondary font-semibold hover:underline">
+                                        Connectez-vous
+                                    </a>
+                                    pour retrouver vos commandes facilement.
+                                </p>
+                            </div>
+                            @endguest
                         </div>
                     </section>
 
@@ -237,8 +258,8 @@
                 (int) $total
             }
         };
-        const USER_EMAIL = @json($user -> email);
-        const USER_NAME = @json($user -> name);
+        const USER_EMAIL = @json($user?->email ?? '');
+        const USER_NAME  = @json($user?->name ?? '');
         const CSRF = document.querySelector('meta[name="csrf-token"]').content;
         const CONFIRM_URL = @json(route('cart.order.place'));
         const FEDAPAY_KEY = @json(config('services.fedapay.public_key'));

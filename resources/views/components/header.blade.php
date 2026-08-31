@@ -91,7 +91,7 @@
                 </div>
             </div>
 
-            <a href="#"
+            <a href="/artisan"
                class="nav-link font-label-caps text-label-caps tracking-widest transition-colors duration-300
                       {{ str_starts_with($currentPath, 'artisan') ? 'text-[#c9a227]' : 'text-white/90 hover:text-[#c9a227]' }} relative">
                 ARTISANS

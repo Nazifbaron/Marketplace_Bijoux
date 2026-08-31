@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 
 class CartController extends Controller
 {
@@ -74,11 +75,21 @@ class CartController extends Controller
             return redirect()->route('cart.index')->with('error', 'Votre panier est vide.');
         }
 
-        return view('cart.checkout', [
+        $items = $this->cart->all();
+        $total = $this->cart->total();
+        // Pré-remplir avec les infos du compte si connecté, null sinon
+        $user = auth()->user();
+
+        return view(
+            'cart.checkout',
+            /*si l'utilisateur doit se connecté avant de passer la commande
+        [
             'items' => $this->cart->all(),
             'total' => $this->cart->total(),
             'user'  => Auth::user(),
-        ]);
+        ]*/
+            compact('items', 'total', 'user')
+        );
     }
 
     /**
@@ -101,45 +112,28 @@ class CartController extends Controller
         $validated = $request->validate([
             'full_name'      => ['required', 'string', 'min:3'],
             'phone'          => ['required', 'string'],
+            'email'          => ['required', 'email'],
             'order_note'     => ['nullable', 'string', 'max:500'],
             'transaction_id' => ['required', 'string'],
         ]);
 
-        // ── Vérification FedaPay côté serveur ──
-        // On vérifie que la transaction existe vraiment et est approuvée
-        // Ça empêche quelqu'un de forger une fausse confirmation JS
-        $verified = $this->verifyFedaPayTransaction(
-            $validated['transaction_id'],
-            $this->cart->total()
-        );
+        // ID de l'acheteur — null si invité
+        $buyerId = auth()->id();
 
-        if (!$verified) {
-            Log::warning('Tentative de commande avec transaction FedaPay invalide', [
-                'user_id'        => Auth::id(),
-                'transaction_id' => $validated['transaction_id'],
-                'amount'         => $this->cart->total(),
-            ]);
-            return response()->json([
-                'success' => false,
-                'message' => 'Paiement non vérifié. Contactez le support avec la référence : ' . $validated['transaction_id'],
-            ], 422);
-        }
-
-        $items = $this->cart->all();
-        $total = $this->cart->total();
-
-        $order = DB::transaction(function () use ($validated, $items, $total) {
-
+        $order = DB::transaction(function () use ($validated, $buyerId) {
             $order = Order::create([
-                'buyer_id'         => Auth::id(),
-                'total_amount'     => $total,
-                'status'           => 'paid', // Déjà payé via FedaPay
+                'buyer_id'         => $buyerId, // nullable pour les invités
+                'buyer_name'       => $validated['full_name'],
+                'buyer_email'      => $validated['email'],
+                'total_amount'     => $this->cart->total(),
+                'status'           => 'paid',
                 'shipping_phone'   => $validated['phone'],
-                'shipping_address' => $validated['order_note'] ?? null,
                 'transaction_id'   => $validated['transaction_id'],
+
+                'guest_token' => auth()->check() ? null : Str::random(32),
             ]);
 
-            foreach ($items as $productId => $item) {
+            foreach ($this->cart->all() as $productId => $item) {
                 $product = Product::find($productId);
                 if (!$product) continue;
 
@@ -153,7 +147,6 @@ class CartController extends Controller
                     'item_status'            => 'confirmed',
                 ]);
 
-                // Décrémenter le stock
                 $product->decrement('stock_quantity', $item['quantity']);
             }
 
@@ -162,9 +155,13 @@ class CartController extends Controller
 
         $this->cart->clear();
 
+        // Invité → page de confirmation avec token (pas besoin d'être connecté)
+        // Connecté → page de confirmation normale
         return response()->json([
             'success'  => true,
-            'redirect' => route('cart.order.confirmation', $order),
+            'redirect' => auth()->check()
+                ? route('cart.order.confirmation', $order)
+                : route('cart.order.guest.confirmation', ['order' => $order->id, 'token' => $order->guest_token]),
         ]);
     }
 
@@ -245,7 +242,6 @@ class CartController extends Controller
             $amount      = $transaction['amount'] ?? 0;
 
             return $status === 'approved' && (int) $amount === (int) $expectedAmount;
-
         } catch (\Exception $e) {
             Log::error('Erreur vérification FedaPay : ' . $e->getMessage());
             // En mode sandbox/dev, on laisse passer pour faciliter les tests
